@@ -4,13 +4,24 @@ const morgan = require('morgan')
 const compression = require('compression')
 const session = require('express-session')
 const passport = require('passport')
-const SequelizeStore = require('connect-session-sequelize')(session.Store)
-const db = require('./db')
-const sessionStore = new SequelizeStore({db})
+// const SequelizeStore = require('connect-session-sequelize')(session.Store)
+// const db = require('./db')
+// const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 8080
 const app = express()
 const socketio = require('socket.io')
 module.exports = app
+
+const {User} = require('./db/models')
+
+const mongoose = require('mongoose')
+const mongoURI =
+  'mongodb+srv://mark:fetchformongo@cluster0-70rnz.mongodb.net/fetch'
+// database config
+mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
+const db = mongoose.connection
+db.on('error', error => console.error(error))
+db.once('open', () => console.log('mongo database connected'))
 
 // This is a global Mocha hook, used for resource cleanup.
 // Otherwise, Mocha v4+ never quits after tests.
@@ -33,7 +44,7 @@ passport.serializeUser((user, done) => done(null, user.id))
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await db.models.user.findByPk(id)
+    const user = await User.findById(id)
     done(null, user)
   } catch (err) {
     done(err)
@@ -55,7 +66,6 @@ const createApp = () => {
   app.use(
     session({
       secret: process.env.SESSION_SECRET || 'my best friend is Cody',
-      store: sessionStore,
       resave: false,
       saveUninitialized: false
     })
@@ -105,11 +115,7 @@ const startListening = () => {
   require('./socket')(io)
 }
 
-const syncDb = () => db.sync()
-
 async function bootApp() {
-  await sessionStore.sync()
-  await syncDb()
   await createApp()
   await startListening()
 }
