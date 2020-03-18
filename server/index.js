@@ -15,8 +15,8 @@ module.exports = app
 const {User} = require('./db/models')
 
 const mongoose = require('mongoose')
-const mongoURI =
-  'mongodb+srv://mark:fetchformongo@cluster0-70rnz.mongodb.net/fetch'
+const {mongoURI} = require('../secrets')
+
 // database config
 mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection
