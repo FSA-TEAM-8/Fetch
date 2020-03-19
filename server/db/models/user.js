@@ -4,8 +4,17 @@ const Schema = mongoose.Schema
 
 // create schema
 const userSchema = new Schema({
-  name: {
-    type: String
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
+  biography: {
+    type: String,
+    required: true
   },
   email: {
     type: String,
@@ -15,8 +24,45 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  address: {
+    streetNumber: {
+      type: Number,
+      required: true
+    },
+    streetName: {
+      type: String,
+      required: true
+    },
+    townName: {
+      type: String,
+      required: true
+    },
+    stateName: {
+      type: String,
+      required: true
+    },
+    zipCode: {
+      type: Number,
+      required: True
+    }
+  },
+  resume: {
+    type: String,
+  },
+  imageUrl: {
+    type: String
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
+  isEmployer: {
+    type: Boolean,
+    default: false
   }
 })
+
 
 const User = mongoose.model('User', userSchema)
 
