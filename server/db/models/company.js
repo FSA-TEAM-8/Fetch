@@ -18,9 +18,11 @@ const companySchema = new Schema({
     type: String,
     required: true
   },
-  reviews: {
-    type: String
-  },
+  reviews: [
+    {
+      type: String
+    }
+  ],
   imageURL: {
     type: String
   },
