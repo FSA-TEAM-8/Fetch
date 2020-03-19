@@ -1,10 +1,6 @@
-// CONVERTED TO MONGODB
-
-// below is in server/index.js
-
 const mongoose = require('mongoose')
-
 const {mongoURI} = require('../../secrets')
+
 // database config
 mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection

@@ -4,16 +4,36 @@ const db = require('../server/db')
 const {User} = require('../server/db/models')
 
 async function seed() {
-  console.log('db synced!')
-
-  const users = await Promise.all([
-    User.create({email: 'testttttt@email.com', password: '123'})
-  ])
-
+  
+  //   const users = await Promise.all([
+  //     User.create({email: 'testttttt@email.com', password: '123'})
+  //   ])
+  
   // const users = await Promise.all([
   //   User.create({email: 'cody@email.com', password: '123'}),
   //   User.create({email: 'murphy@email.com', password: '123'})
   // ])
+
+
+  console.log('db synced!')
+
+  await User.create(
+    {
+      email: 'cody2@email.com',
+      password: '1234',
+      firstName: 'Joe',
+      lastName: 'Schmoe',
+      biography: 'very good employee',
+      address: {
+        streetNumber: 367,
+        streetName: '3rd Avenue',
+        townName: 'Brooklyn',
+        stateName: 'NY',
+        zipCode: '11209'
+      }
+    }
+    // User.create({email: 'murphy@email.com', password: '123'})
+  )
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
@@ -31,7 +51,7 @@ async function runSeed() {
     process.exitCode = 1
   } finally {
     console.log('closing db connection')
-    await db.close()
+    // await db.close()
     console.log('db connection closed')
   }
 }
