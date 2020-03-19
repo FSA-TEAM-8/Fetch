@@ -4,12 +4,12 @@ const Schema = mongoose.Schema
 const jobSchema = new Schema({
   title: {
     type: String,
-    require: true
+    required: true
   },
   company: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Company',
-    require: true
+    required: true
   },
   salary: {
     type: Number
@@ -17,11 +17,11 @@ const jobSchema = new Schema({
   description: {
     contactEmail: {
       type: String,
-      require: true
+      required: true
     },
     location: {
       type: String,
-      require: true
+      required: true
     },
     datePosted: {
       type: new Date()
