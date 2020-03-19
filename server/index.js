@@ -14,14 +14,16 @@ module.exports = app
 
 const {User} = require('./db/models')
 
-const mongoose = require('mongoose')
-const {mongoURI} = require('../secrets')
+const db = require('../server/db')
 
-// database config
-mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
-const db = mongoose.connection
-db.on('error', error => console.error(error))
-db.once('open', () => console.log('mongo database connected'))
+// const mongoose = require('mongoose')
+// const {mongoURI} = require('../secrets')
+
+// // database config
+// mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
+// const db = mongoose.connection
+// db.on('error', error => console.error(error))
+// db.once('open', () => console.log('mongo database connected'))
 
 // This is a global Mocha hook, used for resource cleanup.
 // Otherwise, Mocha v4+ never quits after tests.
@@ -116,6 +118,7 @@ const startListening = () => {
 }
 
 async function bootApp() {
+  await db
   await createApp()
   await startListening()
 }
