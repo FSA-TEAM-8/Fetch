@@ -61,9 +61,9 @@ const userSchema = new Schema({
     type: Boolean,
     default: false
   },
-  jobHistory: {
+  jobHistory: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Job" }
+    ref: "Job" }]
 })
 
 
