@@ -20,3 +20,12 @@ router.get('/:id', async (req, res, next) => {
     next(err)
   }
 })
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newCompany = await Company.create(req.body)
+    res.json(newCompany)
+  } catch (error) {
+    next(error)
+  }
+})
