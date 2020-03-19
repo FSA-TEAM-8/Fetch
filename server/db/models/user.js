@@ -60,7 +60,10 @@ const userSchema = new Schema({
   isEmployer: {
     type: Boolean,
     default: false
-  }
+  },
+  jobHistory: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Job" }
 })
 
 
