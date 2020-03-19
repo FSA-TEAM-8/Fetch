@@ -3,11 +3,13 @@ const Schema = mongoose.Schema
 
 const jobSchema = new Schema({
   title: {
-    type: String
+    type: String,
+    require: true
   },
   company: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Company'
+    ref: 'Company',
+    require: true
   },
   salary: {
     type: Number
@@ -18,7 +20,8 @@ const jobSchema = new Schema({
       require: true
     },
     location: {
-      type: String
+      type: String,
+      require: true
     },
     datePosted: {
       type: new Date()
