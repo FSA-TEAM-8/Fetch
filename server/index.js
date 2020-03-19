@@ -13,7 +13,6 @@ const socketio = require('socket.io')
 module.exports = app
 
 const {User} = require('./db/models')
-
 const db = require('../server/db')
 
 // const mongoose = require('mongoose')
