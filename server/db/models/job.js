@@ -24,7 +24,7 @@ const jobSchema = new Schema({
       required: true
     },
     datePosted: {
-      type: new Date()
+      type: Date
     },
     roleType: {
       type: String
