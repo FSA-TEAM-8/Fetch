@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const singleJob = await Job.findById({_id: req.params.id})
+    res.json(singleJob)
   } catch (error) {
     next(error)
   }
@@ -32,7 +33,7 @@ router.post('/', async (req, res, next) => {
 })
 
 // update a job
-router.put(':id', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   try {
     const updatedJob = await Job.findOneAndUpdate(
       {
