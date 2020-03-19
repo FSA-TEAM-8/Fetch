@@ -1,4 +1,5 @@
 const User = require('./user')
+const Company = require('./company')
 const Job = require('./job')
 
 /**
@@ -16,5 +17,6 @@ const Job = require('./job')
  */
 module.exports = {
   User,
-  Job
+  Company,
+  Job,
 }
