@@ -44,11 +44,11 @@ const userSchema = new Schema({
     },
     zipCode: {
       type: Number,
-      required: True
+      required: true
     }
   },
   resume: {
-    type: String,
+    type: String
   },
   imageUrl: {
     type: String
@@ -61,11 +61,13 @@ const userSchema = new Schema({
     type: Boolean,
     default: false
   },
-  jobHistory: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Job" }]
+  jobHistory: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Job'
+    }
+  ]
 })
-
 
 const User = mongoose.model('User', userSchema)
 
