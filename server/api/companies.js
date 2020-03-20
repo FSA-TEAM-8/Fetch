@@ -29,3 +29,19 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const updatedCompany = await Company.findOneAndUpdate(
+      {
+        _id: req.params.id //  search for company
+      },
+      {
+        $set: req.body // fields to update
+      }
+    )
+    res.json(updatedCompany)
+  } catch (error) {
+    next(error)
+  }
+})
