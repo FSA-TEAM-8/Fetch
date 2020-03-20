@@ -19,8 +19,7 @@ const userSchema = new Schema({
     unique: true
   },
   password: {
-    type: String,
-    required: true
+    type: String
   },
   address: {
     streetNumber: {
@@ -52,6 +51,9 @@ const userSchema = new Schema({
   isEmployer: {
     type: Boolean,
     default: false
+  },
+  linkedInId: {
+    type: Object
   },
   jobHistory: [
     {
