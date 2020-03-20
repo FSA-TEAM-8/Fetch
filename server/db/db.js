@@ -1,6 +1,5 @@
-// CONVERTED TO MONGODB
 
-// below was in server/index.js
+// below is in server/index.js
 
 const mongoose = require('mongoose')
 const {mongoURI} = require('../../secrets')
