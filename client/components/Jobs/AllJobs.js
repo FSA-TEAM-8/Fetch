@@ -7,6 +7,7 @@ const AllJobs = () => {
   const dispatch = useDispatch() // ~ replaces MDTP
 
   // const [jobs, setJobs] = useState(jobs)   // not used bc we used useSelector
+  console.log('jobs', jobs)
   useEffect(() => {
     // useEffect replaces componentDidMount, componentWillUnmount
     dispatch(getAllJobs())
