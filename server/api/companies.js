@@ -34,10 +34,10 @@ router.put('/:id', async (req, res, next) => {
   try {
     const updatedCompany = await Company.findOneAndUpdate(
       {
-        _id: req.params.id
+        _id: req.params.id //  search for company
       },
       {
-        $set: req.body
+        $set: req.body // fields to update
       }
     )
     res.json(updatedCompany)
