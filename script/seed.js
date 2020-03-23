@@ -17,10 +17,10 @@ async function seed() {
 
   console.log('db synced!')
 
-  await User.create({
-    email: 'cody2@email.com',
+  const jody = await User.create({
+    email: 'Jody@email.com',
     password: '1234',
-    firstName: 'Joe',
+    firstName: 'Jody',
     lastName: 'Schmoe',
     biography: 'very good employee',
     address: {
@@ -32,10 +32,10 @@ async function seed() {
     }
   })
 
-  await User.create({
-    email: 'cody2@email.com',
+  const jeff = await User.create({
+    email: 'Jeff@email.com',
     password: '1234',
-    firstName: 'Joe',
+    firstName: 'Jeff',
     lastName: 'Schmoe',
     biography: 'very good employee',
     address: {
@@ -47,11 +47,41 @@ async function seed() {
     }
   })
 
-  await User.create({
+  const bobby = await User.create({
     email: 'bobby@email.com',
     password: '456',
     firstName: 'bobby',
-    lastName: 'Schmidt',
+    lastName: 'Schmidty',
+    biography: 'very good employee',
+    address: {
+      streetNumber: 267,
+      streetName: '4rd Avenue',
+      townName: 'Brooklyn',
+      stateName: 'NY',
+      zipCode: '11209'
+    }
+  })
+
+  const joe = await User.create({
+    email: 'joe@email.com',
+    password: '456',
+    firstName: 'joe',
+    lastName: 'Smith',
+    biography: 'very good employee',
+    address: {
+      streetNumber: 267,
+      streetName: '4rd Avenue',
+      townName: 'Brooklyn',
+      stateName: 'NY',
+      zipCode: '11209'
+    }
+  })
+
+  const rob = await User.create({
+    email: 'rob@email.com',
+    password: '456',
+    firstName: 'rob',
+    lastName: 'Smitty',
     biography: 'very good employee',
     address: {
       streetNumber: 267,
@@ -64,8 +94,19 @@ async function seed() {
 
   // Companies
 
-  await Company.create({
-    companyName: 'Nike',
+  const puma = await Company.create({
+    companyName: 'Puma',
+    size: 'Large organization',
+    description: 'Sporting goods',
+    category: 'Web Dev',
+    reviews: 'very good company',
+    imageURL: '',
+    employees: [],
+    jobPostedHistory: []
+  })
+
+  const adidas = await Company.create({
+    companyName: 'Adidas',
     size: 'Large organization',
     description: 'Sporting goods',
     category: 'Web Dev',
@@ -77,19 +118,51 @@ async function seed() {
 
   // Jobs
 
-  await Job.create({
+  const pumaFullstack = await Job.create({
     title: 'Seeking full-stack developer',
-    company: 'Puma',
-    author: 'Mark',
+    author: 'Mike',
     salary: 75000,
     description: {
-      contactEmail: 'asdf@PushManager.com',
+      contactEmail: 'Jeff@Puma.com',
       location: 'New York',
-      datePosted: Date(),
+
       roleType: 'Full-stack',
-      experience: 'Junior'
+      experienceLevel: 'Junior'
     }
   })
+
+  const adidasFrontEnd = await Job.create({
+    title: 'Seeking front-end engineer',
+    author: 'Peter',
+    salary: 75000,
+    description: {
+      contactEmail: 'Jody@Adidas.com',
+      location: 'New York',
+
+      roleType: 'Full-stack',
+      experienceLevel: 'Junior'
+    }
+  })
+
+  jody.company = puma._id // company id
+  jody.isEmployer = true
+  puma.employees.push(jody._id) // employee id
+  puma.jobPostedHistory.push(pumaFullstack._id)
+  pumaFullstack.company = puma._id
+  pumaFullstack.author = jody._id
+  await jody.save() // this saves and applies the changes made to the instance
+  await puma.save()
+  await pumaFullstack.save()
+
+  jeff.company = adidas._id // company id
+  jeff.isEmployer = true
+  adidas.employees.push(jeff._id) // employee id
+  adidas.jobPostedHistory.push(adidasFrontEnd._id)
+  adidasFrontEnd.company = adidas._id
+  adidasFrontEnd.author = jeff._id
+  await jeff.save() // this saves and applies the changes made to the instance
+  await adidas.save()
+  await adidasFrontEnd.save()
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
