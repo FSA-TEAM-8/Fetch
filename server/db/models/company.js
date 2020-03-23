@@ -7,7 +7,7 @@ const companySchema = new Schema({
     required: true
   },
   size: {
-    type: Number,
+    type: String,
     required: true
   },
   description: {
@@ -15,8 +15,7 @@ const companySchema = new Schema({
     required: true
   },
   category: {
-    type: String,
-    required: true
+    type: String
   },
   reviews: [
     {
