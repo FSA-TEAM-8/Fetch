@@ -11,6 +11,10 @@ const jobSchema = new Schema({
     ref: 'Company'
     // required: true
   },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
   salary: {
     type: Number
   },

@@ -44,6 +44,9 @@ const userSchema = new Schema({
   imageUrl: {
     type: String
   },
+  linkedInId: {
+    type: Object
+  },
   isAdmin: {
     type: Boolean,
     default: false
@@ -52,8 +55,9 @@ const userSchema = new Schema({
     type: Boolean,
     default: false
   },
-  linkedInId: {
-    type: Object
+  company: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Company"
   },
   jobHistory: [
     {
