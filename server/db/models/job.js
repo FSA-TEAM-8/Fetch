@@ -9,7 +9,6 @@ const jobSchema = new Schema({
   company: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Company'
-    // required: true
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
@@ -17,6 +16,10 @@ const jobSchema = new Schema({
   },
   salary: {
     type: Number
+  },
+  availibilty: {
+    type: Boolean,
+    default: true
   },
   description: {
     contactEmail: {
@@ -29,7 +32,7 @@ const jobSchema = new Schema({
     },
     datePosted: {
       type: Date,
-      default: Date()
+      default: Date.now()
     },
     roleType: {
       type: String

@@ -1,14 +1,8 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
-const {Company} = require('../server/db/models')
-const {Job} = require('../server/db/models')
 
-async function seed() {
-  //   const users = await Promise.all([
-  //     User.create({email: 'testttttt@email.com', password: '123'})
-  //   ])
+const {User, Company, Job} = require('../server/db/models')
 
   // const users = await Promise.all([
   //   User.create({email: 'cody@email.com', password: '123'}),
@@ -16,6 +10,203 @@ async function seed() {
   // ])
 
   console.log('db synced!')
+
+  // Users
+  const red = await User.create({
+    email: 'red@email.com',
+    password: '123',
+    firstName: 'Red',
+    lastName: 'Der',
+    biography: 'blazin employee',
+    address: {
+      streetNumber: 123,
+      streetName: 'Red Street',
+      townName: 'Queens',
+      stateName: 'NY',
+      zipCode: '11101'
+    },
+    imageUrl: '',
+    isAdmin: true,
+    jobHistory: []
+  })
+  const blue = await User.create({
+    email: 'blue@email.com',
+    password: '123',
+    firstName: 'Blue',
+    lastName: 'Eulb',
+    biography: 'cool employee',
+    address: {
+      streetNumber: 123,
+      streetName: 'Blue Street',
+      townName: 'Queens',
+      stateName: 'NY',
+      zipCode: '11101'
+    },
+    imageUrl: '',
+    jobHistory: []
+  })
+  const yellow = await User.create({
+    email: 'yellow@email.com',
+    password: '123',
+    firstName: 'Yel',
+    lastName: 'Low',
+    biography: 'shiny employee',
+    address: {
+      streetNumber: 123,
+      streetName: 'Yellow Street',
+      townName: 'Queens',
+      stateName: 'NY',
+      zipCode: '11101'
+    },
+    imageUrl: '',
+    jobHistory: []
+  })
+  const green = await User.create({
+    email: 'green@email.com',
+    password: '123',
+    firstName: 'Green',
+    lastName: 'Neerg',
+    biography: 'minty employee',
+    address: {
+      streetNumber: 123,
+      streetName: 'Green Street',
+      townName: 'Queens',
+      stateName: 'NY',
+      zipCode: '11101'
+    },
+    imageUrl: '',
+    isAdmin: true,
+    jobHistory: []
+  })
+  const purple = await User.create({
+    email: 'Purple@email.com',
+    password: '123',
+    firstName: 'Purp',
+    lastName: 'le',
+    biography: 'grape employee',
+    address: {
+      streetNumber: 123,
+      streetName: 'Purple Street',
+      townName: 'Queens',
+      stateName: 'NY',
+      zipCode: '11101'
+    },
+    imageUrl: '',
+    jobHistory: []
+  })
+
+  // Companies
+  const jpmorganChase = await Company.create({
+    companyName: 'JPMorgan Chase',
+    size: 'Large organization',
+    description: 'Bank',
+    category: 'Financial technology',
+    reviews: 'very good company',
+    imageURL: '',
+    employees: [],
+    jobPostedHistory: []
+  })
+  const bofa = await Company.create({
+    companyName: 'Bank of America',
+    size: 'Large organization',
+    description: 'Bank',
+    category: 'Financial technology',
+    reviews: 'very good company',
+    imageURL: '',
+    employees: [],
+    jobPostedHistory: []
+  })
+  // const citi = await Company.create(
+  //   {
+  //     companyName: 'Citigroup',
+  //     size: 'Large organization',
+  //     description: 'Bank',
+  //     category: 'Financial technology',
+  //     reviews: 'very good company',
+  //     imageURL: '',
+  //     employees: [],
+  //     jobPostedHistory: [],
+  //   }
+  // )
+  // const wellsFargo = await Company.create(
+  //   {
+  //     companyName: 'Wells Fargo',
+  //     size: 'Large organization',
+  //     description: 'Bank',
+  //     category: 'Financial technology',
+  //     reviews: 'very good company',
+  //     imageURL: '',
+  //     employees: [],
+  //     jobPostedHistory: [],
+  //   }
+  // )
+  // const goldmanSachs = await Company.create(
+  //   {
+  //     companyName: 'Goldman Sachs',
+  //     size: 'Large organization',
+  //     description: 'Bank',
+  //     category: 'Financial technology',
+  //     reviews: 'very good company',
+  //     imageURL: '',
+  //     employees: [],
+  //     jobPostedHistory: [],
+  //   }
+  // )
+
+  // Jobs
+  const bofaFrontEnd = await Job.create({
+    title: 'Front-End Developer',
+    salary: 90000,
+    description: {
+      contactEmail: 'apply@bofa.com',
+      location: 'New York',
+      roleType: 'Front-end',
+      experienceLevel: 'Junior'
+    }
+  })
+  const jpmorganBackEnd = await Job.create({
+    title: 'Back-End Developer',
+    salary: 101000,
+    description: {
+      contactEmail: 'apply@jpmorgan.com',
+      location: 'New York',
+      roleType: 'Back-end',
+      experienceLevel: 'Junior'
+    }
+  })
+  // const bofaFullStack = await Job.create({
+  //   title: 'Full Stack Developer',
+  //   salary: 120000,
+  //   description: {
+  //     contactEmail: 'apply@bofa.com',
+  //     location: 'New York',
+  //     roleType: 'Full-stack',
+  //     experienceLevel: 'Junior'
+  //   }
+  // })
+
+  red.company = bofa._id // company id
+  red.isEmployer = true
+  bofa.employees.push(red._id) // employee id
+  bofa.jobPostedHistory.push(bofaFrontEnd._id)
+  bofaFrontEnd.company = bofa._id
+  bofaFrontEnd.author = red._id
+
+  await red.save() // this saves and applies the changes made to the instance
+  await bofa.save()
+  await bofaFrontEnd.save()
+
+  blue.company = jpmorganChase._id // company id
+  blue.isEmployer = true
+  jpmorganChase.employees.push(blue._id) // employee id
+  jpmorganChase.jobPostedHistory.push(jpmorganBackEnd._id)
+  jpmorganBackEnd.company = jpmorganChase._id
+  jpmorganBackEnd.author = blue._id
+
+  await blue.save()
+  await jpmorganChase.save()
+  await jpmorganBackEnd.save()
+
 
   const jody = await User.create({
     email: 'Jody@email.com',
@@ -164,7 +355,8 @@ async function seed() {
   await adidas.save()
   await adidasFrontEnd.save()
 
-  console.log(`seeded ${users.length} users`)
+
+  // console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
 }
 

@@ -20,8 +20,8 @@ const AllJobs = () => {
       <AddJob />
       <div>
         {jobs.map(job => (
-          <div>
-            <p key={job._id}>{job.title}</p>
+          <div key={job._id}>
+            <p>{job.title}</p>
             <UpdateJob />
           </div>
         ))}
