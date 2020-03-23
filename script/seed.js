@@ -2,9 +2,10 @@
 
 const db = require('../server/db')
 const {User} = require('../server/db/models')
+const {Company} = require('../server/db/models')
+const {Job} = require('../server/db/models')
 
 async function seed() {
-
   //   const users = await Promise.all([
   //     User.create({email: 'testttttt@email.com', password: '123'})
   //   ])
@@ -14,42 +15,81 @@ async function seed() {
   //   User.create({email: 'murphy@email.com', password: '123'})
   // ])
 
-
   console.log('db synced!')
 
-  await User.create(
-    {
-      email: 'cody2@email.com',
-      password: '1234',
-      firstName: 'Joe',
-      lastName: 'Schmoe',
-      biography: 'very good employee',
-      address: {
-        streetNumber: 367,
-        streetName: '3rd Avenue',
-        townName: 'Brooklyn',
-        stateName: 'NY',
-        zipCode: '11209'
-      }
+  await User.create({
+    email: 'cody2@email.com',
+    password: '1234',
+    firstName: 'Joe',
+    lastName: 'Schmoe',
+    biography: 'very good employee',
+    address: {
+      streetNumber: 367,
+      streetName: '3rd Avenue',
+      townName: 'Brooklyn',
+      stateName: 'NY',
+      zipCode: '11209'
     }
-  )
+  })
 
-  await User.create(
-    {
-      email: 'cody2@email.com',
-      password: '1234',
-      firstName: 'Joe',
-      lastName: 'Schmoe',
-      biography: 'very good employee',
-      address: {
-        streetNumber: 367,
-        streetName: '3rd Avenue',
-        townName: 'Brooklyn',
-        stateName: 'NY',
-        zipCode: '11209'
-      }
+  await User.create({
+    email: 'cody2@email.com',
+    password: '1234',
+    firstName: 'Joe',
+    lastName: 'Schmoe',
+    biography: 'very good employee',
+    address: {
+      streetNumber: 367,
+      streetName: '3rd Avenue',
+      townName: 'Brooklyn',
+      stateName: 'NY',
+      zipCode: '11209'
     }
-  )
+  })
+
+  await User.create({
+    email: 'bobby@email.com',
+    password: '456',
+    firstName: 'bobby',
+    lastName: 'Schmidt',
+    biography: 'very good employee',
+    address: {
+      streetNumber: 267,
+      streetName: '4rd Avenue',
+      townName: 'Brooklyn',
+      stateName: 'NY',
+      zipCode: '11209'
+    }
+  })
+
+  // Companies
+
+  await Company.create({
+    companyName: 'Nike',
+    size: 'Large organization',
+    description: 'Sporting goods',
+    category: 'Web Dev',
+    reviews: 'very good company',
+    imageURL: '',
+    employees: [],
+    jobPostedHistory: []
+  })
+
+  // Jobs
+
+  await Job.create({
+    title: 'Seeking full-stack developer',
+    company: 'Puma',
+    author: 'Mark',
+    salary: 75000,
+    description: {
+      contactEmail: 'asdf@PushManager.com',
+      location: 'New York',
+      datePosted: Date(),
+      roleType: 'Full-stack',
+      experience: 'Junior'
+    }
+  })
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
