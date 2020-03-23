@@ -3,11 +3,13 @@ import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
-import {jobs} from './job'
+
+import {job, jobs} from './job'
 import {companies} from './company'
 
 const reducer = combineReducers({
   user,
+  job,
   jobs,
   companies
 })
