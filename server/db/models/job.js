@@ -13,7 +13,7 @@ const jobSchema = new Schema({
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+    ref: 'User'
   },
   salary: {
     type: Number
@@ -28,7 +28,8 @@ const jobSchema = new Schema({
       required: true
     },
     datePosted: {
-      type: Date
+      type: Date,
+      default: Date()
     },
     roleType: {
       type: String
