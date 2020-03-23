@@ -8,8 +8,8 @@ const jobSchema = new Schema({
   },
   company: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Company',
-    required: true
+    ref: 'Company'
+    // required: true
   },
   salary: {
     type: Number

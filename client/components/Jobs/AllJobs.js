@@ -1,6 +1,8 @@
 import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAllJobs} from '../../store/job'
+import AddJob from './AddJob'
+import UpdateJob from './UpdateJob'
 
 const AllJobs = () => {
   const jobs = useSelector(state => state.jobs) // ~ replaces MSTP
@@ -13,7 +15,19 @@ const AllJobs = () => {
     dispatch(getAllJobs())
   }, []) // pass in empty array to only run on mount and unmount, this stops infinite loops
 
-  return <div>{jobs.map(job => <p key={job._id}>{job.title}</p>)}</div>
+  return (
+    <div>
+      <AddJob />
+      <div>
+        {jobs.map(job => (
+          <div>
+            <p key={job._id}>{job.title}</p>
+            <UpdateJob />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
 export default AllJobs
 

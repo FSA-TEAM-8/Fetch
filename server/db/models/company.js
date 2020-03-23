@@ -14,7 +14,7 @@ const companySchema = new Schema({
     type: String,
     required: true
   },
-  jobRole: {
+  category: {
     type: String,
     required: true
   },
@@ -26,7 +26,18 @@ const companySchema = new Schema({
   imageURL: {
     type: String
   },
-  employees: [{type: Schema.Types.ObjectId, ref: 'User'}]
+  employees: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ],
+  jobPostedHistory: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Job'
+    }
+  ]
 })
 
 const Company = mongoose.model('Company', companySchema)
