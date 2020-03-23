@@ -14,7 +14,7 @@ const companySchema = new Schema({
     type: String,
     required: true
   },
-  jobRole: {
+  category: {
     type: String,
     required: true
   },
