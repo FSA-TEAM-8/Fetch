@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import React, {useEffect} from 'react'
 import {getAllCompanies} from '../../store/company'
 
-export default function AllCompanies() {
+const AllCompanies = () => {
   const companies = useSelector(state => state.companies)
   const dispatch = useDispatch()
 
@@ -17,3 +17,5 @@ export default function AllCompanies() {
     </div>
   )
 }
+
+export default AllCompanies
