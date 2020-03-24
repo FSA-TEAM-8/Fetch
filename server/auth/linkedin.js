@@ -41,9 +41,11 @@ passport.use(
           if (!user) {
             user = new User({
               linkedInId: profile.id,
-              name: profile.displayName,
+              firstName: profile.name.givenName,
+              lastName: profile.name.familyName,
               email: profile.emails[0].value,
-              username: profile.username
+              username: profile.username,
+              imageUrl: profile.photos[0].value
               //now in the future searching on User.findOne({'linkedInId': profile.id } will match because of this next line
             })
             user.save(function(error) {

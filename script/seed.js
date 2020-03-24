@@ -2,6 +2,7 @@
 'use strict'
 
 const db = require('../server/db')
+const mongoose = require('mongoose')
 
 const {User, Company, Job} = require('../server/db/models')
 
@@ -12,6 +13,7 @@ const {User, Company, Job} = require('../server/db/models')
 
 async function seed() {
   console.log('db synced!')
+  mongoose.connection.dropDatabase()
 
   // Users
   const red = await User.create({
