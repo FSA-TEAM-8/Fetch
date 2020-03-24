@@ -120,7 +120,6 @@ async function seed() {
 
   const pumaFullstack = await Job.create({
     title: 'Seeking full-stack developer',
-    author: 'Mike',
     salary: 75000,
     description: {
       contactEmail: 'Jeff@Puma.com',
@@ -133,7 +132,6 @@ async function seed() {
 
   const adidasFrontEnd = await Job.create({
     title: 'Seeking front-end engineer',
-    author: 'Peter',
     salary: 75000,
     description: {
       contactEmail: 'Jody@Adidas.com',
@@ -164,7 +162,7 @@ async function seed() {
   await adidas.save()
   await adidasFrontEnd.save()
 
-  console.log(`seeded ${users.length} users`)
+  // console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
 }
 
