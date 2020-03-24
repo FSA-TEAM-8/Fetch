@@ -23,6 +23,7 @@ export default function UpdateJob() {
     console.log(obj)
     dispatch(updateJob(obj))
   }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>

@@ -57,9 +57,15 @@ const userSchema = new Schema({
   },
   company: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Company"
+    ref: 'Company'
   },
   jobHistory: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Job'
+    }
+  ],
+  savedJobs: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Job'
