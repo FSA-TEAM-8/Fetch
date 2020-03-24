@@ -17,15 +17,11 @@ const SingleJob = props => {
       <UpdateJob />
       <h3>{job.title}</h3>
       <p>Estimated Salary: {job.salary}</p>
-      {job.description ? (
-        <div>
-          <p>Contact Email: {job.description.contactEmail}</p>
-          <p>Location: {job.description.location}</p>
-          <p>Position: {job.description.roleType}</p>
-          <p>Experience: {job.description.experienceLevel}</p>
-          <p>Date Posted: {job.description.datePosted}</p>
-        </div>
-      ) : null}
+      <p>Contact Email: {job.contactEmail}</p>
+      <p>Location: {job.location}</p>
+      <p>Position: {job.roleType}</p>
+      <p>Experience: {job.experienceLevel}</p>
+      <p>Date Posted: {job.datePosted}</p>
     </div>
   )
 }

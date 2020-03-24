@@ -22,13 +22,11 @@ async function seed() {
     firstName: 'Red',
     lastName: 'Der',
     biography: 'blazin employee',
-    address: {
-      streetNumber: 123,
-      streetName: 'Red Street',
-      townName: 'Queens',
-      stateName: 'NY',
-      zipCode: '11101'
-    },
+    streetNumber: 123,
+    streetName: 'Red Street',
+    townName: 'Queens',
+    stateName: 'NY',
+    zipCode: '11101',
     imageUrl: '',
     isAdmin: true,
     jobHistory: []
@@ -40,13 +38,11 @@ async function seed() {
     firstName: 'Blue',
     lastName: 'Eulb',
     biography: 'cool employee',
-    address: {
-      streetNumber: 123,
-      streetName: 'Blue Street',
-      townName: 'Queens',
-      stateName: 'NY',
-      zipCode: '11101'
-    },
+    streetNumber: 123,
+    streetName: 'Blue Street',
+    townName: 'Queens',
+    stateName: 'NY',
+    zipCode: '11101',
     imageUrl: '',
     jobHistory: []
   })
@@ -57,13 +53,11 @@ async function seed() {
     firstName: 'Yel',
     lastName: 'Low',
     biography: 'shiny employee',
-    address: {
-      streetNumber: 123,
-      streetName: 'Yellow Street',
-      townName: 'Queens',
-      stateName: 'NY',
-      zipCode: '11101'
-    },
+    streetNumber: 123,
+    streetName: 'Yellow Street',
+    townName: 'Queens',
+    stateName: 'NY',
+    zipCode: '11101',
     imageUrl: '',
     jobHistory: []
   })
@@ -74,13 +68,11 @@ async function seed() {
     firstName: 'Green',
     lastName: 'Neerg',
     biography: 'minty employee',
-    address: {
-      streetNumber: 123,
-      streetName: 'Green Street',
-      townName: 'Queens',
-      stateName: 'NY',
-      zipCode: '11101'
-    },
+    streetNumber: 123,
+    streetName: 'Green Street',
+    townName: 'Queens',
+    stateName: 'NY',
+    zipCode: '11101',
     imageUrl: '',
     isAdmin: true,
     jobHistory: []
@@ -92,13 +84,11 @@ async function seed() {
     firstName: 'Purp',
     lastName: 'le',
     biography: 'grape employee',
-    address: {
-      streetNumber: 123,
-      streetName: 'Purple Street',
-      townName: 'Queens',
-      stateName: 'NY',
-      zipCode: '11101'
-    },
+    streetNumber: 123,
+    streetName: 'Purple Street',
+    townName: 'Queens',
+    stateName: 'NY',
+    zipCode: '11101',
     imageUrl: '',
     jobHistory: []
   })
@@ -167,23 +157,19 @@ async function seed() {
   const bofaFrontEnd = await Job.create({
     title: 'Front-End Developer',
     salary: 90000,
-    description: {
-      contactEmail: 'apply@bofa.com',
-      location: 'New York',
-      roleType: 'Front-end',
-      experienceLevel: 'Junior'
-    }
+    contactEmail: 'apply@bofa.com',
+    location: 'New York',
+    roleType: 'Front-end',
+    experienceLevel: 'Junior'
   })
 
   const jpmorganBackEnd = await Job.create({
     title: 'Back-End Developer',
     salary: 101000,
-    description: {
-      contactEmail: 'apply@jpmorgan.com',
-      location: 'New York',
-      roleType: 'Back-end',
-      experienceLevel: 'Junior'
-    }
+    contactEmail: 'apply@jpmorgan.com',
+    location: 'New York',
+    roleType: 'Back-end',
+    experienceLevel: 'Junior'
   })
 
   // const bofaFullStack = await Job.create({
@@ -226,13 +212,11 @@ async function seed() {
     firstName: 'Jody',
     lastName: 'Schmoe',
     biography: 'very good employee',
-    address: {
-      streetNumber: 367,
-      streetName: '3rd Avenue',
-      townName: 'Brooklyn',
-      stateName: 'NY',
-      zipCode: '11209'
-    },
+    streetNumber: 367,
+    streetName: '3rd Avenue',
+    townName: 'Brooklyn',
+    stateName: 'NY',
+    zipCode: '11209',
     imageUrl: '',
     isAdmin: true,
     jobHistory: []
@@ -244,13 +228,11 @@ async function seed() {
     firstName: 'Jeff',
     lastName: 'Schmoe',
     biography: 'very good employee',
-    address: {
-      streetNumber: 367,
-      streetName: '3rd Avenue',
-      townName: 'Brooklyn',
-      stateName: 'NY',
-      zipCode: '11209'
-    },
+    streetNumber: 367,
+    streetName: '3rd Avenue',
+    townName: 'Brooklyn',
+    stateName: 'NY',
+    zipCode: '11209',
     imageUrl: '',
     isAdmin: true,
     jobHistory: []
@@ -262,13 +244,11 @@ async function seed() {
     firstName: 'bobby',
     lastName: 'Schmidty',
     biography: 'very good employee',
-    address: {
-      streetNumber: 267,
-      streetName: '4rd Avenue',
-      townName: 'Brooklyn',
-      stateName: 'NY',
-      zipCode: '11209'
-    },
+    streetNumber: 267,
+    streetName: '4rd Avenue',
+    townName: 'Brooklyn',
+    stateName: 'NY',
+    zipCode: '11209',
     imageUrl: '',
     jobHistory: []
   })
@@ -279,13 +259,11 @@ async function seed() {
     firstName: 'joe',
     lastName: 'Smith',
     biography: 'very good employee',
-    address: {
-      streetNumber: 267,
-      streetName: '4rd Avenue',
-      townName: 'Brooklyn',
-      stateName: 'NY',
-      zipCode: '11209'
-    },
+    streetNumber: 267,
+    streetName: '4rd Avenue',
+    townName: 'Brooklyn',
+    stateName: 'NY',
+    zipCode: '11209',
     imageUrl: '',
     jobHistory: []
   })
@@ -296,13 +274,11 @@ async function seed() {
     firstName: 'rob',
     lastName: 'Smitty',
     biography: 'very good employee',
-    address: {
-      streetNumber: 267,
-      streetName: '4rd Avenue',
-      townName: 'Brooklyn',
-      stateName: 'NY',
-      zipCode: '11209'
-    },
+    streetNumber: 267,
+    streetName: '4rd Avenue',
+    townName: 'Brooklyn',
+    stateName: 'NY',
+    zipCode: '11209',
     imageUrl: '',
     jobHistory: []
   })
@@ -336,25 +312,19 @@ async function seed() {
   const pumaFullstack = await Job.create({
     title: 'Seeking full-stack developer',
     salary: 75000,
-    description: {
-      contactEmail: 'Jeff@Puma.com',
-      location: 'New York',
-
-      roleType: 'Full-stack',
-      experienceLevel: 'Junior'
-    }
+    contactEmail: 'Jeff@Puma.com',
+    location: 'New York',
+    roleType: 'Full-stack',
+    experienceLevel: 'Junior'
   })
 
   const adidasFrontEnd = await Job.create({
     title: 'Seeking front-end engineer',
     salary: 75000,
-    description: {
-      contactEmail: 'Jody@Adidas.com',
-      location: 'New York',
-
-      roleType: 'Full-stack',
-      experienceLevel: 'Junior'
-    }
+    contactEmail: 'Jody@Adidas.com',
+    location: 'New York',
+    roleType: 'Full-stack',
+    experienceLevel: 'Junior'
   })
 
   jody.company = puma._id // company id
@@ -386,13 +356,11 @@ async function seed() {
     firstName: 'Pablo',
     lastName: 'Hernandez',
     biography: 'Bi-lingual software engineer with years of experience',
-    address: {
-      streetNumber: 784,
-      streetName: 'Chestnut Lane',
-      townName: 'Summit',
-      stateName: 'NJ',
-      zipCode: '09204'
-    },
+    streetNumber: 784,
+    streetName: 'Chestnut Lane',
+    townName: 'Summit',
+    stateName: 'NJ',
+    zipCode: '09204',
     imageUrl: '',
     jobHistory: []
   })
@@ -403,13 +371,11 @@ async function seed() {
     firstName: 'Lisa',
     lastName: 'Da Vinci',
     biography: 'Currently looking for remote opportunities!',
-    address: {
-      streetNumber: 454,
-      streetName: 'Chess Avenue',
-      townName: 'Jersey City',
-      stateName: 'NJ',
-      zipCode: '07042'
-    },
+    streetNumber: 454,
+    streetName: 'Chess Avenue',
+    townName: 'Jersey City',
+    stateName: 'NJ',
+    zipCode: '07042',
     imageUrl: '',
     jobHistory: []
   })
@@ -420,13 +386,11 @@ async function seed() {
     firstName: 'Austin',
     lastName: 'Delancy',
     biography: 'Bringing you the most obnoxious in tech news',
-    address: {
-      streetNumber: 1211,
-      streetName: '5th Street',
-      townName: 'West Hampton',
-      stateName: 'NY',
-      zipCode: '11004'
-    },
+    streetNumber: 1211,
+    streetName: '5th Street',
+    townName: 'West Hampton',
+    stateName: 'NY',
+    zipCode: '11004',
     imageUrl: '',
     jobHistory: []
   })
@@ -437,13 +401,11 @@ async function seed() {
     firstName: 'Patricia',
     lastName: 'Nerietva',
     biography: 'Fullstack engineer with experience on React-Redux',
-    address: {
-      streetNumber: 120,
-      streetName: 'Bleekers St.',
-      townName: 'Northshire',
-      stateName: 'PA',
-      zipCode: '53202'
-    },
+    streetNumber: 120,
+    streetName: 'Bleekers St.',
+    townName: 'Northshire',
+    stateName: 'PA',
+    zipCode: '53202',
     imageUrl: '',
     jobHistory: []
   })
@@ -454,13 +416,11 @@ async function seed() {
     firstName: 'Fletcher',
     lastName: 'Martinez',
     biography: 'Eager to learn with experience on GitHub, React, and more',
-    address: {
-      streetNumber: 5,
-      streetName: 'Hudson St.',
-      townName: 'Beacon',
-      stateName: 'NY',
-      zipCode: '11106'
-    },
+    streetNumber: 5,
+    streetName: 'Hudson St.',
+    townName: 'Beacon',
+    stateName: 'NY',
+    zipCode: '11106',
     imageUrl: '',
     isAdmin: true,
     jobHistory: []
@@ -481,12 +441,10 @@ async function seed() {
   const fuzzBeedBackEnd = await Job.create({
     title: 'Back-End Developer',
     salary: 95000,
-    description: {
-      contactEmail: 'jobs@fuzzbeed.com',
-      location: 'New York, NY',
-      roleType: 'Back-End',
-      experienceLevel: 'Junior'
-    }
+    contactEmail: 'jobs@fuzzbeed.com',
+    location: 'New York, NY',
+    roleType: 'Back-End',
+    experienceLevel: 'Junior'
   })
 
   const flooperCo = await Company.create({
@@ -503,12 +461,10 @@ async function seed() {
   const flooperFrontEnd = await Job.create({
     title: 'Front-End Developer',
     salary: 111000,
-    description: {
-      contactEmail: 'jobs@flooper.com',
-      location: 'New York, NY',
-      roleType: 'Front-End',
-      experienceLevel: 'Mid-level'
-    }
+    contactEmail: 'jobs@flooper.com',
+    location: 'New York, NY',
+    roleType: 'Front-End',
+    experienceLevel: 'Mid-level'
   })
 
   pablo.company = fuzzbeedCo._id // company id

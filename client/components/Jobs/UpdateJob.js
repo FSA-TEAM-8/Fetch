@@ -17,10 +17,8 @@ const UpdateJob = props => {
     const obj = {
       _id: job._id,
       title,
-      description: {
-        contactEmail,
-        location
-      }
+      contactEmail,
+      location
     }
     console.log('update', obj)
     dispatch(updateJob(obj))

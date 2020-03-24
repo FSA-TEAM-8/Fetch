@@ -21,22 +21,20 @@ const userSchema = new Schema({
   password: {
     type: String
   },
-  address: {
-    streetNumber: {
-      type: Number
-    },
-    streetName: {
-      type: String
-    },
-    townName: {
-      type: String
-    },
-    stateName: {
-      type: String
-    },
-    zipCode: {
-      type: Number
-    }
+  streetNumber: {
+    type: Number
+  },
+  streetName: {
+    type: String
+  },
+  townName: {
+    type: String
+  },
+  stateName: {
+    type: String
+  },
+  zipCode: {
+    type: Number
   },
   resume: {
     type: String
