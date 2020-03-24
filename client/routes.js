@@ -13,6 +13,9 @@ import {
 } from './components'
 import {me} from './store'
 
+import SingleJob from './components/Jobs/SingleJob'
+
+
 /**
  * COMPONENT
  */
@@ -29,7 +32,8 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/jobs" component={AllJobs} />
+        <Route exact path="/jobs" component={AllJobs} />
+        <Route path="/jobs/:id" component={SingleJob} />
         <Route path="/companies" component={AllCompanies} />
         <Route exact path="/users" component={AllUsers} />
         <Route path="/users/:id" component={SingleUser} />

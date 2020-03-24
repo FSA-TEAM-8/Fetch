@@ -35,14 +35,19 @@ router.post('/', async (req, res, next) => {
 // update a job
 router.put('/:id', async (req, res, next) => {
   try {
+    console.log('req,body', req.body)
     const updatedJob = await Job.findOneAndUpdate(
       {
         _id: req.params.id //  search for job
       },
       {
         $set: req.body // fields to update
+      },
+      {
+        new: true // need to pass this as argu to return updated document
       }
     )
+    console.log('updatedJob', updatedJob)
     res.json(updatedJob)
   } catch (error) {
     next(error)
