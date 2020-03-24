@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateJob} from '../../store/job'
+import {useParams} from 'react-router'
 
-export default function UpdateJob() {
+const UpdateJob = props => {
   // need to get the existing job with the _id then change the state with the code below and send the changes to the updatejob thunk
 
+  const job = useSelector(state => state.job)
   const dispatch = useDispatch()
-
   const [title, setTitle] = useState('')
   const [contactEmail, setContactEmail] = useState('')
   const [location, setLocation] = useState('')
@@ -14,13 +15,14 @@ export default function UpdateJob() {
   const handleSubmit = event => {
     event.preventDefault()
     const obj = {
+      _id: job._id,
       title,
       description: {
         contactEmail,
         location
       }
     }
-    console.log(obj)
+    console.log('update', obj)
     dispatch(updateJob(obj))
   }
 
@@ -56,3 +58,5 @@ export default function UpdateJob() {
     </div>
   )
 }
+
+export default UpdateJob

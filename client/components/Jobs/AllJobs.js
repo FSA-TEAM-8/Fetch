@@ -2,14 +2,13 @@ import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAllJobs} from '../../store/job'
 import AddJob from './AddJob'
-import UpdateJob from './UpdateJob'
+import {Link} from 'react-router-dom'
 
 const AllJobs = () => {
   const jobs = useSelector(state => state.jobs) // ~ replaces MSTP
   const dispatch = useDispatch() // ~ replaces MDTP
 
   // const [jobs, setJobs] = useState(jobs)   // not used bc we used useSelector
-  console.log('jobs', jobs)
   useEffect(() => {
     // useEffect replaces componentDidMount, componentWillUnmount
     dispatch(getAllJobs())
@@ -21,8 +20,15 @@ const AllJobs = () => {
       <div>
         {jobs.map(job => (
           <div key={job._id}>
-            <p>{job.title}</p>
-            <UpdateJob />
+            <Link to={`/jobs/${job._id}`}>
+              <h3>{job.title}</h3>
+            </Link>
+            <p>{job.salary}</p>
+            <p>{job.description.contactEmail}</p>
+            <p>{job.description.location}</p>
+            <p>{job.description.roleType}</p>
+            <p>{job.description.experienceLevel}</p>
+            <p>{job.description.datePosted}</p>
           </div>
         ))}
       </div>
