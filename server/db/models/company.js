@@ -22,7 +22,7 @@ const companySchema = new Schema({
       type: String
     }
   ],
-  imageURL: {
+  imageUrl: {
     type: String
   },
   employees: [
