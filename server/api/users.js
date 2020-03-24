@@ -1,9 +1,10 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
 const {validateAdmin, validateUser} = require('../middleware')
+
 module.exports = router
 
-router.get('/', validateAdmin, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const users = await User.find({
       // explicitly select only the id and email fields - even though
