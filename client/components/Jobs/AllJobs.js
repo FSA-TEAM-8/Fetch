@@ -24,11 +24,11 @@ const AllJobs = () => {
               <h3>{job.title}</h3>
             </Link>
             <p>{job.salary}</p>
-            <p>{job.description.contactEmail}</p>
-            <p>{job.description.location}</p>
-            <p>{job.description.roleType}</p>
-            <p>{job.description.experienceLevel}</p>
-            <p>{job.description.datePosted}</p>
+            <p>{job.contactEmail}</p>
+            <p>{job.location}</p>
+            <p>{job.roleType}</p>
+            <p>{job.experienceLevel}</p>
+            <p>{job.datePosted}</p>
           </div>
         ))}
       </div>

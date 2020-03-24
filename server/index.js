@@ -4,6 +4,9 @@ const morgan = require('morgan')
 const compression = require('compression')
 const session = require('express-session')
 const passport = require('passport')
+const fileUpload = require('express-fileupload')
+const cors = require('cors')
+
 // const SequelizeStore = require('connect-session-sequelize')(session.Store)
 // const db = require('./db')
 // const sessionStore = new SequelizeStore({db})
@@ -67,6 +70,7 @@ const createApp = () => {
 
   // compression middleware
   app.use(compression())
+  app.use(cors())
 
   // session middleware with passport
   app.use(
@@ -80,12 +84,27 @@ const createApp = () => {
   app.use(passport.initialize())
   app.use(passport.session())
 
+  app.use(fileUpload())
+
   // auth and api routes
   app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
 
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
+
+  app.post('/upload', (req, res, next) => {
+    let newFile = req.files.file
+    console.log(newFile.name)
+
+    newFile.mv(`./uploads/${req.body.filename}.pdf`, function(err) {
+      if (err) {
+        return res.status(500).send(err)
+      }
+
+      res.json({file: `./uploads/${req.body.filename}.pdf`})
+    })
+  })
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
