@@ -17,7 +17,6 @@ import AddCompany from './components/Companies/AddCompany'
 
 import SingleJob from './components/Jobs/SingleJob'
 
-
 /**
  * COMPONENT
  */
@@ -36,7 +35,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route exact path="/jobs" component={AllJobs} />
         <Route path="/jobs/:id" component={SingleJob} />
-        <Route path="/companies" component={AllCompanies} />
+        <Route exact path="/companies" component={AllCompanies} />
         <Route exact path="/users" component={AllUsers} />
         <Route path="/users/:id" component={SingleUser} />
         {isLoggedIn && (

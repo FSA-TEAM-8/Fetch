@@ -3,11 +3,12 @@ import {useDispatch, useSelector} from 'react-redux'
 import {updateJob} from '../../store/job'
 import {useParams} from 'react-router'
 
-const UpdateJob = props => {
+const UpdateJob = () => {
   // need to get the existing job with the _id then change the state with the code below and send the changes to the updatejob thunk
 
   const job = useSelector(state => state.job)
   const dispatch = useDispatch()
+
   const [title, setTitle] = useState('')
   const [contactEmail, setContactEmail] = useState('')
   const [location, setLocation] = useState('')
@@ -20,7 +21,6 @@ const UpdateJob = props => {
       contactEmail,
       location
     }
-    console.log('update', obj)
     dispatch(updateJob(obj))
   }
 
