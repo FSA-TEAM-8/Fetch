@@ -17,8 +17,15 @@ const defaultUser = {}
  * ACTION CREATORS
  */
 
-const gotSingleUser = user => ({type: GOT_SINGLE_USER, user})
-const updatedSingleUser = user => ({type: UPDATED_SINGLE_USER, user})
+const gotSingleUser = user => ({
+  type: GOT_SINGLE_USER,
+  user
+})
+
+const updatedSingleUser = user => ({
+  type: UPDATED_SINGLE_USER,
+  user
+})
 
 /**
  * THUNK CREATORS
@@ -33,9 +40,9 @@ export const getSingleUser = id => async dispatch => {
   }
 }
 
-export const updateSingleUser = (id, user) => async dispatch => {
+export const updateSingleUser = user => async dispatch => {
   try {
-    const {data} = await axios.put(`/api/users/${id}`, user)
+    const {data} = await axios.put(`/api/users/${user._id}`, user)
     dispatch(updatedSingleUser(data))
   } catch (err) {
     console.error(err)
