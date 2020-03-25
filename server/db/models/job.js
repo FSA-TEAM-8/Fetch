@@ -21,25 +21,23 @@ const jobSchema = new Schema({
     type: Boolean,
     default: true
   },
-  description: {
-    contactEmail: {
-      type: String,
-      required: true
-    },
-    location: {
-      type: String,
-      required: true
-    },
-    datePosted: {
-      type: Date,
-      default: Date.now()
-    },
-    roleType: {
-      type: String
-    },
-    experienceLevel: {
-      type: String
-    }
+  contactEmail: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: String,
+    required: true
+  },
+  datePosted: {
+    type: Date,
+    default: Date.now()
+  },
+  roleType: {
+    type: String
+  },
+  experienceLevel: {
+    type: String
   }
 })
 

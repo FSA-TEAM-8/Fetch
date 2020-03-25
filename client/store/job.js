@@ -5,6 +5,7 @@ import {combineReducers} from 'redux'
 const GOT_ALL_JOBS = 'GOT_ALL_JOBS'
 const ADDED_JOB = 'ADDED_JOB'
 const UPDATED_JOB = 'UPDATED_JOB'
+const GOT_SINGLE_JOB = 'GOT_SINGLE_JOB'
 
 // action creator
 const gotAllJobs = jobs => ({
@@ -19,6 +20,11 @@ const addedJob = job => ({
 
 const updatedJob = job => ({
   type: UPDATED_JOB,
+  job
+})
+
+const gotSingleJob = job => ({
+  type: GOT_SINGLE_JOB,
   job
 })
 
@@ -43,10 +49,20 @@ export const addJob = job => async dispatch => {
 
 export const updateJob = job => async dispatch => {
   try {
-    const response = await axios.put(`/api/jobs/${job._id}`)
+    const response = await axios.put(`/api/jobs/${job._id}`, job)
+    console.log('response.data', response.data)
     dispatch(updatedJob(response.data))
   } catch (error) {
     console.error('Error updating a job', error)
+  }
+}
+
+export const getSingleJob = id => async dispatch => {
+  try {
+    const response = await axios.get(`/api/jobs/${id}`)
+    dispatch(gotSingleJob(response.data))
+  } catch (error) {
+    console.error('Error getting single job', error)
   }
 }
 
@@ -70,6 +86,8 @@ export const jobs = (state = [], action) => {
 export const job = (state = {}, action) => {
   switch (action.type) {
     case UPDATED_JOB:
+      return action.job
+    case GOT_SINGLE_JOB:
       return action.job
     default:
       return state
