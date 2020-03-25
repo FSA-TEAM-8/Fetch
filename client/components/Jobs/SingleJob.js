@@ -3,6 +3,7 @@ import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {getSingleJob} from '../../store/job'
 import UpdateJob from './UpdateJob'
 import SaveJob from './SaveJob'
+import ApplyJob from './ApplyJob'
 
 const SingleJob = props => {
   const id = props.match.params.id
@@ -23,6 +24,7 @@ const SingleJob = props => {
       <p>Experience: {job.experienceLevel}</p>
       <p>Date Posted: {job.datePosted}</p>
       <SaveJob job={job} />
+      <ApplyJob job={job} />
     </div>
   )
 }

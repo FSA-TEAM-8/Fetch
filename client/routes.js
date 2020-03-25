@@ -15,7 +15,7 @@ import {me} from './store'
 
 import AddCompany from './components/Companies/AddCompany'
 
-import SingleJob from './components/Jobs/SingleJob'
+import {SingleJob, SavedJobs} from './components/Jobs'
 
 /**
  * COMPONENT
@@ -43,6 +43,7 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route path="/addCompany" component={AddCompany} />
+            <Route path="/savedJobs" component={SavedJobs} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

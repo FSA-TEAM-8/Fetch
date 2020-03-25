@@ -3,6 +3,9 @@ import {useDispatch, useSelector} from 'react-redux'
 import {getSingleUser} from '../../store/single-user'
 import UploadFile from './Upload'
 
+import SavedJobs from '../Jobs/SavedJobs'
+import AppliedJobs from '../Jobs/AppliedJobs'
+
 const SingleUser = props => {
   const id = props.match.params.id
   const user = useSelector(state => state.singleUser)
@@ -23,6 +26,8 @@ const SingleUser = props => {
           </div>
         </div>
       </div>
+      <SavedJobs user={user} />
+      <AppliedJobs user={user} />
     </div>
   )
 }

@@ -40,6 +40,9 @@ router.put('/:id', async (req, res, next) => {
       },
       {
         $set: req.body // fields to update
+      },
+      {
+        new: true
       }
     )
     res.json(updatedCompany)

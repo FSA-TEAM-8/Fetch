@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {addJob} from '../../store/job'
-export default function AddJob() {
+
+const AddJob = () => {
   // const [job, setJob] = useState({})
   const dispatch = useDispatch()
 
@@ -52,3 +53,5 @@ export default function AddJob() {
     </div>
   )
 }
+
+export default AddJob
