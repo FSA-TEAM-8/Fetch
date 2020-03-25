@@ -14,21 +14,20 @@ const AllJobs = () => {
     dispatch(getAllJobs())
   }, []) // pass in empty array to only run on mount and unmount, this stops infinite loops
 
+  const availibleJobs = jobs.filter(job => job.availibilty === true)
   return (
     <div>
       <AddJob />
       <div>
-        {jobs.map(job => (
+        {availibleJobs.map(job => (
           <div key={job._id}>
             <Link to={`/jobs/${job._id}`}>
               <h3>{job.title}</h3>
             </Link>
-            <p>{job.salary}</p>
-            <p>{job.description.contactEmail}</p>
-            <p>{job.description.location}</p>
-            <p>{job.description.roleType}</p>
-            <p>{job.description.experienceLevel}</p>
-            <p>{job.description.datePosted}</p>
+            <p>Estimated Salary: {job.salary}</p>
+            <p>Contact Email: {job.contactEmail}</p>
+            <p>Location: {job.location}</p>
+            <p>Date Posted: {job.datePosted}</p>
           </div>
         ))}
       </div>

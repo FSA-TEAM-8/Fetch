@@ -7,13 +7,17 @@ import {
   Signup,
   UserHome,
   AllCompanies,
+
   SingleCompany,
+
   AllUsers,
   SingleUser,
   AllJobs
 } from './components'
 import {me} from './store'
+
 import AddCompany from './components/Companies/AddCompany'
+
 import SingleJob from './components/Jobs/SingleJob'
 
 /**
@@ -35,7 +39,9 @@ class Routes extends Component {
         <Route exact path="/jobs" component={AllJobs} />
         <Route path="/jobs/:id" component={SingleJob} />
         <Route exact path="/companies" component={AllCompanies} />
+
         <Route exact path="/companies/:id" component={SingleCompany} />
+
         <Route exact path="/users" component={AllUsers} />
         <Route path="/users/:id" component={SingleUser} />
         {isLoggedIn && (

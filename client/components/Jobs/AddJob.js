@@ -13,10 +13,8 @@ export default function AddJob() {
     event.preventDefault()
     const obj = {
       title,
-      description: {
-        contactEmail,
-        location
-      }
+      contactEmail,
+      location
     }
     // setJob(obj)
     dispatch(addJob(obj))

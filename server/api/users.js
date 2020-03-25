@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
 const {validateAdmin, validateUser} = require('../middleware')
+
 module.exports = router
 
 router.get('/', validateAdmin, async (req, res, next) => {
