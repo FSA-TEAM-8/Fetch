@@ -8,6 +8,7 @@ import DownloadFile from './Download'
 const SingleUser = props => {
   const id = props.match.params.id
   const user = useSelector(state => state.singleUser)
+  console.log('RESUME', user.resume)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -19,6 +20,7 @@ const SingleUser = props => {
       <div>
         <div key={user._id}>
           <p>{user.firstName}</p>
+          <p>Here's your resume: {user.resume}</p>
           <div>
             <img src={user.imageUrl} />
             <UploadFile user={user} />

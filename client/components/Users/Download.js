@@ -10,8 +10,9 @@ const DownloadFile = props => {
       <button
         type="button"
         onClick={async () => {
-          const res = await fetch('/download')
-          const blob = await res.blob()
+          const res = await fetch('http://localhost:8080/download')
+          const blob = await res.blob(`${user.lastName}resume.pdf`)
+          console.log('THE BLOB', blob)
           download(blob, `${user.lastName}resume.pdf`)
         }}
       >
