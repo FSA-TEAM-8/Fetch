@@ -1,17 +1,17 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getJobFromIds} from '../../store/job'
+import {getAppliedJobsFromIds} from '../../store/job'
 
 const AppliedJobs = props => {
   const jobIds = props.user.jobHistory
 
-  const appliedJobs = useSelector(state => state.jobs)
+  const appliedJobs = useSelector(state => state.job.appliedJobs)
   const dispatch = useDispatch()
 
   useEffect(
     () => {
       if (jobIds) {
-        dispatch(getJobFromIds(jobIds))
+        dispatch(getAppliedJobsFromIds(jobIds))
       }
     },
     [jobIds]
@@ -20,7 +20,7 @@ const AppliedJobs = props => {
   return (
     <div>
       Applied Job History
-      {appliedJobs
+      {jobIds && jobIds.length !== 0 && appliedJobs
         ? appliedJobs.map(job => (
             <div key={job._id}>
               <div>

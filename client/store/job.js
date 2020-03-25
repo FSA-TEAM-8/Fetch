@@ -7,6 +7,8 @@ const ADDED_JOB = 'ADDED_JOB'
 const UPDATED_JOB = 'UPDATED_JOB'
 const GOT_SINGLE_JOB = 'GOT_SINGLE_JOB'
 const REMOVE_SAVED_JOB = 'REMOVED_SAVED_JOB'
+const GOT_SAVED_JOBS = 'GOT_SAVED_JOBS'
+const GOT_APPLIED_JOBS = 'GOT_APPLIED_JOBS'
 
 // action creator
 const gotAllJobs = jobs => ({
@@ -29,9 +31,19 @@ const gotSingleJob = job => ({
   job
 })
 
-export const removedSavedJob = savedJobs => ({
+const removedSavedJob = savedJobs => ({
   type: REMOVE_SAVED_JOB,
   savedJobs
+})
+
+const gotSavedJobs = savedJobs => ({
+  type: GOT_SAVED_JOBS,
+  savedJobs
+})
+
+const gotAppliedJobs = appliedJobs => ({
+  type: GOT_APPLIED_JOBS,
+  appliedJobs
 })
 
 // thunk creator
@@ -72,10 +84,19 @@ export const getSingleJob = id => async dispatch => {
   }
 }
 
-export const getJobFromIds = jobIdArr => async dispatch => {
+export const getSavedJobsFromIds = jobIdArr => async dispatch => {
   try {
     const response = await axios.put('/api/jobs', jobIdArr)
-    dispatch(gotAllJobs(response.data))
+    dispatch(gotSavedJobs(response.data))
+  } catch (error) {
+    console.error('Error getting jobs from ids', error)
+  }
+}
+
+export const getAppliedJobsFromIds = jobIdArr => async dispatch => {
+  try {
+    const response = await axios.put('/api/jobs', jobIdArr)
+    dispatch(gotAppliedJobs(response.data))
   } catch (error) {
     console.error('Error getting jobs from ids', error)
   }
@@ -115,6 +136,12 @@ export const job = (state = {}, action) => {
       return action.job
     case GOT_SINGLE_JOB:
       return action.job
+    case GOT_SAVED_JOBS:
+      return {...state, savedJobs: action.savedJobs}
+    case GOT_APPLIED_JOBS:
+      return {...state, appliedJobs: action.appliedJobs}
+    case REMOVE_SAVED_JOB:
+      return {...state, savedJobs: action.savedJobs}
     default:
       return state
   }
