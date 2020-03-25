@@ -28,7 +28,7 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, isAdmin} = this.props
 
     return (
       <Switch>
@@ -38,11 +38,7 @@ class Routes extends Component {
         <Route exact path="/jobs" component={AllJobs} />
         <Route path="/jobs/:id" component={SingleJob} />
         <Route exact path="/companies" component={AllCompanies} />
-
         <Route exact path="/companies/:id" component={SingleCompany} />
-
-        <Route exact path="/users" component={AllUsers} />
-        <Route exact path="/users/:id" component={SingleUser} />
         <Route path="/users/:id/update" component={UpdateSingleUser} />
         {isLoggedIn && (
           <Switch>
@@ -50,6 +46,12 @@ class Routes extends Component {
             <Route path="/home" component={UserHome} />
             <Route path="/addCompany" component={AddCompany} />
             <Route path="/savedJobs" component={SavedJobs} />
+            <Route exact path="/users/:id" component={SingleUser} />
+            {isAdmin && (
+              <Switch>
+                <Route exact path="/users" component={AllUsers} />>
+              </Switch>
+            )}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
@@ -66,7 +68,8 @@ const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user._id // mongo id is '_id'
+    isLoggedIn: !!state.user._id, // mongo id is '_id'
+    isAdmin: state.user.isAdmin
   }
 }
 
