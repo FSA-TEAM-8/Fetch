@@ -1,7 +1,6 @@
 import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSingleUser} from '../../store/single-user'
-import download from 'downloadjs'
 
 const DownloadFile = props => {
   const user = props.user
