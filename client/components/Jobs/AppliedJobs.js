@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getSavedJobs} from '../../store/job'
+import {getJobFromIds} from '../../store/job'
 
 const AppliedJobs = props => {
   const jobIds = props.user.jobHistory
@@ -11,7 +11,7 @@ const AppliedJobs = props => {
   useEffect(
     () => {
       if (jobIds) {
-        dispatch(getSavedJobs(jobIds))
+        dispatch(getJobFromIds(jobIds))
       }
     },
     [jobIds]
