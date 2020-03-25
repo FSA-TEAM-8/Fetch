@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {getSingleJob} from '../../store/job'
 import UpdateJob from './UpdateJob'
+
 import SaveJob from './SaveJob'
 import ApplyJob from './ApplyJob'
 
 const SingleJob = props => {
   const id = props.match.params.id
   const job = useSelector(state => state.job)
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getSingleJob(id))
@@ -25,6 +27,7 @@ const SingleJob = props => {
       <p>Date Posted: {job.datePosted}</p>
       <SaveJob job={job} />
       <ApplyJob job={job} />
+    
     </div>
   )
 }

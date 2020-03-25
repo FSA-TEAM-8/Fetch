@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from 'react-redux'
 
 class UploadFile extends React.Component {
   constructor(props) {
+    const user = props.user
+    console.log('Heres the user', user)
     super(props)
 
     this.state = {
@@ -17,7 +19,6 @@ class UploadFile extends React.Component {
 
     const data = new FormData()
     data.append('file', this.uploadInput.files[0])
-    data.append('filename', this.fileName.value)
 
     fetch('http://localhost:8080/upload', {
       method: 'POST',
@@ -40,20 +41,10 @@ class UploadFile extends React.Component {
             type="file"
           />
         </div>
-        <div>
-          <input
-            ref={ref => {
-              this.fileName = ref
-            }}
-            type="text"
-            placeholder="Enter the desired name of file"
-          />
-        </div>
         <br />
         <div>
-          <button>Upload</button>
+          <button>Upload </button>
         </div>
-        <img src={this.state.fileUrl} alt="resume" />
       </form>
     )
   }
