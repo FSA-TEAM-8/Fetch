@@ -45,6 +45,7 @@
     "compression": "^1.7.3",
     "connect-mongo": "^3.2.0",
     "cors": "^2.8.5",
+    "downloadjs": "^1.4.7",
     "express": "^4.16.4",
     "express-fileupload": "^1.1.6",
     "express-session": "^1.15.1",

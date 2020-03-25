@@ -92,18 +92,24 @@ const createApp = () => {
 
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
+  app.use(express.static(path.join(__dirname, '..', 'uploads')))
 
   app.post('/upload', (req, res, next) => {
     let newFile = req.files.file
-    console.log(newFile.name)
+    console.log(req)
 
-    newFile.mv(`./uploads/${req.body.filename}.pdf`, function(err) {
+    newFile.mv(`./uploads/${req.user.lastName}resume.pdf`, function(err) {
       if (err) {
         return res.status(500).send(err)
       }
 
       res.json({file: `./uploads/${req.body.filename}.pdf`})
     })
+  })
+
+  app.get('/download', function(req, res) {
+    const file = `/uploads/${req.user.lastName}resume.pdf`
+    res.download(file) // Set disposition and send it.
   })
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
