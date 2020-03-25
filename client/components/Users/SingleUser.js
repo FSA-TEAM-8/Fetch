@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSingleUser} from '../../store/single-user'
+
 import UploadFile from './Upload'
 
 const SingleUser = props => {

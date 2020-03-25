@@ -13,8 +13,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    let companyId = req.params.id
-    const foundCompany = await Company.find(companyId)
+    const foundCompany = await Company.findById({_id: req.params.id})
     res.json(foundCompany)
   } catch (error) {
     next(error)

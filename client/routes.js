@@ -7,6 +7,9 @@ import {
   Signup,
   UserHome,
   AllCompanies,
+
+  SingleCompany,
+
   AllUsers,
   SingleUser,
   AllJobs
@@ -36,6 +39,9 @@ class Routes extends Component {
         <Route exact path="/jobs" component={AllJobs} />
         <Route path="/jobs/:id" component={SingleJob} />
         <Route exact path="/companies" component={AllCompanies} />
+
+        <Route exact path="/companies/:id" component={SingleCompany} />
+
         <Route exact path="/users" component={AllUsers} />
         <Route path="/users/:id" component={SingleUser} />
         {isLoggedIn && (

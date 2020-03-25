@@ -46,6 +46,7 @@ passport.use(
               email: profile.emails[0].value,
               username: profile.username,
               imageUrl: profile.photos[0].value // error TypeError: Cannot read property 'value' of undefined
+
               //now in the future searching on User.findOne({'linkedInId': profile.id } will match because of this next line
             })
             user.save(function(error) {

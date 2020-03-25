@@ -2,11 +2,13 @@ import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {getSingleJob} from '../../store/job'
 import UpdateJob from './UpdateJob'
+
 import SaveJob from './SaveJob'
 
 const SingleJob = props => {
   const id = props.match.params.id
   const job = useSelector(state => state.job)
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getSingleJob(id))
@@ -23,6 +25,7 @@ const SingleJob = props => {
       <p>Experience: {job.experienceLevel}</p>
       <p>Date Posted: {job.datePosted}</p>
       <SaveJob job={job} />
+
     </div>
   )
 }
