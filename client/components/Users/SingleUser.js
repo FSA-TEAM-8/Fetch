@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSingleUser} from '../../store/single-user'
+import {Link} from 'react-router-dom'
 
 import UploadFile from './Upload'
 import DownloadFile from './Download'
@@ -23,7 +24,9 @@ const SingleUser = props => {
       <div>
         <div key={user._id}>
           <p>{user.firstName}</p>
-          <p>Here's your resume: {user.resume}</p>
+          <Link to={`/users/${id}/update`}>
+            <button>Update My Profile</button>
+          </Link>
           <div>
             <img src={user.imageUrl} />
             <UploadFile user={user} />
