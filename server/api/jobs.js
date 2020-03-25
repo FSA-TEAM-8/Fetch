@@ -53,3 +53,16 @@ router.put('/:id', async (req, res, next) => {
     next(error)
   }
 })
+
+router.put('/', async (req, res, next) => {
+  try {
+    const savedJobs = await Job.find({
+      _id: {
+        $in: req.body
+      }
+    })
+    res.json(savedJobs)
+  } catch (error) {
+    next(error)
+  }
+})

@@ -44,6 +44,9 @@ router.put('/:id', async (req, res, next) => {
       },
       {
         $set: req.body
+      },
+      {
+        new: true
       }
     )
     res.json(updatedUser)

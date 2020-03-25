@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react'
-import {useDispatch, useSelector, shallowEqual} from 'react-redux'
+import React, {useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import {me} from '../../store/user'
 import {updateSingleUser} from '../../store/single-user'
 
-const SaveJob = props => {
+const ApplyJob = props => {
   const job = props.job
   const user = useSelector(state => state.user)
+
   const dispatch = useDispatch()
 
   useEffect(
@@ -14,23 +15,22 @@ const SaveJob = props => {
     },
     [user]
   )
-
   const onClick = () => {
-    if (!user.savedJobs.filter(saveJobId => saveJobId === job._id).length) {
-      user.savedJobs.push(job)
+    console.log(job)
+    if (!user.jobHistory.includes(job._id)) {
+      user.jobHistory.push(job)
       dispatch(updateSingleUser(user._id, user))
-      console.log('saved!')
+      console.log('applied')
     }
-    console.log('clicked save job')
+    console.log('clicked apply job')
   }
-
   return (
     <div>
       <button type="submit" onClick={onClick}>
-        Save Job
+        Apply to Job
       </button>
     </div>
   )
 }
 
-export default SaveJob
+export default ApplyJob

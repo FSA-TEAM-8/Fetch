@@ -6,6 +6,7 @@ const GOT_ALL_JOBS = 'GOT_ALL_JOBS'
 const ADDED_JOB = 'ADDED_JOB'
 const UPDATED_JOB = 'UPDATED_JOB'
 const GOT_SINGLE_JOB = 'GOT_SINGLE_JOB'
+const REMOVE_SAVED_JOB = 'REMOVED_SAVED_JOB'
 
 // action creator
 const gotAllJobs = jobs => ({
@@ -26,6 +27,11 @@ const updatedJob = job => ({
 const gotSingleJob = job => ({
   type: GOT_SINGLE_JOB,
   job
+})
+
+export const removedSavedJob = savedJobs => ({
+  type: REMOVE_SAVED_JOB,
+  savedJobs
 })
 
 // thunk creator
@@ -66,6 +72,24 @@ export const getSingleJob = id => async dispatch => {
   }
 }
 
+export const getJobFromIds = jobIdArr => async dispatch => {
+  try {
+    const response = await axios.put('/api/jobs', jobIdArr)
+    dispatch(gotAllJobs(response.data))
+  } catch (error) {
+    console.error('Error getting jobs from ids', error)
+  }
+}
+
+export const removeSavedJob = (savedJobs, id) => async dispatch => {
+  try {
+    await axios.put(`/api/users/${id}`, savedJobs)
+    dispatch(removedSavedJob(savedJobs.savedJobs))
+  } catch (error) {
+    console.error('Error removing saved job', error)
+  }
+}
+
 // reducer
 export const jobs = (state = [], action) => {
   switch (action.type) {
@@ -78,6 +102,8 @@ export const jobs = (state = [], action) => {
       return state.filter(
         job => (job._id === action.job._id ? action.job : job)
       )
+    case REMOVE_SAVED_JOB:
+      return action.savedJobs
     default:
       return state
   }
