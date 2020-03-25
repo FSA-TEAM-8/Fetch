@@ -33,8 +33,8 @@ const SingleUser = props => {
           </div>
         </div>
       </div>
-      <SavedJobs user={user} />
       <AppliedJobs user={user} />
+      <SavedJobs user={user} />
     </div>
   )
 }
