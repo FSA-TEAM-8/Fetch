@@ -1,10 +1,12 @@
 // below is in server/index.js
 
 const mongoose = require('mongoose')
+require('dotenv').config()
 const {mongoURI} = require('../../secrets')
 
+const mongoAtlas = process.env.MONGO_UR
 // database config
-mongoose.connect(process.env.mongoURI || mongoURI, {
+mongoose.connect(mongoAtlas || mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false

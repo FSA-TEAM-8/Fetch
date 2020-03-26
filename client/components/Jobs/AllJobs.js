@@ -1,7 +1,6 @@
 import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAllJobs} from '../../store/job'
-import AddJob from './AddJob'
 import {Link} from 'react-router-dom'
 
 const AllJobs = () => {
@@ -17,7 +16,9 @@ const AllJobs = () => {
   const availibleJobs = jobs.filter(job => job.availibilty === true)
   return (
     <div>
-      <AddJob />
+      <Link to="/jobs/addJob">
+        <button>Add a Job Listing</button>
+      </Link>
       <div>
         {availibleJobs.map(job => (
           <div key={job._id}>
