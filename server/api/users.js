@@ -4,7 +4,7 @@ const {validateAdmin, validateUser} = require('../middleware')
 
 module.exports = router
 
-router.get('/', async (req, res, next) => {
+router.get('/', validateAdmin, async (req, res, next) => {
   try {
     const users = await User.find({
       // explicitly select only the id and email fields - even though
@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', validateUser, async (req, res, next) => {
   try {
     const singleUser = await User.findById({_id: req.params.id})
     res.json(singleUser)
