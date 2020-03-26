@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {addJob} from '../../store/job'
+import Button from '@material-ui/core/Button'
 
 const AddJob = () => {
-  // const [job, setJob] = useState({})
   const dispatch = useDispatch()
 
   const [title, setTitle] = useState('')
   const [contactEmail, setContactEmail] = useState('')
   const [location, setLocation] = useState('')
+  const [salary, setSalary] = useState('')
+  const [roleType, setRoleType] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
     const obj = {
       title,
       contactEmail,
-      location
+      location,
+      salary
     }
     // setJob(obj)
     dispatch(addJob(obj))
@@ -46,6 +49,25 @@ const AddJob = () => {
             type="text"
             value={location}
             onChange={event => setLocation(event.target.value)}
+          />
+        </label>
+        <Button type="submit" variant="contained" color="primary">
+          Add Job
+        </Button>
+        <label>
+          Salary:
+          <input
+            type="text"
+            value={salary}
+            onChange={event => setSalary(event.target.value)}
+          />
+        </label>
+        <label>
+          Position:
+          <input
+            type="text"
+            value={roleType}
+            onChange={event => setRoleType(event.target.value)}
           />
         </label>
         <button type="submit">Add Job</button>

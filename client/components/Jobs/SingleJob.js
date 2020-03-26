@@ -12,12 +12,9 @@ const SingleJob = props => {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    console.log('inside useeffet')
-    console.log(id)
     dispatch(getSingleJob(id))
   }, [])
 
-  console.log('job', job)
   return (
     <div>
       <UpdateJob />

@@ -6,7 +6,7 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn, user}) => (
   <div>
-    <h1>Welcome to fetch()!</h1>
+    <img src="img/logo2.png" className="logo" />
     <nav>
       {isLoggedIn ? (
         <div>
