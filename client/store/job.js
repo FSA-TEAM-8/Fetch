@@ -66,9 +66,10 @@ export const addJob = job => async dispatch => {
 }
 
 export const updateJob = job => async dispatch => {
+  console.log('update thunk', job)
   try {
     const response = await axios.put(`/api/jobs/${job._id}`, job)
-    console.log('response.data', response.data)
+    console.log('response.data job update', response.data)
     dispatch(updatedJob(response.data))
   } catch (error) {
     console.error('Error updating a job', error)
@@ -89,7 +90,7 @@ export const getSavedJobsFromIds = jobIdArr => async dispatch => {
     const response = await axios.put('/api/jobs', jobIdArr)
     dispatch(gotSavedJobs(response.data))
   } catch (error) {
-    console.error('Error getting jobs from ids', error)
+    console.error('Error getting saved jobs from ids', error)
   }
 }
 
@@ -98,7 +99,7 @@ export const getAppliedJobsFromIds = jobIdArr => async dispatch => {
     const response = await axios.put('/api/jobs', jobIdArr)
     dispatch(gotAppliedJobs(response.data))
   } catch (error) {
-    console.error('Error getting jobs from ids', error)
+    console.error('Error getting applied jobs from ids', error)
   }
 }
 

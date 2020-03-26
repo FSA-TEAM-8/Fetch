@@ -50,6 +50,7 @@ class Routes extends Component {
             <Route path="/home" component={UserHome} />
             <Route path="/addCompany" component={AddCompany} />
             <Route path="/savedJobs" component={SavedJobs} />
+            <Route exact path="/users" component={AllUsers} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
