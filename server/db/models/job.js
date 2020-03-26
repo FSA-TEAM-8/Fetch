@@ -38,7 +38,13 @@ const jobSchema = new Schema({
   },
   experienceLevel: {
     type: String
-  }
+  },
+  appliedCandidates: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ]
 })
 
 const Job = mongoose.model('Job', jobSchema)

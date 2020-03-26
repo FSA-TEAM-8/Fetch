@@ -50,8 +50,8 @@ async function seed() {
   const yellow = await User.create({
     email: 'yellow@email.com',
     password: '123',
-    firstName: 'Yel',
-    lastName: 'Low',
+    firstName: 'Yellow',
+    lastName: 'Wolley',
     biography: 'shiny employee',
     streetNumber: 123,
     streetName: 'Yellow Street',
@@ -81,8 +81,8 @@ async function seed() {
   const purple = await User.create({
     email: 'Purple@email.com',
     password: '123',
-    firstName: 'Purp',
-    lastName: 'le',
+    firstName: 'Purple',
+    lastName: 'Elprup',
     biography: 'grape employee',
     streetNumber: 123,
     streetName: 'Purple Street',
@@ -99,7 +99,7 @@ async function seed() {
     size: 'Large organization',
     description: 'Bank',
     category: 'Financial technology',
-    reviews: 'very good company',
+    reviews: 'top banking company',
     imageUrl: '',
     employees: [],
     jobPostedHistory: []
@@ -155,7 +155,7 @@ async function seed() {
 
   // Jobs
   const bofaFrontEnd = await Job.create({
-    title: 'Front-End Developer',
+    title: 'Bofa Front-End Developer',
     salary: 90000,
     contactEmail: 'apply@bofa.com',
     location: 'New York',
@@ -164,7 +164,7 @@ async function seed() {
   })
 
   const jpmorganBackEnd = await Job.create({
-    title: 'Back-End Developer',
+    title: 'Chase Back-End Developer',
     salary: 101000,
     contactEmail: 'apply@jpmorgan.com',
     location: 'New York',

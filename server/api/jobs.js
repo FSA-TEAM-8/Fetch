@@ -47,7 +47,7 @@ router.put('/:id', async (req, res, next) => {
         new: true // need to pass this as argu to return updated document
       }
     )
-    console.log('updatedJob', updatedJob)
+    console.log('updatedJob in server', updatedJob)
     res.json(updatedJob)
   } catch (error) {
     next(error)

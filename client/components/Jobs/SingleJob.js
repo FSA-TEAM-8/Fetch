@@ -12,9 +12,12 @@ const SingleJob = props => {
 
   const dispatch = useDispatch()
   useEffect(() => {
+    console.log('inside useeffet')
+    console.log(id)
     dispatch(getSingleJob(id))
   }, [])
 
+  console.log('job', job)
   return (
     <div>
       <UpdateJob />
@@ -27,7 +30,6 @@ const SingleJob = props => {
       <p>Date Posted: {job.datePosted}</p>
       <SaveJob job={job} />
       <ApplyJob job={job} />
-    
     </div>
   )
 }
