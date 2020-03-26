@@ -27,7 +27,6 @@ const SingleJob = props => {
       <p>Date Posted: {job.datePosted}</p>
       <SaveJob job={job} />
       <ApplyJob job={job} />
-    
     </div>
   )
 }

@@ -17,11 +17,12 @@ const SaveJob = props => {
 
   const onClick = () => {
     if (!user.savedJobs.filter(saveJobId => saveJobId === job._id).length) {
-      user.savedJobs.push(job)
-      dispatch(updateSingleUser(user._id, user))
+      user.savedJobs.push(job._id)
+      dispatch(updateSingleUser(user))
       console.log('saved!')
+    } else {
+      console.log('clicked save job but nothing happened')
     }
-    console.log('clicked save job')
   }
 
   return (

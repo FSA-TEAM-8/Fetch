@@ -7,18 +7,19 @@ import {
   Signup,
   UserHome,
   AllCompanies,
-
   SingleCompany,
-
   AllUsers,
   SingleUser,
+  UpdateSingleUser,
   AllJobs
 } from './components'
 import {me} from './store'
 
 import AddCompany from './components/Companies/AddCompany'
-
-import {SingleJob, SavedJobs} from './components/Jobs'
+import SingleJob from './components/Jobs/SingleJob'
+import UpdateJob from './components/Jobs/UpdateJob'
+import AddJob from './components/Jobs/AddJob'
+import SavedJobs from './components/Jobs/SavedJobs'
 
 /**
  * COMPONENT
@@ -29,27 +30,35 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, isAdmin, isEmployer} = this.props
 
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route exact path="/jobs" component={AllJobs} />
+        <Route path="/jobs/addJob" component={AddJob} />
         <Route path="/jobs/:id" component={SingleJob} />
-        <Route exact path="/companies" component={AllCompanies} />
-
-        <Route exact path="/companies/:id" component={SingleCompany} />
-
-        <Route exact path="/users" component={AllUsers} />
-        <Route path="/users/:id" component={SingleUser} />
+        <Route path="/jobs" component={AllJobs} />
+        <Route path="/companies/:id" component={SingleCompany} />
+        <Route path="/companies" component={AllCompanies} />
+        <Route path="/users/:id/update" component={UpdateSingleUser} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
             <Route path="/addCompany" component={AddCompany} />
-            <Route path="/savedJobs" component={SavedJobs} />
+            <Route path="/users/:id/savedJobs" component={SavedJobs} />
+            <Route path="/users/:id" component={SingleUser} />
+            <Route path="/jobs/:id" component={SingleJob} />
+            <Route path="/jobs/addJob" component={AddJob} />
+            <Route path="/home" component={UserHome} />
+            {isEmployer && (
+              <Switch>
+                <Route path="/jobs/:id" component={SingleJob} />
+                <Route path="/jobs/addJob" component={AddJob} />
+              </Switch>
+            )}
+            {isAdmin && <Route path="/users" component={AllUsers} />}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
@@ -66,7 +75,8 @@ const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user._id // mongo id is '_id'
+    isLoggedIn: !!state.user._id, // mongo id is '_id'
+    isAdmin: state.user.isAdmin
   }
 }
 
