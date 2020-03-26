@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {addJob} from '../../store/job'
+import Button from '@material-ui/core/Button'
 
 const AddJob = () => {
   const dispatch = useDispatch()
@@ -50,6 +51,9 @@ const AddJob = () => {
             onChange={event => setLocation(event.target.value)}
           />
         </label>
+        <Button type="submit" variant="contained" color="primary">
+          Add Job
+        </Button>
         <label>
           Salary:
           <input

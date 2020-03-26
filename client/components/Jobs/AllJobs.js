@@ -2,6 +2,7 @@ import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAllJobs} from '../../store/job'
 import {Link} from 'react-router-dom'
+import Grid from '@material-ui/core/Grid'
 
 const AllJobs = () => {
   const jobs = useSelector(state => state.jobs) // ~ replaces MSTP
@@ -21,11 +22,11 @@ const AllJobs = () => {
       </Link>
       <div>
         {availibleJobs.map(job => (
-          <div key={job._id}>
+          <div className="allJobs" key={job._id}>
             <Link to={`/jobs/${job._id}`}>
               <h3>{job.title}</h3>
             </Link>
-            <p>Estimated Salary: {job.salary}</p>
+            <p>Estimated Salary: ${job.salary}</p>
             <p>Contact Email: {job.contactEmail}</p>
             <p>Location: {job.location}</p>
             <p>Date Posted: {job.datePosted}</p>
