@@ -17,6 +17,7 @@ const socketio = require('socket.io')
 module.exports = app
 
 const {User} = require('./db/models')
+const dotenv = require('dotenv').config()
 const db = require('../server/db')
 
 // setting up session for mongoDb
