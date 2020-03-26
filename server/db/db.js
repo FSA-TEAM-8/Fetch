@@ -7,7 +7,9 @@ require('dotenv').config()
 const mongoURI = process.env.mongoURI
 // console.log('MongoURI', mongoURI)
 
+const mongoAtlas = process.env.MONGO_UR
 // database config
+
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
