@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const {mongoURI} = require('../../secrets')
 
 // database config
-mongoose.connect(mongoURI, {
+mongoose.connect(process.env.mongoURI || mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
