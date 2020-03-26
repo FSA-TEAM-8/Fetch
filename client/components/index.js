@@ -8,7 +8,7 @@ export {default as UserHome} from './user-home'
 export {default as AllCompanies} from './Companies/AllCompanies'
 
 export {default as SingleCompany} from './Companies/SingleCompany'
-
+export {default as TabPanel} from './TabPanel'
 export {default as AllUsers} from './Users/AllUsers'
 export {default as AllJobs} from './Jobs/AllJobs'
 export {default as SingleUser} from './Users/SingleUser'
