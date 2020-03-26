@@ -10,12 +10,47 @@ label {
   display: block;
 }
 
+nav {
+  background-color: rgb(40, 129, 208);
+}
+
 nav a {
   display: inline-block;
   margin: 1em;
+  color: white;
 }
 
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+input {
+  border-radius: 5px;
+  border: 2px solid #3f50b5;
+  min-height: 25px;
+}
+
+.logo {
+  max-width: 250px;
+}
+
+.allJobs {
+  margin-left: 15%;
+  border: 1px gray solid;
+  padding: 10px;
+  padding-top: 5px;
+  max-width: 30%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.allJobs h3 {
+  background-color: #3f51b5;
+  color: white;
+  /* border-top-right-radius: 6px;
+  border-top-left-radius: 6px; */
+  min-height: 30px;
+  text-align: center;
+  text-shadow: gray;
 }

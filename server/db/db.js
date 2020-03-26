@@ -8,6 +8,7 @@ const mongoURI = process.env.mongoURI
 // console.log('MongoURI', mongoURI)
 
 // database config
+
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
