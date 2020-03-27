@@ -41,19 +41,15 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/jobs/:id" component={SingleJob} />
         <Route path="/jobs" component={AllJobs} />
-        <Route path="/companies/:id" component={SingleCompany} />
-        <Route path="/companies" component={AllCompanies} />
+        <Route exact path="/companies/:id" component={SingleCompany} />
+        <Route exact path="/companies" component={AllCompanies} />
         <Route exact path="/">
-          <Redirect to="login" />
+          <Redirect to="/home" />
         </Route>
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
 
-            <Route
-              path="/companies/:id/updateCompany"
-              component={UpdateCompany}
-            />
             <Route path="/companies/:id" component={SingleCompany} />
             <Route path="/companies" component={AllCompanies} />
             <Route path="/addCompany" component={AddCompany} />
@@ -65,6 +61,9 @@ class Routes extends Component {
             <Route path="/myprofile/:id/update" component={UpdateSingleUser} />
             <Route path="/myprofile/:id" component={SingleUser} />
 
+            <Route exact path="/companies/:id" component={SingleCompany} />
+            <Route exact path="/companies" component={AllCompanies} />
+
             <Route path="/jobs/:id" component={SingleJob} />
             <Route path="/home" component={UserHome} />
             {isEmployer && (
@@ -72,7 +71,16 @@ class Routes extends Component {
                 {/* Routes placed here are only available after logging in and isEmployer is True */}
                 <Route path="/addJob" component={AddJob} />
                 <Route path="/jobs/:id" component={SingleJob} />
+                <Route path="/addJob" component={AddJob} />
                 <Route path="/addCompany" component={AddCompany} />
+                <Route
+                  path="/companies/:id/updateCompany"
+                  component={UpdateCompany}
+                />
+
+                {/* <Route path="/companies/:id" component={SingleCompany} />
+                <Route path="/companies" component={AllCompanies} /> */}
+
                 <Route path="/candidates/:id" component={SingleUser} />
                 <Route path="/candidates" component={AllCandidates} />
                 {isAdmin && (
