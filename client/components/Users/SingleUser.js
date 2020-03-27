@@ -27,10 +27,9 @@ const SingleUser = props => {
             <Button variant="contained" color="primary">
               Update My Profile
             </Button>
-
+          </Link>
           <Link to={`/myprofile/${id}/update`}>
             <button>Update My Profile</button>
-
           </Link>
           <div>
             <img src={user.imageUrl} />
