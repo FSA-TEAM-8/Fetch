@@ -54,7 +54,7 @@ const UpdateSingleUser = () => {
           />
         </label>
         <Button type="submit" variant="contained" color="primary">
-          Update Job
+          Update This Profile
         </Button>
       </form>
       <UploadFile user={user} />
