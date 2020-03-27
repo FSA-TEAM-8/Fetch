@@ -49,7 +49,6 @@ router.put('/:id', async (req, res, next) => {
         new: true
       }
     )
-    console.log('UPDATEDUSER', updatedUser)
     res.json(updatedUser)
   } catch (error) {
     next(error)

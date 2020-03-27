@@ -25,8 +25,10 @@ const SingleJob = props => {
       <p>Position: {job.roleType}</p>
       <p>Experience: {job.experienceLevel}</p>
       <p>Date Posted: {job.datePosted}</p>
-      <SaveJob job={job} />
-      <ApplyJob job={job} />
+      <div className="inlineComponents">
+        <SaveJob job={job} />
+        <ApplyJob job={job} />
+      </div>
     </div>
   )
 }
