@@ -68,14 +68,15 @@ class Routes extends Component {
                   component={UpdateCompany}
                 />
 
-                {/* <Route path="/companies/:id" component={SingleCompany} />
-                <Route path="/companies" component={AllCompanies} /> */}
-
                 <Route path="/candidates/:id" component={SingleUser} />
                 <Route path="/candidates" component={AllCandidates} />
                 {isAdmin && (
                   <Switch>
                     {/* Routes placed here are only available after logging in and isEmployer, isAdmin is True */}
+                    <Route
+                      path="/users/:id/update"
+                      component={UpdateSingleUser}
+                    />
                     <Route path="/users/employers" component={AllEmployers} />
                     <Route path="/users/:id" component={SingleUser} />
                     <Route path="/users" component={AllUsers} />

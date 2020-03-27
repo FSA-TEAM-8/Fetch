@@ -97,6 +97,7 @@ const createApp = () => {
   app.post('/upload', (req, res, next) => {
     let newFile = req.files.file
     console.log(req)
+    console.log('Received file!')
 
     newFile.mv(`./server/uploads/${req.user.lastName}resume.pdf`, function(
       err
