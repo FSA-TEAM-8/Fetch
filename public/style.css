@@ -54,3 +54,8 @@ input {
   text-align: center;
   text-shadow: gray;
 }
+
+.inlineComponents {
+  display: flex;
+  flex-direction: row;
+}

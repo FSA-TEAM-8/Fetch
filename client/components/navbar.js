@@ -16,18 +16,19 @@ const Navbar = ({handleClick, isLoggedIn, user}) => (
             Logout
           </a>
           <Link to="/jobs">Jobs</Link>
-          <Link to="/users">Users</Link>
           <Link to="/companies">Companies</Link>
-          <Link to={`/users/${user._id}`}>My Profile</Link>
-          <Link to="/addCompany">Add Company</Link>
+          <Link to={`/myprofile/${user._id}`}>My Profile</Link>
           {user !== undefined && user.isAdmin ? (
             <div>
-              <Link to="/users">All Users</Link>
+              <Link to="/users/employers">All Registered Employers</Link>
+              <Link to="/users">All Registered Users</Link>
             </div>
           ) : null}
           {user !== undefined && user.isEmployer ? (
             <div>
-              <Link to="/jobs">Browse Jobseekers</Link>
+              <Link to="/candidates">Browse Jobseekers</Link>
+              <Link to="/addCompany">Add Company</Link>
+              <Link to="/jobs/addJob">Add a New Job</Link>
             </div>
           ) : null}
         </div>

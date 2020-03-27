@@ -53,6 +53,10 @@ const userSchema = new Schema({
     type: Boolean,
     default: false
   },
+  isCandidate: {
+    type: Boolean,
+    default: false
+  },
   company: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Company'

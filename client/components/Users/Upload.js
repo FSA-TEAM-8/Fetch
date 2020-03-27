@@ -2,6 +2,8 @@ import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import Button from '@material-ui/core/Button'
 
+const Swal = require('sweetalert2')
+
 class UploadFile extends React.Component {
   constructor(props) {
     const user = props.user
@@ -29,6 +31,27 @@ class UploadFile extends React.Component {
         this.setState({fileUrl: `http://localhost:8080/${body.file}`})
       })
     })
+
+    // const { value: file } = await Swal.fire({
+    //   title: 'Select image',
+    //   input: 'file',
+    //   inputAttributes: {
+    //     'accept': 'image/*',
+    //     'aria-label': 'Upload your profile picture'
+    //   }
+    // })
+
+    // if (file) {
+    //   const reader = new FileReader()
+    //   reader.onload = (e) => {
+    //     Swal.fire({
+    //       title: 'Your uploaded picture',
+    //       imageUrl: e.target.result,
+    //       imageAlt: 'The uploaded picture'
+    //     })
+    //   }
+    //   reader.readAsDataURL(file)
+    // }
   }
 
   render() {

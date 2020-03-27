@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
 const AllJobs = () => {
+  const user = useSelector(state => state.user)
   const jobs = useSelector(state => state.jobs) // ~ replaces MSTP
   const dispatch = useDispatch() // ~ replaces MDTP
 
@@ -15,16 +16,18 @@ const AllJobs = () => {
     dispatch(getAllJobs())
   }, []) // pass in empty array to only run on mount and unmount, this stops infinite loops
 
-  const availibleJobs = jobs.filter(job => job.availibilty === true)
+  const availableJobs = jobs.filter(job => job.availibilty === true)
   return (
     <div>
+     {user.isEmployer && (
       <Link to="/jobs/addJob">
         <Button variant="contained" color="primary">
           Add a Job Listing
         </Button>
       </Link>
+     )}
       <div>
-        {availibleJobs.map(job => (
+        {availableJobs.map(job => (
           <div className="allJobs" key={job._id}>
             <Link to={`/jobs/${job._id}`}>
               <h3>{job.title}</h3>

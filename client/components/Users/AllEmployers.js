@@ -1,14 +1,14 @@
 import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {getAllUsers} from '../../store/users'
+import {getAllEmployers} from '../../store/users'
 import {Link} from 'react-router-dom'
 
-const AllUsers = () => {
-  const users = useSelector(state => state.users)
+const AllEmployers = () => {
+  const users = useSelector(state => state.employers)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllUsers())
+    dispatch(getAllEmployers())
   }, [])
 
   return (
@@ -18,7 +18,8 @@ const AllUsers = () => {
           <div>
             <p>{`${user.firstName} ${user.lastName}`}</p>
             <p>{user.email}</p>
-            <p>Is this user an employer?: {String(user.isEmployer)}</p>
+            <p>{user.company}</p>
+            <p>{typeof user._id}</p>
           </div>
         </Link>
       ))}
@@ -26,4 +27,4 @@ const AllUsers = () => {
   )
 }
 
-export default AllUsers
+export default AllEmployers

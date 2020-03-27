@@ -11,7 +11,6 @@ import Button from '@material-ui/core/Button'
 const SingleUser = props => {
   const id = props.match.params.id
   const user = useSelector(state => state.singleUser)
-  console.log('RESUME', user.resume)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,10 +22,15 @@ const SingleUser = props => {
       <div>
         <div key={user._id}>
           <p>{user.firstName}</p>
+
           <Link to={`/users/${id}/update`}>
             <Button variant="contained" color="primary">
               Update My Profile
             </Button>
+
+          <Link to={`/myprofile/${id}/update`}>
+            <button>Update My Profile</button>
+
           </Link>
           <div>
             <img src={user.imageUrl} />
