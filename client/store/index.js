@@ -4,7 +4,7 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 import user from './user'
-import {users, employers} from './users'
+import {users, employers, candidates} from './users'
 import singleUser from './single-user'
 import {job, jobs} from './job'
 import {companies, company} from './company'
@@ -13,6 +13,7 @@ const reducer = combineReducers({
   user,
   users,
   employers,
+  candidates,
   singleUser,
   job,
   jobs,

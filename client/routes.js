@@ -10,6 +10,7 @@ import {
   SingleCompany,
   AllUsers,
   AllEmployers,
+  AllCandidates,
   SingleUser,
   UpdateSingleUser,
   AllJobs
@@ -56,6 +57,8 @@ class Routes extends Component {
                 <Route path="/jobs/:id" component={SingleJob} />
                 <Route path="/jobs/addJob" component={AddJob} />
                 <Route path="/addCompany" component={AddCompany} />
+                <Route path="/candidates/:id" component={SingleUser} />
+                <Route path="/candidates" component={AllCandidates} />
                 {isAdmin && (
                   <Switch>
                     {/* Routes placed here are only available after logging in and isEmployer, isAdmin is True */}

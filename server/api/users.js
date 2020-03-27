@@ -19,6 +19,21 @@ router.get('/employers', async (req, res, next) => {
   }
 })
 
+router.get('/candidates', async (req, res, next) => {
+  try {
+    const employers = await User.find({
+      isCandidate: true
+      // explicitly select only the id and email fields - even though
+      // users' passwords are encrypted, it won't help if we just
+      // send everything to anyone who asks!
+      // attributes: ['id', 'email']
+    })
+    res.json(employers)
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.get('/', validateAdmin, async (req, res, next) => {
   try {
     const users = await User.find({

@@ -59,6 +59,7 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11101',
     imageUrl: '',
+    isCandidate: true,
     jobHistory: []
   })
 
@@ -90,6 +91,7 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11101',
     imageUrl: '',
+    isCandidate: true,
     jobHistory: []
   })
 
@@ -250,6 +252,7 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11209',
     imageUrl: '',
+    isCandidate: true,
     jobHistory: []
   })
 
@@ -265,6 +268,7 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11209',
     imageUrl: '',
+    isCandidate: true,
     jobHistory: []
   })
 
@@ -280,6 +284,7 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11209',
     imageUrl: '',
+    isCandidate: true,
     jobHistory: []
   })
 
@@ -392,6 +397,7 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11004',
     imageUrl: '',
+    isCandidate: true,
     jobHistory: []
   })
 
@@ -407,6 +413,7 @@ async function seed() {
     stateName: 'PA',
     zipCode: '53202',
     imageUrl: '',
+    isCandidate: true,
     jobHistory: []
   })
 

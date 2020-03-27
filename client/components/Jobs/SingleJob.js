@@ -7,6 +7,7 @@ import SaveJob from './SaveJob'
 import ApplyJob from './ApplyJob'
 
 const SingleJob = props => {
+  const user = useSelector(state => state.user)
   const id = props.match.params.id
   const job = useSelector(state => state.job)
 
@@ -17,7 +18,7 @@ const SingleJob = props => {
 
   return (
     <div>
-      <UpdateJob />
+      {user.isEmployer && <UpdateJob />}
       <h3>{job.title}</h3>
       <p>Estimated Salary: {job.salary}</p>
       <p>Contact Email: {job.contactEmail}</p>

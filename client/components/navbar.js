@@ -26,7 +26,7 @@ const Navbar = ({handleClick, isLoggedIn, user}) => (
           ) : null}
           {user !== undefined && user.isEmployer ? (
             <div>
-              <Link to="/jobs">Browse Jobseekers</Link>
+              <Link to="/candidates">Browse Jobseekers</Link>
               <Link to="/addCompany">Add Company</Link>
               <Link to="/jobs/addJob">Add a New Job</Link>
             </div>
