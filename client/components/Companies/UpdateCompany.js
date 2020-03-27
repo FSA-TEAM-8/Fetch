@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateCompany} from '../../store/company'
-import {useParams} from 'react-router'
 import Button from '@material-ui/core/Button'
 
 const UpdateCompany = () => {

@@ -19,13 +19,13 @@ const AllJobs = () => {
   const availableJobs = jobs.filter(job => job.availibilty === true)
   return (
     <div>
-     {user.isEmployer && (
-      <Link to="/jobs/addJob">
+      {/* {user.isEmployer && (
+      <Link to="/addJob">
         <Button variant="contained" color="primary">
           Add a Job Listing
         </Button>
       </Link>
-     )}
+     )} */}
       <div>
         {availableJobs.map(job => (
           <div className="allJobs" key={job._id}>

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateJob} from '../../store/job'
-import {useParams} from 'react-router'
 import Button from '@material-ui/core/Button'
 
 const UpdateJob = () => {

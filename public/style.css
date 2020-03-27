@@ -10,15 +10,15 @@ label {
   display: block;
 }
 
-nav {
+/* nav {
   background-color: rgb(40, 129, 208);
-}
+} */
 
-nav a {
+/* nav a {
   display: inline-block;
   margin: 1em;
   color: white;
-}
+} */
 
 form div {
   margin: 1em;

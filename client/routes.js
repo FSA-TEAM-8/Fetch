@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {withRouter, Route, Switch} from 'react-router-dom'
+import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
   Login,
@@ -13,14 +13,13 @@ import {
   AllCandidates,
   SingleUser,
   UpdateSingleUser,
-  AllJobs,
   UpdateCompany
 } from './components'
 import {me} from './store'
 
 import AddCompany from './components/Companies/AddCompany'
+import AllJobs from './components/Jobs/AllJobs'
 import SingleJob from './components/Jobs/SingleJob'
-import UpdateJob from './components/Jobs/UpdateJob'
 import AddJob from './components/Jobs/AddJob'
 import SavedJobs from './components/Jobs/SavedJobs'
 
@@ -44,6 +43,9 @@ class Routes extends Component {
         <Route path="/jobs" component={AllJobs} />
         <Route path="/companies/:id" component={SingleCompany} />
         <Route path="/companies" component={AllCompanies} />
+        <Route exact path="/">
+          <Redirect to="login" />
+        </Route>
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -55,6 +57,7 @@ class Routes extends Component {
             <Route path="/companies/:id" component={SingleCompany} />
             <Route path="/companies" component={AllCompanies} />
             <Route path="/addCompany" component={AddCompany} />
+
             <Route path="/users/:id/savedJobs" component={SavedJobs} />
             <Route path="/users/:id" component={SingleUser} />
 
@@ -67,8 +70,8 @@ class Routes extends Component {
             {isEmployer && (
               <Switch>
                 {/* Routes placed here are only available after logging in and isEmployer is True */}
+                <Route path="/addJob" component={AddJob} />
                 <Route path="/jobs/:id" component={SingleJob} />
-                <Route path="/jobs/addJob" component={AddJob} />
                 <Route path="/addCompany" component={AddCompany} />
                 <Route path="/candidates/:id" component={SingleUser} />
                 <Route path="/candidates" component={AllCandidates} />
