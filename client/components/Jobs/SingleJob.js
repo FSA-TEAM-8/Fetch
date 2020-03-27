@@ -8,8 +8,10 @@ import ApplyJob from './ApplyJob'
 
 const SingleJob = props => {
   const user = useSelector(state => state.user)
+  console.log('USER ID', user._id)
   const id = props.match.params.id
   const job = useSelector(state => state.job)
+  console.log('JOB AUTHOR', job.author)
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -18,7 +20,7 @@ const SingleJob = props => {
 
   return (
     <div>
-      {user.isEmployer && <UpdateJob />}
+      {(user._id === job.author || user.isAdmin) && <UpdateJob />}
       <h3>{job.title}</h3>
       <p>Estimated Salary: {job.salary}</p>
       <p>Contact Email: {job.contactEmail}</p>

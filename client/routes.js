@@ -42,25 +42,17 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/jobs/:id" component={SingleJob} />
         <Route path="/jobs" component={AllJobs} />
-        <Route path="/companies/:id" component={SingleCompany} />
-        <Route path="/companies" component={AllCompanies} />
+        <Route exact path="/companies/:id" component={SingleCompany} />
+        <Route exact path="/companies" component={AllCompanies} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-
-            <Route
-              path="/companies/:id/updateCompany"
-              component={UpdateCompany}
-            />
-            <Route path="/companies/:id" component={SingleCompany} />
-            <Route path="/companies" component={AllCompanies} />
-            <Route path="/addCompany" component={AddCompany} />
-            <Route path="/users/:id/savedJobs" component={SavedJobs} />
-            <Route path="/users/:id" component={SingleUser} />
-
             <Route path="/myprofile/:id/savedJobs" component={SavedJobs} />
             <Route path="/myprofile/:id/update" component={UpdateSingleUser} />
             <Route path="/myprofile/:id" component={SingleUser} />
+
+            <Route exact path="/companies/:id" component={SingleCompany} />
+            <Route exact path="/companies" component={AllCompanies} />
 
             <Route path="/jobs/:id" component={SingleJob} />
             <Route path="/home" component={UserHome} />
@@ -69,7 +61,16 @@ class Routes extends Component {
                 {/* Routes placed here are only available after logging in and isEmployer is True */}
                 <Route path="/jobs/:id" component={SingleJob} />
                 <Route path="/jobs/addJob" component={AddJob} />
+
                 <Route path="/addCompany" component={AddCompany} />
+                <Route
+                  path="/companies/:id/updateCompany"
+                  component={UpdateCompany}
+                />
+
+                {/* <Route path="/companies/:id" component={SingleCompany} />
+                <Route path="/companies" component={AllCompanies} /> */}
+
                 <Route path="/candidates/:id" component={SingleUser} />
                 <Route path="/candidates" component={AllCandidates} />
                 {isAdmin && (

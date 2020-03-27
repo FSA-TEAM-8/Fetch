@@ -4,8 +4,10 @@ import {getSingleCompany} from '../../store/company'
 import UpdateCompany from './UpdateCompany'
 
 const SingleCompany = props => {
+  const user = useSelector(state => state.user)
   const id = props.match.params.id
-  const company = useSelector(state => state.company, shallowEqual)
+
+  const company = useSelector(state => state.company)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getSingleCompany(id))
@@ -13,11 +15,11 @@ const SingleCompany = props => {
   console.log('SINGLE COMPANY', company)
   return (
     <div>
-      <h3>Company Name: {company.companyName}</h3>
+      <h3>
+        Company Name (And still single company page): {company.companyName}
+      </h3>
       <p />
-      <div>
-        <UpdateCompany />
-      </div>
+      <div>{(user.company === id || user.isAdmin) && <UpdateCompany />}</div>
     </div>
   )
 }
