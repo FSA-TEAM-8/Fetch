@@ -1,24 +1,24 @@
 import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {getAllUsers} from '../../store/users'
+import {getAllCandidates} from '../../store/users'
 import {Link} from 'react-router-dom'
 
-const AllUsers = () => {
-  const users = useSelector(state => state.users)
+const AllCandidates = () => {
+  const users = useSelector(state => state.candidates)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllUsers())
+    dispatch(getAllCandidates())
   }, [])
 
   return (
     <div>
       {users.map(user => (
-        <Link to={`/users/${user._id}`} key={user._id}>
+        <Link to={`/candidates/${user._id}`} key={user._id}>
           <div>
             <p>{`${user.firstName} ${user.lastName}`}</p>
             <p>{user.email}</p>
-            <p>Is this user an employer?: {String(user.isEmployer)}</p>
+            <p>Is this user a jobseeker?: {String(user.isCandidate)}</p>
           </div>
         </Link>
       ))}
@@ -26,4 +26,4 @@ const AllUsers = () => {
   )
 }
 
-export default AllUsers
+export default AllCandidates
