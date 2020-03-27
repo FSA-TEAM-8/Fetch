@@ -2,13 +2,15 @@ import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSingleUser} from '../../store/single-user'
 import download from 'downloadjs'
+import Button from '@material-ui/core/Button'
 
 const DownloadFile = props => {
   const user = props.user
   return (
     <div>
-      <button
-        type="button"
+      <Button
+        variant="contained"
+        color="primary"
         onClick={async () => {
           const res = await fetch('http://localhost:8080/download')
           const blob = await res.blob(`${user.lastName}resume.pdf`)
@@ -17,7 +19,7 @@ const DownloadFile = props => {
         }}
       >
         Download
-      </button>
+      </Button>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {me} from '../../store/user'
 import {updateSingleUser} from '../../store/single-user'
+import Button from '@material-ui/core/Button'
 
 const SaveJob = props => {
   const job = props.job
@@ -27,9 +28,14 @@ const SaveJob = props => {
 
   return (
     <div>
-      <button type="submit" onClick={onClick}>
+      <Button
+        type="submit"
+        onClick={onClick}
+        variant="contained"
+        color="primary"
+      >
         Save Job
-      </button>
+      </Button>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {getAllJobs} from '../../store/job'
 import {Link} from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 
 const AllJobs = () => {
   const jobs = useSelector(state => state.jobs) // ~ replaces MSTP
@@ -18,7 +19,9 @@ const AllJobs = () => {
   return (
     <div>
       <Link to="/jobs/addJob">
-        <button>Add a Job Listing</button>
+        <Button variant="contained" color="primary">
+          Add a Job Listing
+        </Button>
       </Link>
       <div>
         {availibleJobs.map(job => (

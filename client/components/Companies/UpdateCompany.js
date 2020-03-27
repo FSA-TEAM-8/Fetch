@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {addCompany} from '../../store/company'
+import {updateCompany} from '../../store/company'
+import {useParams} from 'react-router'
 import Button from '@material-ui/core/Button'
 
-export default function AddCompany() {
-  // const [job, setJob] = useState({})
-  const dispatch = useDispatch()
+const UpdateCompany = () => {
+  // need to get the existing job with the _id then change the state with the code below and send the changes to the updatejob thunk
 
+  const company = useSelector(state => state.company)
+  const dispatch = useDispatch()
   const [companyName, setCompanyName] = useState('')
   const [size, setSize] = useState('')
   const [description, setDescription] = useState('')
@@ -15,18 +17,13 @@ export default function AddCompany() {
   const handleSubmit = event => {
     event.preventDefault()
     const obj = {
+      _id: company._id,
       companyName,
       size,
       description,
       category
     }
-
-    dispatch(addCompany(obj))
-
-    setCompanyName('')
-    setSize('')
-    setDescription('')
-    setCategory('')
+    dispatch(updateCompany(obj))
   }
 
   return (
@@ -65,9 +62,11 @@ export default function AddCompany() {
           />
         </label>
         <Button type="submit" variant="contained" color="primary">
-          Add Company
+          Update Company
         </Button>
       </form>
     </div>
   )
 }
+
+export default UpdateCompany

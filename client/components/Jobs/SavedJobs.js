@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSavedJobsFromIds, removeSavedJob} from '../../store/job'
+import Button from '@material-ui/core/Button'
 
 const SavedJobs = props => {
   const jobIds = props.user.savedJobs
@@ -34,9 +35,14 @@ const SavedJobs = props => {
                 <p>Location: {job.location}</p>
                 <p>Date Posted: {job.datePosted}</p>
               </div>
-              <button type="submit" onClick={() => handleClick(job._id)}>
+              <Button
+                type="submit"
+                onClick={() => handleClick(job._id)}
+                variant="contained"
+                color="primary"
+              >
                 X
-              </button>
+              </Button>
             </div>
           ))
         : null}

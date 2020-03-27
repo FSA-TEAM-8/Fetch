@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {me} from '../../store/user'
 import {updateSingleUser} from '../../store/single-user'
 import {updateJob} from '../../store/job'
+import Button from '@material-ui/core/Button'
 
 const ApplyJob = props => {
   const job = props.job
@@ -40,9 +41,14 @@ const ApplyJob = props => {
   }
   return (
     <div>
-      <button type="submit" onClick={onClick}>
+      <Button
+        type="submit"
+        onClick={onClick}
+        variant="contained"
+        color="primary"
+      >
         Apply to Job
-      </button>
+      </Button>
     </div>
   )
 }

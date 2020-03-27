@@ -51,9 +51,6 @@ const AddJob = () => {
             onChange={event => setLocation(event.target.value)}
           />
         </label>
-        <Button type="submit" variant="contained" color="primary">
-          Add Job
-        </Button>
         <label>
           Salary:
           <input
@@ -70,7 +67,9 @@ const AddJob = () => {
             onChange={event => setRoleType(event.target.value)}
           />
         </label>
-        <button type="submit">Add Job</button>
+        <Button type="submit" variant="contained" color="primary">
+          Add Job
+        </Button>
       </form>
     </div>
   )

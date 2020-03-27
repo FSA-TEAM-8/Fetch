@@ -6,7 +6,7 @@
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
 export {default as AllCompanies} from './Companies/AllCompanies'
-
+export {default as UpdateCompany} from './Companies/UpdateCompany'
 export {default as SingleCompany} from './Companies/SingleCompany'
 export {default as TabPanel} from './TabPanel'
 export {default as AllUsers} from './Users/AllUsers'
