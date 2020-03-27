@@ -2,10 +2,9 @@
 
 const mongoose = require('mongoose')
 require('dotenv').config()
-// const {mongoURI} = require('../../secrets')
-// console.log('MONGO', process.env.mongoURI)
-const mongoURI = process.env.mongoURI
-// console.log('MongoURI', mongoURI)
+const {mongoURI} = require('../../secrets')
+
+// const mongoURI = process.env.mongoURI
 
 // database config
 
