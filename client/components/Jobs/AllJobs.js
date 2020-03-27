@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {getAllJobs} from '../../store/job'
 import {Link} from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 
 const AllJobs = () => {
   const user = useSelector(state => state.user)
@@ -18,11 +19,13 @@ const AllJobs = () => {
   const availableJobs = jobs.filter(job => job.availibilty === true)
   return (
     <div>
-      {user.isEmployer && (
-        <Link to="/jobs/addJob">
-          <button>Add a Job Listing</button>
-        </Link>
-      )}
+     {user.isEmployer && (
+      <Link to="/jobs/addJob">
+        <Button variant="contained" color="primary">
+          Add a Job Listing
+        </Button>
+      </Link>
+     )}
       <div>
         {availableJobs.map(job => (
           <div className="allJobs" key={job._id}>

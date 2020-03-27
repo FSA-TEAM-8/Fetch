@@ -1,23 +1,29 @@
 import axios from 'axios'
 
 // action types
-const GET_ALL_COMPANIES = 'GET_ALL_COMPANIES'
-const ADD_COMPANY = 'ADD_COMPANY'
-const GET_SINGLE_COMPANY = 'GET_SINGLE_COMPANY'
+const GOT_ALL_COMPANIES = 'GOT_ALL_COMPANIES'
+const ADDED_COMPANY = 'ADD_COMPANY'
+const GOT_SINGLE_COMPANY = 'GOT_SINGLE_COMPANY'
+const UPDATED_COMPANY = 'UPDATED_COMPANY'
 
 // action creator
 const gotAllCompanies = companies => ({
-  type: GET_ALL_COMPANIES,
+  type: GOT_ALL_COMPANIES,
   companies
 })
 
 const addedCompany = company => ({
-  type: ADD_COMPANY,
+  type: ADDED_COMPANY,
   company
 })
 
 const gotSingleCompany = company => ({
-  type: GET_SINGLE_COMPANY,
+  type: GOT_SINGLE_COMPANY,
+  company
+})
+
+const updatedCompany = company => ({
+  type: UPDATED_COMPANY,
   company
 })
 
@@ -51,13 +57,29 @@ export const getSingleCompany = id => async dispatch => {
   }
 }
 
+export const updateCompany = company => async dispatch => {
+  console.log('update thunk', company)
+  try {
+    const response = await axios.put(`/api/companies/${company._id}`, company)
+    console.log('response.data company update', response.data)
+    dispatch(updatedCompany(response.data))
+  } catch (error) {
+    console.error('Error updating a company', error)
+  }
+}
+
 // reducer
 export const companies = (state = [], action) => {
   switch (action.type) {
-    case GET_ALL_COMPANIES:
+    case GOT_ALL_COMPANIES:
       return action.companies
-    case ADD_COMPANY:
+    case ADDED_COMPANY:
       return [...state, action.company]
+    case UPDATED_COMPANY:
+      return state.filter(
+        company =>
+          company._id === action.company._id ? action.company : company
+      )
     default:
       return state
   }
@@ -65,7 +87,7 @@ export const companies = (state = [], action) => {
 
 export const company = (state = {}, action) => {
   switch (action.type) {
-    case GET_SINGLE_COMPANY:
+    case GOT_SINGLE_COMPANY:
       return action.company
     default:
       return state

@@ -4,7 +4,10 @@ import {me} from '../../store/user'
 import {updateSingleUser} from '../../store/single-user'
 import Button from '@material-ui/core/Button'
 
+
+
 const Swal = require('sweetalert2')
+
 
 const SaveJob = props => {
   const job = props.job
@@ -46,7 +49,9 @@ const SaveJob = props => {
 
   return (
     <div>
+
       <Button type="submit" onClick={onClick} variant="contained">
+
         Save Job
       </Button>
     </div>

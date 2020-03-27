@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {updateSingleUser} from '../../store/single-user'
 import {useParams} from 'react-router'
 import UploadFile from './Upload'
+import Button from '@material-ui/core/Button'
 
 const UpdateSingleUser = () => {
   const user = useSelector(state => state.singleUser)
@@ -52,7 +53,9 @@ const UpdateSingleUser = () => {
             onChange={event => setEmail(event.target.value)}
           />
         </label>
-        <button type="submit">Update Job</button>
+        <Button type="submit" variant="contained" color="primary">
+          Update Job
+        </Button>
       </form>
       <UploadFile user={user} />
     </div>

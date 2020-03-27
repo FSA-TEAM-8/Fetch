@@ -13,7 +13,8 @@ import {
   AllCandidates,
   SingleUser,
   UpdateSingleUser,
-  AllJobs
+  AllJobs,
+  UpdateCompany
 } from './components'
 import {me} from './store'
 
@@ -46,9 +47,19 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
+
+            <Route
+              path="/companies/:id/updateCompany"
+              component={UpdateCompany}
+            />
+            <Route path="/addCompany" component={AddCompany} />
+            <Route path="/users/:id/savedJobs" component={SavedJobs} />
+            <Route path="/users/:id" component={SingleUser} />
+
             <Route path="/myprofile/:id/savedJobs" component={SavedJobs} />
             <Route path="/myprofile/:id/update" component={UpdateSingleUser} />
             <Route path="/myprofile/:id" component={SingleUser} />
+
             <Route path="/jobs/:id" component={SingleJob} />
             <Route path="/home" component={UserHome} />
             {isEmployer && (

@@ -5,7 +5,9 @@ import {updateSingleUser} from '../../store/single-user'
 import {updateJob} from '../../store/job'
 import Button from '@material-ui/core/Button'
 
+
 const Swal = require('sweetalert2')
+
 
 const ApplyJob = props => {
   const job = props.job

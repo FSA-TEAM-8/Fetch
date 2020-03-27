@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateJob} from '../../store/job'
 import {useParams} from 'react-router'
-
+import Button from '@material-ui/core/Button'
 
 const UpdateJob = () => {
-
   // need to get the existing job with the _id then change the state with the code below and send the changes to the updatejob thunk
 
   const job = useSelector(state => state.job)
@@ -52,7 +51,9 @@ const UpdateJob = () => {
             onChange={event => setLocation(event.target.value)}
           />
         </label>
-        <button type="submit">Update Job</button>
+        <Button type="submit" variant="contained" color="primary">
+          Update Job
+        </Button>
       </form>
     </div>
   )

@@ -24,6 +24,11 @@ const AddCompany = () => {
     }
 
     dispatch(addCompany(obj))
+
+    setCompanyName('')
+    setCompanySize('')
+    setDescription('')
+    setCategory('')
   }
 
   return (

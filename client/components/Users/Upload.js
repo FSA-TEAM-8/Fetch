@@ -1,5 +1,6 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import Button from '@material-ui/core/Button'
 
 const Swal = require('sweetalert2')
 
@@ -66,7 +67,9 @@ class UploadFile extends React.Component {
         </div>
         <br />
         <div>
-          <button>Upload </button>
+          <Button variant="contained" color="primary">
+            Upload{' '}
+          </Button>
         </div>
       </form>
     )
