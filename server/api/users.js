@@ -4,6 +4,21 @@ const {validateAdmin, validateUser} = require('../middleware')
 
 module.exports = router
 
+router.get('/employers', async (req, res, next) => {
+  try {
+    const employers = await User.find({
+      isEmployer: true
+      // explicitly select only the id and email fields - even though
+      // users' passwords are encrypted, it won't help if we just
+      // send everything to anyone who asks!
+      // attributes: ['id', 'email']
+    })
+    res.json(employers)
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.get('/', validateAdmin, async (req, res, next) => {
   try {
     const users = await User.find({
