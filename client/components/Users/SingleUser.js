@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button'
 const SingleUser = props => {
   const id = props.match.params.id
   const singleUser = useSelector(state => state.singleUser)
+  console.log('FirstName', singleUser.firstName)
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
 
@@ -33,22 +34,13 @@ const SingleUser = props => {
             </Link>
           )}
 
-          <Link to={`/users/${id}/update`}>
-            <Button variant="contained" color="primary">
-              Update My Profile
-            </Button>
-          </Link>
-          <Link to={`/myprofile/${id}/update`}>
-            <button>Update My Profile</button>
-          </Link>
-
-//           {user.isAdmin && (
-//             <Link to={`/users/${singleUser._id}/update`}>
-//               <Button variant="contained" color="primary">
-//                 Update This User
-//               </Button>
-//             </Link>
-//           )}
+          {user.isAdmin && (
+            <Link to={`/users/${singleUser._id}/update`}>
+              <Button variant="contained" color="primary">
+                Update This User
+              </Button>
+            </Link>
+          )}
 
           <div>
             <img src={user.imageUrl} />
