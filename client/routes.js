@@ -53,10 +53,6 @@ class Routes extends Component {
 
             <Route path="/chat" component={MessageArea} />
 
-            <Route path="/companies/:id" component={SingleCompany} />
-            <Route path="/companies" component={AllCompanies} />
-            <Route path="/addCompany" component={AddCompany} />
-
             {/* <Route path="/users/:id/savedJobs" component={SavedJobs} />
             <Route path="/users/:id" component={SingleUser} /> */}
 
@@ -66,6 +62,7 @@ class Routes extends Component {
 
             <Route exact path="/companies/:id" component={SingleCompany} />
             <Route exact path="/companies" component={AllCompanies} />
+            <Route path="/mycompany/:id" component={SingleCompany} />
 
             <Route path="/jobs/:id" component={SingleJob} />
             <Route path="/home" component={UserHome} />
