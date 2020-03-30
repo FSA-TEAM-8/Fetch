@@ -4,7 +4,7 @@
 const db = require('../server/db')
 const mongoose = require('mongoose')
 
-const {User, Company, Job} = require('../server/db/models')
+const {User, Company, Job, Chat} = require('../server/db/models')
 
 // const users = await Promise.all([
 //   User.create({email: 'cody@email.com', password: '123'}),
@@ -13,7 +13,21 @@ const {User, Company, Job} = require('../server/db/models')
 
 async function seed() {
   console.log('db synced!')
-  mongoose.connection.dropDatabase()
+  await mongoose.connection.dropDatabase()
+
+  // dummy messages
+  const message1 = await Chat.create({
+    content: 'Hello, this is the first message testing',
+    channelid: 'red+blue'
+  })
+  const message2 = await Chat.create({
+    content: 'Hello, this is the second message testing',
+    channelid: 'red+yellow'
+  })
+  const message3 = await Chat.create({
+    content: 'Hello, this is the third message testing',
+    channelid: 'blue+yellow'
+  })
 
   // Users
   const red = await User.create({

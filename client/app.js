@@ -1,8 +1,6 @@
 import React from 'react'
-
-import {Navbar, TabPanel} from './components'
-
 import Routes from './routes'
+import {Navbar, TabPanel} from './components'
 
 const App = () => {
   return (

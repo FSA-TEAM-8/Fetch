@@ -11,16 +11,14 @@ const SingleJob = props => {
   console.log('USER ID', user._id)
   const id = props.match.params.id
   const job = useSelector(state => state.job)
-  console.log('JOB AUTHOR', job.author)
-
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(getSingleJob(id))
   }, [])
 
   return (
     <div>
-      {(user._id === job.author || user.isAdmin) && <UpdateJob />}
       <h3>{job.title}</h3>
       <p>Estimated Salary: {job.salary}</p>
       <p>Contact Email: {job.contactEmail}</p>
@@ -32,6 +30,8 @@ const SingleJob = props => {
         <SaveJob job={job} />
         <ApplyJob job={job} />
       </div>
+      <br />
+      {(user._id === job.author || user.isAdmin) && <UpdateJob />}
     </div>
   )
 }

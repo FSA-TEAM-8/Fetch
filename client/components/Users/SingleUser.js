@@ -33,13 +33,22 @@ const SingleUser = props => {
             </Link>
           )}
 
-          {user.isAdmin && (
-            <Link to={`/users/${singleUser._id}/update`}>
-              <Button variant="contained" color="primary">
-                Update This User
-              </Button>
-            </Link>
-          )}
+          <Link to={`/users/${id}/update`}>
+            <Button variant="contained" color="primary">
+              Update My Profile
+            </Button>
+          </Link>
+          <Link to={`/myprofile/${id}/update`}>
+            <button>Update My Profile</button>
+          </Link>
+
+//           {user.isAdmin && (
+//             <Link to={`/users/${singleUser._id}/update`}>
+//               <Button variant="contained" color="primary">
+//                 Update This User
+//               </Button>
+//             </Link>
+//           )}
 
           <div>
             <img src={user.imageUrl} />
