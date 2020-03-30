@@ -45,6 +45,9 @@ const userSchema = new Schema({
   linkedInId: {
     type: Object
   },
+  googleId: {
+    type: String
+  },
   isAdmin: {
     type: Boolean,
     default: false
