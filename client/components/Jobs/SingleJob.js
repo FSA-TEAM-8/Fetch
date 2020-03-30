@@ -2,17 +2,16 @@ import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {getSingleJob} from '../../store/job'
 import UpdateJob from './UpdateJob'
+import {Link} from 'react-router-dom'
 
 import SaveJob from './SaveJob'
 import ApplyJob from './ApplyJob'
 
 const SingleJob = props => {
   const user = useSelector(state => state.user)
-  console.log('USER ID', user._id)
   const id = props.match.params.id
   const job = useSelector(state => state.job)
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(getSingleJob(id))
   }, [])
@@ -32,6 +31,23 @@ const SingleJob = props => {
       </div>
       <br />
       {(user._id === job.author || user.isAdmin) && <UpdateJob />}
+      <br />
+      <div>
+        {(user._id === job.author && job.appliedCandidates) ||
+        (user.isAdmin && job.appliedCandidates) ? (
+          <div>
+            Current Applicants:
+            {job.appliedCandidates.map(candidate => (
+              <Link to={`/candidates/${candidate._id}`} key={candidate._id}>
+                <div>
+                  <p>{`${candidate.firstName} ${candidate.lastName}`}</p>
+                  <p>{candidate.email}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : null}
+      </div>
     </div>
   )
 }
