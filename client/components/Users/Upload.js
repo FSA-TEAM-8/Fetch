@@ -23,12 +23,12 @@ class UploadFile extends React.Component {
     const data = new FormData()
     data.append('file', this.uploadInput.files[0])
 
-    fetch('http://localhost:8080/upload', {
+    fetch('/upload', {
       method: 'POST',
       body: data
     }).then(response => {
       response.json().then(body => {
-        this.setState({fileUrl: `http://localhost:8080/${body.file}`})
+        this.setState({fileUrl: `/upload/${body.file}`})
       })
     })
 
@@ -67,9 +67,7 @@ class UploadFile extends React.Component {
         </div>
         <br />
         <div>
-          <Button variant="contained" color="primary">
-            Upload{' '}
-          </Button>
+          <button>Upload Resume</button>
         </div>
       </form>
     )
