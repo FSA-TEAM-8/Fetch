@@ -151,6 +151,10 @@ input {
   font-size: 14px;
 }
 
+/* removes bullets from lists */
+ul {
+  list-style-type: none;
+}
 /* Change color of dropdown links on hover */
 /* .dropdown-content a:hover {background-color: #ddd;} */
 

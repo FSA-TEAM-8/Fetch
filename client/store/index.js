@@ -8,6 +8,7 @@ import {users, employers, candidates} from './users'
 import singleUser from './single-user'
 import {job, jobs} from './job'
 import {companies, company} from './company'
+import chat from './chat'
 
 const reducer = combineReducers({
   user,
@@ -18,7 +19,8 @@ const reducer = combineReducers({
   job,
   jobs,
   companies,
-  company
+  company,
+  chat
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))

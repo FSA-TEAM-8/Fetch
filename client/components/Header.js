@@ -44,7 +44,7 @@ const Header = () => {
         )}
         {/* separated from above because of it will be treated as under one div element and spacing will be off*/}
         {isLoggedIn ? null : (
-          <div className="dropbtn">
+          <div className="dropbtn" style={{whiteSpace: 'nowrap'}}>
             <a href="/signup">Sign Up</a>
           </div>
         )}

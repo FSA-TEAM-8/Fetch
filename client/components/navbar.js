@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import SearchBar from './SearchBar'
 import Header from './Header'
+import MessageArea from './Chat/MessageArea'
 
 const Navbar = ({handleClick, isLoggedIn, user}) => (
   <div>

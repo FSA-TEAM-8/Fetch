@@ -1,6 +1,7 @@
 const User = require('./user')
 const Company = require('./company')
 const Job = require('./job')
+const Chat = require('./chat')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -19,4 +20,5 @@ module.exports = {
   User,
   Company,
   Job,
+  Chat
 }

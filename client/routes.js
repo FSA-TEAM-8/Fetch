@@ -22,6 +22,7 @@ import AllJobs from './components/Jobs/AllJobs'
 import SingleJob from './components/Jobs/SingleJob'
 import AddJob from './components/Jobs/AddJob'
 import SavedJobs from './components/Jobs/SavedJobs'
+import MessageArea from './components/Chat/MessageArea'
 
 /**
  * COMPONENT
@@ -49,6 +50,8 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
+
+            <Route path="/chat" component={MessageArea} />
 
             <Route path="/companies/:id" component={SingleCompany} />
             <Route path="/companies" component={AllCompanies} />
@@ -96,7 +99,7 @@ class Routes extends Component {
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
+        {isLoggedIn ? <Redirect to="/home" /> : <Route component={Login} />}
       </Switch>
     )
   }
