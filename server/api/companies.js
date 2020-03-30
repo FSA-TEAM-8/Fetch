@@ -13,7 +13,9 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const foundCompany = await Company.findById({_id: req.params.id})
+    const foundCompany = await Company.findById({_id: req.params.id}).populate(
+      'jobPostedHistory'
+    )
     res.json(foundCompany)
   } catch (error) {
     next(error)
