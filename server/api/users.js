@@ -48,7 +48,7 @@ router.get('/', validateAdmin, async (req, res, next) => {
   }
 })
 
-router.get('/:id', validateUser, async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const singleUser = await User.findById({_id: req.params.id})
     res.json(singleUser)

@@ -57,8 +57,8 @@ class Routes extends Component {
             <Route path="/companies" component={AllCompanies} />
             <Route path="/addCompany" component={AddCompany} />
 
-            <Route path="/users/:id/savedJobs" component={SavedJobs} />
-            <Route path="/users/:id" component={SingleUser} />
+            {/* <Route path="/users/:id/savedJobs" component={SavedJobs} />
+            <Route path="/users/:id" component={SingleUser} /> */}
 
             <Route path="/myprofile/:id/savedJobs" component={SavedJobs} />
             <Route path="/myprofile/:id/update" component={UpdateSingleUser} />
