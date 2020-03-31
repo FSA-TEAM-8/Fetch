@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import {useDispatch, useSelector, shallowEqual} from 'react-redux'
+import React, {useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import {getSingleCompany} from '../../store/company'
 import UpdateCompany from './UpdateCompany'
 
@@ -14,8 +14,7 @@ const SingleCompany = props => {
   }, [])
 
   return (
-    <div>
-      Single Company Component
+    <div className="container">
       <div>
         <h3>Company Name: {company.companyName}</h3>
         <p>Company Size: {company.size}</p>

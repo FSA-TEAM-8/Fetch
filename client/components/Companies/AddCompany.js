@@ -30,8 +30,8 @@ export default function AddCompany() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="container">
+      <form onSubmit={handleSubmit} className="alignInputs">
         <label>
           Company Name:
           <input
@@ -64,9 +64,11 @@ export default function AddCompany() {
             onChange={event => setCategory(event.target.value)}
           />
         </label>
-        <Button type="submit" variant="contained" color="primary">
-          Add Company
-        </Button>
+        <p className="clearBoth">
+          <Button type="submit" variant="contained" color="primary">
+            Add Company
+          </Button>
+        </p>
       </form>
     </div>
   )

@@ -27,7 +27,7 @@ const UpdateCompany = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="alignInputs">
         <label>
           Company Name:
           <input
@@ -60,9 +60,11 @@ const UpdateCompany = () => {
             onChange={event => setCategory(event.target.value)}
           />
         </label>
-        <Button type="submit" variant="contained" color="primary">
-          Update Company
-        </Button>
+        <p className="clearBoth">
+          <Button type="submit" variant="contained" color="primary">
+            Update Company
+          </Button>
+        </p>
       </form>
     </div>
   )

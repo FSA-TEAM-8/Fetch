@@ -1,6 +1,7 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {logout} from '../store'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -11,7 +12,9 @@ const Header = () => {
 
   return (
     <div className="header">
-      <img src="img/logo2.png" className="logo" />
+      <Link to="/home">
+        <img src="img/logo2.png" className="logo" />{' '}
+      </Link>
       <div className="sub-header">
         <div className="dropbtn">
           <a href="/home">Home</a>
