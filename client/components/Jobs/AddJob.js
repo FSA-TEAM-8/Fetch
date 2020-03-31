@@ -25,8 +25,8 @@ const AddJob = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="container">
+      <form onSubmit={handleSubmit} className="alignInputs">
         <label>
           Job Title:
           <input
@@ -67,9 +67,11 @@ const AddJob = () => {
             onChange={event => setRoleType(event.target.value)}
           />
         </label>
-        <Button type="submit" variant="contained" color="primary">
-          Add Job
-        </Button>
+        <p className="clearBoth">
+          <Button type="submit" variant="contained" color="primary">
+            Add Job
+          </Button>
+        </p>
       </form>
     </div>
   )

@@ -12,8 +12,7 @@ const AllCompanies = () => {
   }, [])
 
   return (
-    <div>
-      Hello from AllCompanies
+    <div className="container">
       {companies.map(company => (
         <div key={company._id}>
           <Link to={`/companies/${company._id}`}>

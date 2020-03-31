@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateJob} from '../../store/job'
 import Button from '@material-ui/core/Button'
@@ -25,7 +25,7 @@ const UpdateJob = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="alignInputs">
         <label>
           Job Title:
           <input
@@ -50,9 +50,11 @@ const UpdateJob = () => {
             onChange={event => setLocation(event.target.value)}
           />
         </label>
-        <Button type="submit" variant="contained" color="primary">
-          Update Job
-        </Button>
+        <p className="clearBoth">
+          <Button type="submit" variant="contained" color="primary">
+            Update Job
+          </Button>
+        </p>
       </form>
     </div>
   )
