@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
+import {searchJob} from '../store/job'
 
 import InputBase from '@material-ui/core/InputBase'
 import SearchIcon from '@material-ui/icons/Search'
@@ -22,42 +23,44 @@ const SearchBar = () => {
   }
   // stopped here on the filter, need to work on a searchJob name + location function
   return (
-    <div className="search-bar">
-      <div className="search-jobs-bar">
-        <div>
-          <SearchIcon style={{padding: '5px'}} />
+    <form onSubmit={handleSubmit}>
+      <div className="search-bar">
+        <div className="search-jobs-bar">
+          <div>
+            <SearchIcon style={{padding: '5px'}} />
+          </div>
+          <InputBase
+            placeholder="Search for jobs.."
+            className="search"
+            style={{width: '100%'}}
+            value={title}
+            onChange={event => setTitle(event.target.value)}
+          />
         </div>
-        <InputBase
-          placeholder="Search for jobs.."
-          className="search"
-          style={{width: '100%'}}
-          value={title}
-          onChange={event => setTitle(event.target.value)}
-        />
-      </div>
-      <div className="search-location-bar">
-        <div>
-          <LocationOnIcon style={{padding: '5px'}} />
+        <div className="search-location-bar">
+          <div>
+            <LocationOnIcon style={{padding: '5px'}} />
+          </div>
+          <InputBase
+            placeholder="Search for location..."
+            className="location"
+            style={{width: '100%'}}
+            value={location}
+            onChange={event => setLocation(event.target.value)}
+          />
         </div>
-        <InputBase
-          placeholder="Search for location..."
-          className="location"
-          style={{width: '100%'}}
-          value={location}
-          onChange={event => setLocation(event.target.value)}
-        />
+        <div>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            onSubmit={handleSubmit}
+          >
+            Search
+          </Button>
+        </div>
       </div>
-      <div>
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          onSubmit={handleSubmit}
-        >
-          Search
-        </Button>
-      </div>
-    </div>
+    </form>
   )
 }
 
