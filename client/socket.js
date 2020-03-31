@@ -13,6 +13,7 @@ socket.on('message', message => {
 })
 
 // this is for listening to other client's messages
+// listens to server side message relay
 socket.on('new-message', message => {
   store.dispatch(gotNewMessage(message))
 })
