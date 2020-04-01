@@ -94,29 +94,31 @@ const createApp = () => {
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
 
-  app.post('/upload', (req, res, next) => {
-    let newFile = req.files.file
-    console.log(req)
-    console.log('Received file!')
-
-    newFile.mv(`./server/uploads/${req.user.lastName}resume.pdf`, function(
-      err
-    ) {
-      if (err) {
-        return res.status(500).send(err)
-      }
-
-      res.json({file: `../uploads/${req.user.lastName}resume.pdf`})
-    })
-  })
-
-  app.use('/download', function(req, res) {
-    console.log(__dirname)
-    const file = path.join(
-      __dirname,
-      `./uploads/${req.user.lastName}resume.pdf`
-    )
-    res.download(file) // Set disposition and send it.
+  app.post('/upload', async (req, res, next) => {
+    let newFile = req.files.profileImg
+    try {
+      newFile.mv(`./server/uploads/${req.user.lastName}resume.pdf`, function(
+        err
+      ) {
+        if (err) {
+          return res.status(500).send(err)
+        }
+      })
+      const updatedUser = await User.findOneAndUpdate(
+        {
+          _id: req.user._id
+        },
+        {
+          resume: `${req.user.lastName}resume.pdf`
+        },
+        {
+          new: true
+        }
+      )
+      res.json(updatedUser)
+    } catch (error) {
+      next(error)
+    }
   })
 
   // any remaining requests with an extension (.js, .css, etc.) send 404

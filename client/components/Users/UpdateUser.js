@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateSingleUser} from '../../store/single-user'
-import {useParams} from 'react-router'
 import UploadFile from './Upload'
 import Button from '@material-ui/core/Button'
 
 const UpdateSingleUser = () => {
   const user = useSelector(state => state.singleUser)
-  console.log('Current User', user)
   const dispatch = useDispatch()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
