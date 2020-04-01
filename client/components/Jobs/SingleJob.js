@@ -4,8 +4,8 @@ import {getSingleJob} from '../../store/job'
 import UpdateJob from './UpdateJob'
 import {Link} from 'react-router-dom'
 
-import SaveJob from './SaveJob'
-import ApplyJob from './ApplyJob'
+import SaveJob from './SaveJobButton'
+import ApplyJob from './ApplyJobButton'
 
 const SingleJob = props => {
   const user = useSelector(state => state.user)

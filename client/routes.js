@@ -23,7 +23,7 @@ import SingleJob from './components/Jobs/SingleJob'
 import AddJob from './components/Jobs/AddJob'
 import SavedJobs from './components/Jobs/SavedJobs'
 import MessageArea from './components/Chat/MessageArea'
-
+import MessageList from './components/Chat/MessageList'
 /**
  * COMPONENT
  */
@@ -51,7 +51,8 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
 
-            <Route path="/chat" component={MessageArea} />
+            <Route path="/chat/channel/:channelId" component={MessageArea} />
+            <Route path="/chat/channel/" component={MessageArea} />
 
             {/* <Route path="/users/:id/savedJobs" component={SavedJobs} />
             <Route path="/users/:id" component={SingleUser} /> */}

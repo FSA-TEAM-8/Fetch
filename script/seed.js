@@ -18,15 +18,24 @@ async function seed() {
   // dummy messages
   const message1 = await Chat.create({
     content: 'Hello, this is the first message testing',
-    channelid: 'red+blue'
+    channel: {
+      name: 'red+blue',
+      participants: []
+    }
   })
   const message2 = await Chat.create({
     content: 'Hello, this is the second message testing',
-    channelid: 'red+yellow'
+    channel: {
+      name: 'red+yellow',
+      participants: []
+    }
   })
   const message3 = await Chat.create({
     content: 'Hello, this is the third message testing',
-    channelid: 'blue+yellow'
+    channel: {
+      name: 'blue+yellow',
+      participants: []
+    }
   })
 
   // Users
@@ -94,7 +103,7 @@ async function seed() {
   })
 
   const purple = await User.create({
-    email: 'Purple@email.com',
+    email: 'purple@email.com',
     password: '123',
     firstName: 'Purple',
     lastName: 'Elprup',

@@ -1,15 +1,11 @@
 import React, {useEffect} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {me} from '../../store/user'
 import {updateSingleUser} from '../../store/single-user'
-import {updateJob} from '../../store/job'
 import Button from '@material-ui/core/Button'
+import Swal from 'sweetalert2'
 
-
-const Swal = require('sweetalert2')
-
-
-const ApplyJob = props => {
+const SaveJob = props => {
   const job = props.job
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
@@ -21,23 +17,11 @@ const ApplyJob = props => {
     [user]
   )
   const onClick = () => {
-    // if user's applied job history does NOT have current jobid
-    // if job's applied user histroy does NOT have current userid
-    if (
-      !user.jobHistory.includes(job._id) &&
-      !job.appliedCandidates.includes(user._id)
-    ) {
-      user.jobHistory.push(job._id)
+    if (!user.savedJobs.includes(job._id)) {
+      user.savedJobs.push(job._id)
       dispatch(updateSingleUser(user))
-      job.appliedCandidates.push(user._id)
-      dispatch(updateJob(job))
+      console.log('saved!')
 
-      // remove job in savedjob if you applied for job
-      if (user.savedJobs.includes(job._id)) {
-        user.savedJobs = user.savedJobs.filter(
-          savedJobsId => savedJobsId !== job._id
-        )
-      }
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -49,27 +33,28 @@ const ApplyJob = props => {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       })
-
+      console.log('got to before toast fire')
       Toast.fire({
         icon: 'success',
-        title: 'Successfully Applied to Job!'
+        title: 'Successfully Saved Job Listing!'
       })
     } else {
-      console.log('clicked apply job but nothing happened')
+      console.log('clicked save job but nothing happened')
     }
   }
+
   return (
     <div>
       <Button
-        type="submit"
+        type="button"
         onClick={onClick}
         variant="contained"
         color="primary"
       >
-        Apply to Job
+        Save Job
       </Button>
     </div>
   )
 }
 
-export default ApplyJob
+export default SaveJob
