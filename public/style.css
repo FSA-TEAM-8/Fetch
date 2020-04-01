@@ -31,8 +31,12 @@ form div {
 
 input {
   border-radius: 5px;
-  border: 2px solid #3f50b5;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom: 1px solid #3f50b5;
   min-height: 25px;
+  min-width: 200px;
 }
 
 .container {
@@ -48,9 +52,9 @@ input {
 .alignInputs label {
   float: left;
   clear: left;
-  width: 300px;
+  width: 500px;
   text-align: right;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .alignInputs input {
@@ -61,7 +65,13 @@ input {
   clear: both;
 }
 
-.allJobs {
+.singleItem h3 {
+  color: black;
+  text-align: center;
+  text-shadow: 1px 2px lightgray;
+}
+
+.singleItem {
   margin-left: 15%;
   border: 1px lightgray solid;
   padding: 10px;
@@ -73,11 +83,20 @@ input {
   border-radius: 4px;
 }
 
+.allJobs {
+  margin-left: 15%;
+  border: 1px lightgray solid;
+  padding: 10px;
+  padding-top: 5px;
+  max-width: 70%;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+
 .allJobs h3 {
   color: black;
-  /* border-top-right-radius: 6px;
-  border-top-left-radius: 6px; */
-
   text-align: center;
   text-shadow: 1px 2px lightgray;
 }
@@ -198,3 +217,14 @@ ul {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
+/* Media Queries */
+@media only screen and (max-width: 700px) {
+  .allJobs {
+    min-width: 100%;
+    margin-left: 25%;
+  }
+  .container {
+    max-width: 100%;
+  }
+}

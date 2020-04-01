@@ -1,6 +1,4 @@
-import React, {Component, useEffect, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {getSingleUser} from '../../store/single-user'
+import React from 'react'
 import download from 'downloadjs'
 import Button from '@material-ui/core/Button'
 

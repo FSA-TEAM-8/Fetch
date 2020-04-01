@@ -4,7 +4,6 @@ import {getAllJobs} from '../../store/job'
 import {Link} from 'react-router-dom'
 
 const AllJobs = () => {
-
   const jobs = useSelector(state => state.jobs) // ~ replaces MSTP
   const dispatch = useDispatch() // ~ replaces MDTP
 

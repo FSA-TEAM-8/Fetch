@@ -12,7 +12,6 @@ const Header = () => {
 
   return (
     <div className="header">
-    
       <Link to="/home">
         <img src="img/logo2.png" className="logo" />{' '}
       </Link>

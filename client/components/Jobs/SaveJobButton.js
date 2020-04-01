@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {me} from '../../store/user'
 import {updateSingleUser} from '../../store/single-user'
@@ -46,7 +47,7 @@ const SaveJob = props => {
   return (
     <div>
       <Button
-        type="button"
+        type="submit"
         onClick={onClick}
         variant="contained"
         color="primary"

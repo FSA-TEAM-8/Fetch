@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSavedJobsFromIds, removeSavedJob} from '../../store/job'
 import Button from '@material-ui/core/Button'
 
 import DeleteIcon from '@material-ui/icons/Delete'
-
 
 const SavedJobs = props => {
   const jobIds = props.user.savedJobs
@@ -39,7 +38,6 @@ const SavedJobs = props => {
                 <p>Date Posted: {job.datePosted}</p>
               </div>
               <Button
-
                 variant="contained"
                 color="secondary"
                 startIcon={<DeleteIcon />}
