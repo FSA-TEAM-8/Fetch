@@ -37,12 +37,36 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
       const lastName = profile.name.familyName
       const fullName = profile.displayName
 
-      User.findOrCreate({
-        where: {googleId},
-        defaults: {email, imgUrl, firstName, lastName, fullName}
-      })
-        .then(([user]) => done(null, user))
-        .catch(done)
+      User.findOne(
+        {
+          googleId: profile.id
+        },
+        function(err, user) {
+          if (err) {
+            console.log('Error finding user', err)
+            return done(err)
+          }
+          if (!user) {
+            user = new User({
+              googleId: profile.id,
+              firstName: profile.name.givenName,
+              lastName: profile.name.familyName,
+              email: profile.emails[0].value,
+              username: profile.username,
+              imageUrl: profile.photos[0].value // error TypeError: Cannot read property 'value' of undefined
+
+              //now in the future searching on User.findOne({'linkedInId': profile.id } will match because of this next line
+            })
+            user.save(function(error) {
+              if (error) console.log('Error creating user', error)
+              return done(error, user)
+            })
+          } else {
+            //found user. Return
+            return done(err, user)
+          }
+        }
+      )
     }
   )
 

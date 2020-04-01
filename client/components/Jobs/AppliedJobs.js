@@ -19,7 +19,7 @@ const AppliedJobs = props => {
 
   return (
     <div>
-      Applied Job History
+      <h1>Applied Job History</h1>
       {jobIds && jobIds.length !== 0 && appliedJobs
         ? appliedJobs.map(job => (
             <div key={job._id}>

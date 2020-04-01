@@ -3,34 +3,39 @@ const Schema = mongoose.Schema
 
 const chatSchema = new Schema({
   content: {
-    type: String,
-    required: true
+    type: String
+    // required: true
+    // commented above because when creating new channel content would be required
   },
-  channelid: {
-    type: String,
-    require: true
-    // id:{
-    //   type: String,
-    // },
-    // participants: {
-    //   sender: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User',
-    //   },
-    //   receiver: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User',
-    //   }
-    // }
+  channel: {
+    id: {
+      type: String
+    },
+    name: {
+      type: String
+    },
+    participants: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    ]
   },
   author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    firstName: {
+      type: String
+    },
+    lastName: {
+      type: String
+    }
+  },
+  datePosted: {
+    type: String
   }
-  // date: {
-  //   type: Date,
-  //   default: new Date()
-  // }
 })
 
 const Chat = mongoose.model('Chat', chatSchema)

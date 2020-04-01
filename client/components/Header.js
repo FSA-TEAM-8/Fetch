@@ -15,40 +15,44 @@ const Header = () => {
       <Link to="/home">
         <img src="img/logo2.png" className="logo" />{' '}
       </Link>
+
       <div className="sub-header">
-        <div className="dropbtn">
-          <a href="/home">Home</a>
-        </div>
+        <Link to="/home" className="dropbtn">
+          Home
+        </Link>
+        <Link to="/chat/channel" className="dropbtn">
+          Chat
+        </Link>
         {/* jobs nav dropdown */}
         <div className="dropdown">
           <div className="dropbtn">Jobs</div>
           <div className="dropdown-content">
-            <a href="/jobs">View Job Listings</a>
+            <Link to="/jobs">View Job Listings</Link>
           </div>
         </div>
         {/* companies nav dropdown */}
         <div className="dropdown">
           <div className="dropbtn">Companies</div>
           <div className="dropdown-content">
-            <a href="/companies">View All Companies</a>
+            <Link to="/companies">View All Companies</Link>
           </div>
         </div>
         {/* check log in status */}
         {isLoggedIn ? (
           <div className="dropbtn">
-            <a href="#" onClick={handleClick}>
+            <Link to="#" onClick={handleClick}>
               Logout
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="dropbtn">
-            <a href="/login">Login</a>
+            <Link to="/login">Login</Link>
           </div>
         )}
         {/* separated from above because of it will be treated as under one div element and spacing will be off*/}
         {isLoggedIn ? null : (
           <div className="dropbtn" style={{whiteSpace: 'nowrap'}}>
-            <a href="/signup">Sign Up</a>
+            <Link to="/signup">Sign Up</Link>
           </div>
         )}
         {/* check for admin or employer */}
@@ -57,11 +61,11 @@ const Header = () => {
             <div className="dropdown">
               <div className="dropbtn">Admin</div>
               <div className="dropdown-content">
-                <a href="/candidates">Browse Jobseekers</a>
-                <a href="/addCompany">Add New Company</a>
-                <a href="/addJob">Add New Job</a>
-                <a href="/users/employers">View All Registered Employers</a>
-                <a href="/users">View All Registered Users</a>
+                <Link to="/candidates">Browse Jobseekers</Link>
+                <Link to="/addCompany">Add New Company</Link>
+                <Link to="/addJob">Add New Job</Link>
+                <Link to="/users/employers">View All Registered Employers</Link>
+                <Link to="/users">View All Registered Users</Link>
               </div>
             </div>
           </div>
@@ -71,9 +75,9 @@ const Header = () => {
             <div className="dropdown">
               <div className="dropbtn">Employer</div>
               <div className="dropdown-content">
-                <a href="/candidates">Browse Jobseekers</a>
-                <a href="/addCompany">Add New Company</a>
-                <a href="/addJob">Add New Job</a>
+                <Link to="/candidates">Browse Jobseekers</Link>
+                <Link to="/addCompany">Add New Company</Link>
+                <Link to="/addJob">Add New Job</Link>
               </div>
             </div>
           </div>
@@ -81,9 +85,9 @@ const Header = () => {
         {/* check if logged in for profile */}
         {isLoggedIn ? (
           <div className="dropbtn">
-            <a href={`/myprofile/${user._id}`} style={{whiteSpace: 'nowrap'}}>
+            <Link to={`/myprofile/${user._id}`} style={{whiteSpace: 'nowrap'}}>
               My Profile
-            </a>
+            </Link>
           </div>
         ) : null}
       </div>
@@ -92,29 +96,3 @@ const Header = () => {
 }
 
 export default Header
-
-{
-  /* check log in status */
-}
-{
-  /* <div>
-{isLoggedIn ?
-(<a href="#" onClick={handleClick}>
-      Logout
-</a>) : (
-  <a href="/login">
-    Login
-  </a>
-)}
-</div>
-{/* separated from above because of it will be treated as under one div element */
-}
-{
-  /* <div>
-{isLoggedIn ?
-null : (<a href="/signup">
-    Sign Up
-  </a>
-)}
-</div> */
-}

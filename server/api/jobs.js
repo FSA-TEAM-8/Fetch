@@ -3,20 +3,40 @@ const {Job} = require('../db/models')
 module.exports = router
 
 // find all jobs
-router.get('/', async (req, res, next) => {
+
+router.get('/search', async (req, res, next) => {
   try {
-    const jobs = await Job.find({})
+    const jobs = await Job.find(
+      {
+        $text: {
+          $search: req.query.title,
+          $caseSensitive: false
+        },
+        location: req.query.location
+      },
+      {score: {$meta: 'textScore'}}
+    ).sort({score: {$meta: 'textScore'}})
     res.json(jobs)
   } catch (error) {
     next(error)
   }
 })
 
-// find one Job via id
 router.get('/:id', async (req, res, next) => {
   try {
-    const singleJob = await Job.findById({_id: req.params.id})
+    const singleJob = await Job.findById({_id: req.params.id}).populate(
+      'appliedCandidates'
+    )
     res.json(singleJob)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.get('/', async (req, res, next) => {
+  try {
+    const jobs = await Job.find({})
+    res.json(jobs)
   } catch (error) {
     next(error)
   }
