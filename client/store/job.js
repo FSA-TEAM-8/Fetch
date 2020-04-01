@@ -9,6 +9,7 @@ const GOT_SINGLE_JOB = 'GOT_SINGLE_JOB'
 const REMOVE_SAVED_JOB = 'REMOVED_SAVED_JOB'
 const GOT_SAVED_JOBS = 'GOT_SAVED_JOBS'
 const GOT_APPLIED_JOBS = 'GOT_APPLIED_JOBS'
+const GOT_SEARCHED_JOBS = 'SEARCH_JOBS'
 
 // action creator
 const gotAllJobs = jobs => ({
@@ -44,6 +45,11 @@ const gotSavedJobs = savedJobs => ({
 const gotAppliedJobs = appliedJobs => ({
   type: GOT_APPLIED_JOBS,
   appliedJobs
+})
+
+const gotSearchedJobs = searchedJobs => ({
+  type: GOT_SEARCHED_JOBS,
+  searchedJobs
 })
 
 // thunk creator
@@ -112,6 +118,20 @@ export const removeSavedJob = (savedJobs, id) => async dispatch => {
   }
 }
 
+export const searchJob = search => async dispatch => {
+  console.log('Search query', search)
+  try {
+    const response = await axios.get(
+      `/api/jobs/search?title=${search.title}&location=${search.location}`
+    )
+    console.log('Your search query', search)
+    dispatch(gotSearchedJobs(response.data))
+    console.log('Your response', response.data)
+  } catch (error) {
+    console.error('Error searching for jobs', error)
+  }
+}
+
 // reducer
 export const jobs = (state = [], action) => {
   switch (action.type) {
@@ -126,6 +146,9 @@ export const jobs = (state = [], action) => {
       )
     case REMOVE_SAVED_JOB:
       return action.savedJobs
+    case GOT_SEARCHED_JOBS:
+      console.log('The action', action.searchedJobs)
+      return action.searchedJobs
     default:
       return state
   }

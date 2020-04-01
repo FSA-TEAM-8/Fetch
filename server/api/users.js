@@ -50,7 +50,9 @@ router.get('/', validateAdmin, async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const singleUser = await User.findById({_id: req.params.id})
+    const singleUser = await User.findById({_id: req.params.id}).populate(
+      'jobHistory'
+    )
     res.json(singleUser)
   } catch (err) {
     next(err)

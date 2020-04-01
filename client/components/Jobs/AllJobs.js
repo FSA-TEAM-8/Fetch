@@ -1,9 +1,10 @@
-import React, {Component, useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAllJobs} from '../../store/job'
 import {Link} from 'react-router-dom'
 
 const AllJobs = () => {
+
   const jobs = useSelector(state => state.jobs) // ~ replaces MSTP
   const dispatch = useDispatch() // ~ replaces MDTP
 
@@ -15,7 +16,7 @@ const AllJobs = () => {
 
   const availableJobs = jobs.filter(job => job.availibilty === true)
   return (
-    <div>
+    <div className="container">
       {/* {user.isEmployer && (
       <Link to="/addJob">
         <Button variant="contained" color="primary">

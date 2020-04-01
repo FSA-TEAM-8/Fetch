@@ -12,7 +12,10 @@ const Header = () => {
 
   return (
     <div className="header">
-      <img src="img/logo2.png" className="logo" />
+    
+      <Link to="/home">
+        <img src="img/logo2.png" className="logo" />{' '}
+      </Link>
 
       <div className="sub-header">
         <Link to="/home" className="dropbtn">
