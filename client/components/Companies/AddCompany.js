@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
 import {addCompany} from '../../store/company'
 import Button from '@material-ui/core/Button'
 
@@ -36,6 +36,7 @@ export default function AddCompany() {
           Company Name:
           <input
             type="text"
+            placeholder="Enter Company Name"
             value={companyName}
             onChange={event => setCompanyName(event.target.value)}
           />
@@ -44,6 +45,7 @@ export default function AddCompany() {
           Company Size:
           <input
             type="text"
+            placeholder="Enter Company Size"
             value={size}
             onChange={event => setSize(event.target.value)}
           />
@@ -52,6 +54,7 @@ export default function AddCompany() {
           Description:
           <input
             type="text"
+            placeholder="Enter Company Description"
             value={description}
             onChange={event => setDescription(event.target.value)}
           />
@@ -60,6 +63,7 @@ export default function AddCompany() {
           Category:
           <input
             type="text"
+            placeholder="Enter Company Category"
             value={category}
             onChange={event => setCategory(event.target.value)}
           />

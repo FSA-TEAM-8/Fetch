@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
 import {addJob} from '../../store/job'
 import Button from '@material-ui/core/Button'
 
@@ -31,6 +31,7 @@ const AddJob = () => {
           Job Title:
           <input
             type="text"
+            placeholder="Enter Job Title"
             value={title}
             onChange={event => setTitle(event.target.value)}
           />
@@ -39,6 +40,7 @@ const AddJob = () => {
           Job Contact Email:
           <input
             type="text"
+            placeholder="Enter Job Title"
             value={contactEmail}
             onChange={event => setContactEmail(event.target.value)}
           />
@@ -47,6 +49,7 @@ const AddJob = () => {
           Job Location:
           <input
             type="text"
+            placeholder="Enter Job Location"
             value={location}
             onChange={event => setLocation(event.target.value)}
           />
@@ -55,6 +58,7 @@ const AddJob = () => {
           Salary:
           <input
             type="text"
+            placeholder="Enter Job Salary"
             value={salary}
             onChange={event => setSalary(event.target.value)}
           />
@@ -63,6 +67,7 @@ const AddJob = () => {
           Position:
           <input
             type="text"
+            placeholder="Enter Job Position"
             value={roleType}
             onChange={event => setRoleType(event.target.value)}
           />

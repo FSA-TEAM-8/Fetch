@@ -1,5 +1,5 @@
 /* eslint-disable no-return-assign */
-import React, {Component, useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSingleUser} from '../../store/single-user'
 import {Link} from 'react-router-dom'

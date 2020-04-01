@@ -15,8 +15,8 @@ const SingleCompany = props => {
 
   return (
     <div className="container">
-      <div>
-        <h3>Company Name: {company.companyName}</h3>
+      <div className="singleItem">
+        <h3>{company.companyName}</h3>
         <p>Company Size: {company.size}</p>
         <p>Company Description: {company.description}</p>
         <p>Company Category: {company.category}</p>
