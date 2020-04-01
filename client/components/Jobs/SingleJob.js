@@ -34,7 +34,9 @@ const SingleJob = props => {
       <br />
       <div>
         {(user._id === job.author && job.appliedCandidates) ||
-        (user.isAdmin && job.appliedCandidates) ? (
+        (user.isAdmin &&
+          job.appliedCandidates &&
+          job.appliedCandidates.length > 0) ? (
           <div>
             Current Applicants:
             {job.appliedCandidates.map(candidate => (
@@ -46,7 +48,9 @@ const SingleJob = props => {
               </Link>
             ))}
           </div>
-        ) : null}
+        ) : (
+          <div>No current applicants for this job.</div>
+        )}
       </div>
     </div>
   )

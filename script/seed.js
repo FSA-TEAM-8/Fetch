@@ -171,19 +171,19 @@ async function seed() {
 
   // Jobs
   const bofaFrontEnd = await Job.create({
-    title: 'Bofa Front-End Developer',
+    title: 'Software Developer',
     salary: 90000,
     contactEmail: 'apply@bofa.com',
-    location: 'New York',
+    location: 'Chicago',
     roleType: 'Front-end',
     experienceLevel: 'Junior'
   })
 
   const jpmorganBackEnd = await Job.create({
-    title: 'Chase Back-End Developer',
+    title: 'Engineer',
     salary: 101000,
     contactEmail: 'apply@jpmorgan.com',
-    location: 'New York',
+    location: 'Paris',
     roleType: 'Back-end',
     experienceLevel: 'Junior'
   })
@@ -329,16 +329,16 @@ async function seed() {
   // Jobs
 
   const pumaFullstack = await Job.create({
-    title: 'Seeking full-stack developer',
+    title: 'iOS Developer',
     salary: 75000,
     contactEmail: 'Jeff@Puma.com',
-    location: 'New York',
+    location: 'Chicago',
     roleType: 'Full-stack',
     experienceLevel: 'Junior'
   })
 
   const adidasFrontEnd = await Job.create({
-    title: 'Seeking front-end engineer',
+    title: 'Android Wizard / Front-End',
     salary: 75000,
     contactEmail: 'Jody@Adidas.com',
     location: 'New York',
@@ -460,10 +460,10 @@ async function seed() {
   })
 
   const fuzzBeedBackEnd = await Job.create({
-    title: 'Back-End Developer',
+    title: 'SQL Database Engineer',
     salary: 95000,
     contactEmail: 'jobs@fuzzbeed.com',
-    location: 'New York, NY',
+    location: 'Buenos Aires',
     roleType: 'Back-End',
     experienceLevel: 'Junior'
   })
@@ -483,7 +483,7 @@ async function seed() {
     title: 'Front-End Developer',
     salary: 111000,
     contactEmail: 'jobs@flooper.com',
-    location: 'New York, NY',
+    location: 'New York',
     roleType: 'Front-End',
     experienceLevel: 'Mid-level'
   })

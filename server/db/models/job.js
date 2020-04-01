@@ -47,6 +47,9 @@ const jobSchema = new Schema({
   ]
 })
 
+const index = {title: 'text', location: 'text', experienceLevel: 'text'}
+jobSchema.index(index)
+
 const Job = mongoose.model('Job', jobSchema)
 
 module.exports = Job

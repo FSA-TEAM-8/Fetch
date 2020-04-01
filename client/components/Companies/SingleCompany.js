@@ -26,7 +26,7 @@ const SingleCompany = props => {
       <br />
       <div>{(user.company === id || user.isAdmin) && <UpdateCompany />}</div>
       <div>
-        {company.jobPostedHistory ? (
+        {company.jobPostedHistory && company.jobPostedHistory.length > 0 ? (
           <div>
             Current Openings at {company.companyName}
             {company.jobPostedHistory.map(opening => (
