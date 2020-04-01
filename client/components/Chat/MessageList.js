@@ -28,10 +28,10 @@ const MessageList = () => {
   return (
     <div>
       {/* message list */}
-      <ul className="messageList">
+      <ul className="messageList" style={{overflowy: 'scroll'}}>
         {filteredMessages.map(message => (
           // messages
-          <li key={message._id} className="media">
+          <li key={message._id} className="messageBody">
             {/* user image  */}
             {/* <div className="media-left">
               <a href="#">
@@ -42,12 +42,13 @@ const MessageList = () => {
                 />
               </a>
             </div> */}
-            <div className="messagebody">
+            <div className="messageDetails">
               {/* user's names */}
               <h4 className="userName">
-                {message.author ? message.author.firstName : null}
+                Name: {message.author ? message.author.firstName : null}
               </h4>
-              {message.content}
+              <div>Time: {message.datePosted}</div>
+              <div className="messageContent">Content: {message.content}</div>
             </div>
           </li>
         ))}

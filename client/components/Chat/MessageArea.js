@@ -33,12 +33,13 @@ const MessageArea = () => {
           component="div"
           style={{
             backgroundColor: '#cfe8fc',
-            height: '90vh'
+            height: '90vh',
+            width: '100%'
           }}
         >
           {/* check if there is a channelId, if there isnt show start a channel/message */}
           {channelId ? (
-            <MessageList />
+            <MessageList style={{height: '90vh'}} />
           ) : (
             <div>
               This could also be general chat room

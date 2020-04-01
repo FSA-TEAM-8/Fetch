@@ -19,7 +19,8 @@ const userSchema = new Schema({
     unique: true
   },
   password: {
-    type: String
+    type: String,
+    required: true
   },
   streetNumber: {
     type: Number
@@ -74,6 +75,16 @@ const userSchema = new Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Job'
+    }
+  ],
+  technicalSkills: [
+    {
+      type: String
+    }
+  ],
+  achievements: [
+    {
+      type: String
     }
   ]
 })
