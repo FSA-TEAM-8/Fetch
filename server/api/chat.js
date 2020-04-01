@@ -5,7 +5,7 @@ module.exports = router
 // GET /api/chat
 router.get('/messages', async (req, res, next) => {
   try {
-    const chats = await Chat.find()
+    const chats = await Chat.find() //.populate('author')
     res.json(chats)
   } catch (error) {
     next(error)
@@ -15,6 +15,12 @@ router.get('/messages', async (req, res, next) => {
 router.post('/messages', async (req, res, next) => {
   try {
     const newChat = await Chat.create(req.body)
+    // const popChat = await Chat.findById(newChat._id).populate({
+    //   path: 'channel',
+    //   match: req.body.channel.id
+    // })
+    // console.log('newchat', newChat)
+    // console.log('popchat', popChat)
     res.json(newChat)
   } catch (error) {
     next(error)
@@ -23,9 +29,10 @@ router.post('/messages', async (req, res, next) => {
 
 // routes for channels
 
+// GET fetch channels
 router.get('/channels', async (req, res, next) => {
   try {
-    const channels = await Chat.find().select('channel')
+    const channels = await Chat.find()
     res.json(channels)
   } catch (error) {
     next(error)
@@ -44,8 +51,11 @@ router.post('/channels', async (req, res, next) => {
 // GET finds content from specfic channel
 router.get('/channels/:channelId', async (req, res, next) => {
   try {
-    const channel = await Chat.find({channel: req.params.channelId})
-    res.json()
+    const channelId = req.params.channelId
+    const channel = await Chat.findOne({'channel.id': channelId}).select(
+      'channel'
+    ) // not working as intended with distinct
+    res.json(channel)
   } catch (error) {
     next(error)
   }

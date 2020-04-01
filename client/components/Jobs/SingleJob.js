@@ -3,12 +3,11 @@ import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {getSingleJob} from '../../store/job'
 import UpdateJob from './UpdateJob'
 
-import SaveJob from './SaveJob'
-import ApplyJob from './ApplyJob'
+import SaveJob from './SaveJobButton'
+import ApplyJob from './ApplyJobButton'
 
 const SingleJob = props => {
   const user = useSelector(state => state.user)
-  console.log('USER ID', user._id)
   const id = props.match.params.id
   const job = useSelector(state => state.job)
   const dispatch = useDispatch()

@@ -4,6 +4,7 @@ import {me} from '../../store/user'
 import {getAllChannels, postNewChannel} from '../../store/chat'
 import {getSingleUser} from '../../store/single-user'
 import {useParams, useHistory} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 
 const NewChannel = () => {
   const dispatch = useDispatch()
@@ -13,9 +14,6 @@ const NewChannel = () => {
   const {id} = useParams()
   const history = useHistory()
 
-  console.log('singleuser id', id)
-  console.log('CHANNELS', channels)
-
   useEffect(() => {
     dispatch(me())
     dispatch(getSingleUser(id))
@@ -24,44 +22,42 @@ const NewChannel = () => {
 
   const handleClick = () => {
     event.preventDefault()
+
     // need to check if the channel already exists, if it doesnt then create the channel
     // if channel already exists then direct to the channel
-
     const newChannelId = `${user._id}&${singleUser._id}`
-    console.log('newchannelid', newChannelId)
-    console.log(
-      'filterarray',
-      channels.filter(
-        currentChannel => currentChannel.channel.id === newChannelId
-      )
-    )
+
     if (
       channels.filter(
         currentChannel => currentChannel.channel.id === newChannelId
       ).length !== 0
     ) {
-      console.log('channel has already exists, redirect to channel')
-      history.push('/home')
+      history.push(`/chat/channel/${user._id}&${singleUser._id}`)
     } else {
       const channelObj = {
         // participants = id of currentuser and singleuser
         // id = 'currentUser.id&singelUser.id'
-        // no need for name
-        id: `${user._id}&${singleUser._id}`, // may only need id
+        // name = diplays firstname of both parties
+        id: `${user._id}&${singleUser._id}`,
         participants: [user._id, singleUser._id],
         name: `${user.firstName}+${singleUser.firstName}`
       }
       dispatch(postNewChannel(channelObj))
 
-      console.log('new channel is created')
+      history.push(`/chat/channel/${channelObj.id}`)
     }
   }
 
   return (
     <div>
-      <button type="button" onClick={handleClick}>
-        click for new channel
-      </button>
+      <Button
+        type="button"
+        onClick={handleClick}
+        variant="contained"
+        color="primary"
+      >
+        Chat User
+      </Button>
     </div>
   )
 }

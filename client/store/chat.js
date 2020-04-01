@@ -8,6 +8,7 @@ const GOT_NEW_MESSAGE = 'GOT_NEW_MESSAGE'
 
 const GOT_ALL_CHANNELS = 'GOT_ALL_CHANNELS'
 const GOT_NEW_CHANNEL = 'GOT_NEW_CHANNEL'
+const GOT_SINGLE_CHANNEL = 'GOT_SINGLE_CHANNEL'
 
 // action creators
 const gotAllMessages = messages => ({
@@ -39,6 +40,13 @@ export const gotNewChannel = channel => {
   }
 }
 
+export const gotSingleChannel = channel => {
+  return {
+    type: GOT_SINGLE_CHANNEL,
+    channel
+  }
+}
+
 // need to create new channels for new connections
 
 // thunk creators
@@ -57,8 +65,6 @@ export const postNewMessage = message => async dispatch => {
     const response = await axios.post('/api/chat/messages', message)
     const newMessage = response.data
     dispatch(gotNewMessage(newMessage))
-    console.log('MESSAGE', message)
-    console.log('NEWMESSAGE', newMessage)
     socket.emit('new-message', newMessage)
   } catch (error) {
     console.error('Error posting new message', error)
@@ -71,10 +77,19 @@ export const getAllChannels = () => async dispatch => {
   try {
     const response = await axios.get('/api/chat/channels')
     const channels = response.data
-    console.log('RESPONSE DATA CHANNELS', channels)
     dispatch(gotAllChannels(channels))
   } catch (error) {
     console.error('Error getting all channels', error)
+  }
+}
+
+export const getSingleChannel = channelId => async dispatch => {
+  try {
+    const response = await axios.get(`/api/chat/channels/${channelId}`)
+    const singleChannel = response.data
+    dispatch(gotSingleChannel(singleChannel))
+  } catch (error) {
+    console.error('Error getting single channel', error)
   }
 }
 
@@ -82,9 +97,7 @@ export const postNewChannel = channel => async dispatch => {
   try {
     const response = await axios.post('/api/chat/channels', channel)
     const newChannel = response.data
-    console.log('NEW CHANNEL', newChannel)
     dispatch(gotNewChannel(newChannel))
-    socket.emit('new-channel', newChannel)
   } catch (error) {
     console.error('Error posting new channel', error)
   }
@@ -93,7 +106,8 @@ export const postNewChannel = channel => async dispatch => {
 const initialState = {
   messages: [],
   newMessage: '',
-  channels: []
+  channels: [],
+  channel: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -108,6 +122,8 @@ const reducer = (state = initialState, action) => {
       return {...state, channels: action.channels}
     case GOT_NEW_CHANNEL:
       return {...state, channels: [...state.channels, action.channel]}
+    case GOT_SINGLE_CHANNEL:
+      return {...state, channel: action.channel}
     default:
       return state
   }

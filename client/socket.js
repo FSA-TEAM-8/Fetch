@@ -16,6 +16,7 @@ socket.on('message', message => {
 // listens to server side message relay
 socket.on('new-message', message => {
   store.dispatch(gotNewMessage(message))
+  console.log('socket message', message)
 })
 
 export default socket

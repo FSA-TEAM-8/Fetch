@@ -22,8 +22,16 @@ const chatSchema = new Schema({
     ]
   },
   author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    firstName: {
+      type: String
+    },
+    lastName: {
+      type: String
+    }
   },
   datePosted: {
     type: String

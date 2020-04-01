@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography'
 import ChannelList from './ChannelList'
 import MessageList from './MessageList'
 
+import {useParams} from 'react-router-dom'
+
 const MessageArea = () => {
   // const dispatch = useDispatch()
   // const user = useSelector(state => state.user)
@@ -20,8 +22,7 @@ const MessageArea = () => {
   //   dispatch(me())
   // }, [])
 
-  // to save draft messages, need to add it to the database aka, create state and action creator for the draft message, a note for later todo
-  // via wroteMessage and handleChange
+  const {channelId} = useParams()
 
   return (
     <div style={{display: 'flex'}}>
@@ -33,11 +34,18 @@ const MessageArea = () => {
           style={{
             backgroundColor: '#cfe8fc',
             height: '90vh'
-            // border: '1px solid gray'
           }}
         >
-          {/* message list */}
-          <MessageList />
+          {/* check if there is a channelId, if there isnt show start a channel/message */}
+          {channelId ? (
+            <MessageList />
+          ) : (
+            <div>
+              This could also be general chat room
+              <p>Welcome to chat room!</p>
+              <p>Please view a channel or a user's profile to chat</p>
+            </div>
+          )}
         </Typography>
       </Container>
     </div>

@@ -2,11 +2,8 @@ import React, {Component, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAllJobs} from '../../store/job'
 import {Link} from 'react-router-dom'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
 
 const AllJobs = () => {
-  const user = useSelector(state => state.user)
   const jobs = useSelector(state => state.jobs) // ~ replaces MSTP
   const dispatch = useDispatch() // ~ replaces MDTP
 

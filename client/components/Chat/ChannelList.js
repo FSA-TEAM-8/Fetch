@@ -8,10 +8,24 @@ const ChannelList = () => {
   const user = useSelector(state => state.user)
   const channelList = useSelector(state => state.chat.channels)
   const dispatch = useDispatch()
-  // console.log('CHANNEL LIST', channelList)
 
   // filter channel by ones user is a participant
-  const filteredChannels = channelList.filter(currentChannel =>
+  // const filteredChannels = channelList.filter(currentChannel =>
+  //   currentChannel.channel.participants.includes(user._id)
+  // )
+  // // adding participants makes new channel for some reason so need to unique it
+  // console.log('filtered channels', filteredChannels)
+
+  let uniqueChannels = []
+  let uniqueIds = []
+  channelList.forEach(currentChannel => {
+    if (!uniqueIds.includes(currentChannel.channel.id)) {
+      uniqueChannels.push(currentChannel)
+      uniqueIds.push(currentChannel.channel.id)
+    }
+  })
+
+  const filteredChannels = uniqueChannels.filter(currentChannel =>
     currentChannel.channel.participants.includes(user._id)
   )
 
@@ -22,7 +36,7 @@ const ChannelList = () => {
 
   return (
     <div>
-      channellist
+      User's Channel List
       <ul>
         {filteredChannels.map(currentChannel => {
           const channel = currentChannel.channel
@@ -38,7 +52,7 @@ const ChannelList = () => {
           )
         })}
         <li>
-          <NavLink to="/new-channel">Create a channel</NavLink>
+          {/* <NavLink to="/new-channel">Create a channel // does not work atm</NavLink> */}
         </li>
       </ul>
     </div>

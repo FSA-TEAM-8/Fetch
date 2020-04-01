@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {me} from '../../store/user'
-import {getAllMessages, postNewMessage} from '../../store/chat'
+import {postNewMessage, getSingleChannel} from '../../store/chat'
 import {useParams} from 'react-router-dom'
 
 import moment from 'moment'
@@ -9,31 +9,30 @@ import moment from 'moment'
 const NewMessage = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
+  const currentChannel = useSelector(state => state.chat.channel)
   const [newMessage, setNewMessage] = useState('')
+  const {channelId} = useParams()
 
   const currentTime = moment()
-  console.log('currenttime', currentTime._d)
 
   const handleSubmit = event => {
     event.preventDefault()
     const messageObj = {
       content: newMessage,
-      channel: {
-        id: channelId
-        // name: 'red+blue'
+      channel: currentChannel.channel,
+      author: {
+        id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName
       },
-      author: user._id,
       datePosted: currentTime._d
     }
-
-    console.log(messageObj)
     dispatch(postNewMessage(messageObj))
   }
   useEffect(() => {
     dispatch(me())
+    dispatch(getSingleChannel(channelId))
   }, [])
-
-  const {channelId} = useParams()
 
   return (
     <div>
