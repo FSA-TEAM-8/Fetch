@@ -25,15 +25,20 @@ const MessageArea = () => {
   const {channelId} = useParams()
 
   return (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex'}} className="container">
       <ChannelList />
 
       <Container maxWidth="sm">
         <Typography
           component="div"
           style={{
-            backgroundColor: '#cfe8fc',
-            height: '90vh'
+            background: 'rgba(244, 244, 244, 0.2)',
+            maxHeight: '300px',
+            border: '1px solid gray',
+            boxShadow: '2px 4px #478FFF',
+            borderRadius: '5px',
+            padding: '8px',
+            overflow: 'scroll'
           }}
         >
           {/* check if there is a channelId, if there isnt show start a channel/message */}

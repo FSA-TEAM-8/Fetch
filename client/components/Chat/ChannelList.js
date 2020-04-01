@@ -35,7 +35,12 @@ const ChannelList = () => {
   }, [])
 
   return (
-    <div>
+    <div
+      className="chatBar container"
+      style={{
+        padding: '8px'
+      }}
+    >
       User's Channel List
       <ul>
         {filteredChannels.map(currentChannel => {
@@ -46,7 +51,14 @@ const ChannelList = () => {
                 to={`/chat/channel/${channel.id}`}
                 className="active-chats"
               >
-                <span># {channel.name}</span>
+                <span
+                  style={{
+                    color: 'black',
+                    padding: '25px'
+                  }}
+                >
+                  # {channel.name}
+                </span>
               </NavLink>
             </li>
           )
