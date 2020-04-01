@@ -51,7 +51,7 @@ const SingleJob = props => {
             ))}
           </div>
         ) : (
-          <div>No current applicants for this job.</div>
+          <div>This position is accepting candidates.</div>
         )}
       </div>
     </div>

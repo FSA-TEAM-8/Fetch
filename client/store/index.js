@@ -6,7 +6,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import {users, employers, candidates} from './users'
 import singleUser from './single-user'
-import {job, jobs} from './job'
+import {job, jobs, searchedJobs} from './job'
 import {companies, company} from './company'
 import chat from './chat'
 
@@ -18,6 +18,7 @@ const reducer = combineReducers({
   singleUser,
   job,
   jobs,
+  searchedJobs,
   companies,
   company,
   chat

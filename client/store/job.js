@@ -146,9 +146,6 @@ export const jobs = (state = [], action) => {
       )
     case REMOVE_SAVED_JOB:
       return action.savedJobs
-    case GOT_SEARCHED_JOBS:
-      console.log('The action', action.searchedJobs)
-      return action.searchedJobs
     default:
       return state
   }
@@ -166,6 +163,15 @@ export const job = (state = {}, action) => {
       return {...state, appliedJobs: action.appliedJobs}
     case REMOVE_SAVED_JOB:
       return {...state, savedJobs: action.savedJobs}
+    default:
+      return state
+  }
+}
+
+export const searchedJobs = (state = [], action) => {
+  switch (action.type) {
+    case GOT_SEARCHED_JOBS:
+      return action.searchedJobs
     default:
       return state
   }

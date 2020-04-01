@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {searchJob} from '../store/job'
+import {useHistory} from 'react-router-dom'
 
 import InputBase from '@material-ui/core/InputBase'
 import SearchIcon from '@material-ui/icons/Search'
@@ -11,6 +12,7 @@ const SearchBar = () => {
   const [title, setTitle] = useState('')
   const [location, setLocation] = useState('')
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -18,8 +20,8 @@ const SearchBar = () => {
       title,
       location
     }
-    // setJob(obj)
-    dispatch(searchJob(obj))
+    // dispatch(searchJob(obj))
+    history.push(`/search`, {...obj})
   }
   // stopped here on the filter, need to work on a searchJob name + location function
   return (
