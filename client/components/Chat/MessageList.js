@@ -2,57 +2,53 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import {getAllMessages} from '../../store/chat'
-import {me} from '../../store/user'
 import NewMessage from './NewMessage'
 
 import moment from 'moment'
 
-const MessageList = () => {
+const MessageList = props => {
+  const selfUser = props.selfUser
   const dispatch = useDispatch()
-  const user = useSelector(state => state.user)
+  const {channelId} = useParams()
 
   // need to add channelid to new messages
 
   useEffect(() => {
     dispatch(getAllMessages())
-    dispatch(me())
   }, [])
 
-  const {channelId} = useParams()
-
+  // filter by matching channel id and message has content and is a participant
   const messages = useSelector(state => state.chat.messages)
   const filteredMessages = messages.filter(
-    message => message.channel.id === channelId
+    message =>
+      message.channel.id === channelId &&
+      message.content &&
+      message.channel.participants.includes(selfUser._id)
   )
 
   return (
     <div>
       {/* message list */}
-      <ul className="messageList">
+      <ul className="message-list">
         {filteredMessages.map(message => (
           // messages
-          <li key={message._id} className="media">
+          <li key={message._id} className="message-body">
             {/* user image  */}
-            {/* <div className="media-left">
-              <a href="#">
-                <img
-                  className="media-object"
-                  src={message.author.imageUrl}
-                  alt="image"
-                />
-              </a>
-            </div> */}
-            <div className="messagebody">
+            <div className="user-image">
+              <img src={message.author.imageUrl} alt="image" />
+            </div>
+            <div className="message-details">
               {/* user's names */}
               <h4 className="userName">
-                {message.author ? message.author.firstName : null}
+                Name: {message.author ? message.author.firstName : null}
               </h4>
-              {message.content}
+              <div>Time: {message.datePosted}</div>
+              <div className="message-content">Content: {message.content}</div>
             </div>
           </li>
         ))}
       </ul>
-      <NewMessage />
+      <NewMessage channelId={channelId} selfUser={selfUser} />
     </div>
   )
 }

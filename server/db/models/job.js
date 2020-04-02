@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const moment = require('moment-timezone')
+const dateNewYork = moment.tz(Date.now(), 'America/New_York')
 
 const jobSchema = new Schema({
   title: {
@@ -31,7 +33,7 @@ const jobSchema = new Schema({
   },
   datePosted: {
     type: Date,
-    default: Date.now()
+    default: dateNewYork
   },
   roleType: {
     type: String

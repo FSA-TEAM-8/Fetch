@@ -1,17 +1,16 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {getAllChannels} from '../../store/chat'
-import {me} from '../../store/user'
 
-const ChannelList = () => {
-  const user = useSelector(state => state.user)
+const ChannelList = props => {
+  const selfUser = props.selfUser
   const channelList = useSelector(state => state.chat.channels)
   const dispatch = useDispatch()
 
-  // filter channel by ones user is a participant
+  // filter channel by ones selfUser is a participant
   // const filteredChannels = channelList.filter(currentChannel =>
-  //   currentChannel.channel.participants.includes(user._id)
+  //   currentChannel.channel.participants.includes(selfUser._id)
   // )
   // // adding participants makes new channel for some reason so need to unique it
   // console.log('filtered channels', filteredChannels)
@@ -26,40 +25,30 @@ const ChannelList = () => {
   })
 
   const filteredChannels = uniqueChannels.filter(currentChannel =>
-    currentChannel.channel.participants.includes(user._id)
+    currentChannel.channel.participants.includes(selfUser._id)
   )
 
   useEffect(() => {
     dispatch(getAllChannels())
-    dispatch(me())
   }, [])
 
   return (
-    <div
-      className="chatBar container"
-      style={{
-        padding: '8px'
-      }}
-    >
-      User's Channel List
+
+    <div className="channel-list">
+      <div className="channel-list-user-name">
+        <h4>{selfUser.firstName}'s Channel List</h4>
+      </div>
+
       <ul>
         {filteredChannels.map(currentChannel => {
           const channel = currentChannel.channel
           return (
-            <li key={channel.id}>
-              <NavLink
-                to={`/chat/channel/${channel.id}`}
-                className="active-chats"
-              >
-                <span
-                  style={{
-                    color: 'black',
-                    padding: '25px'
-                  }}
-                >
-                  # {channel.name}
-                </span>
-              </NavLink>
+
+            <li key={channel.id} className="channel-active-chats">
+              <Link to={`/chat/channel/${channel.id}`}>
+                <div className="channel-name"># {channel.name}</div>
+              </Link>
+
             </li>
           )
         })}

@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const moment = require('moment-timezone')
+const dateNewYork = moment.tz(Date.now(), 'America/New_York')
 
 const chatSchema = new Schema({
   content: {
     type: String
-    // required: true
-    // commented above because when creating new channel content would be required
   },
   channel: {
     id: {
@@ -34,7 +34,8 @@ const chatSchema = new Schema({
     }
   },
   datePosted: {
-    type: String
+    type: String,
+    default: dateNewYork
   }
 })
 
