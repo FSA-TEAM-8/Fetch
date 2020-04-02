@@ -1,17 +1,12 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {useParams} from 'react-router-dom'
 import {getAllMessages} from '../../store/chat'
 import NewMessage from './NewMessage'
-
 import moment from 'moment'
 
 const MessageList = props => {
-  const selfUser = props.selfUser
+  const {selfUser, channelId} = props
   const dispatch = useDispatch()
-  const {channelId} = useParams()
-
-  // need to add channelid to new messages
 
   useEffect(() => {
     dispatch(getAllMessages())
@@ -26,6 +21,8 @@ const MessageList = props => {
       message.channel.participants.includes(selfUser._id)
   )
 
+  console.log(selfUser.image)
+
   return (
     <div>
       {/* message list */}
@@ -35,15 +32,17 @@ const MessageList = props => {
           <li key={message._id} className="message-body">
             {/* user image  */}
             <div className="user-image">
-              <img src={message.author.imageUrl} alt="image" />
+              <img src={message.author.image} />
             </div>
             <div className="message-details">
               {/* user's names */}
-              <h4 className="userName">
-                Name: {message.author ? message.author.firstName : null}
-              </h4>
-              <div>Time: {message.datePosted}</div>
-              <div className="message-content">Content: {message.content}</div>
+              <div className="username-image">
+                <h4 className="userName">
+                  {message.author ? message.author.firstName : null}
+                </h4>
+                <span> {moment(message.datePosted).format('h:mm:ss a')}</span>
+              </div>
+              <div className="message-content">{message.content}</div>
             </div>
           </li>
         ))}

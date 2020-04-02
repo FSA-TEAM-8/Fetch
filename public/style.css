@@ -119,6 +119,7 @@ input {
   justify-content: space-between;
   background-color: #95b8f3;
   padding: 0;
+  width: 100%;
 }
 
 .sub-navbar {
@@ -306,6 +307,7 @@ ul {
 
 /* Message List */
 .message-list {
+  height: 70vh;
   max-height: 70vh;
   border: 1px solid gray;
   border-radius: 5px;
@@ -319,6 +321,32 @@ ul {
 
 .message-body {
   display: flex;
+}
+
+.message-body .user-image img {
+  height: 60px;
+  width: 60px;
+  box-sizing: border-box;
+}
+
+.username-image {
+  display: flex;
+  align-items: top;
+}
+
+.username-image h4 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.username-image span {
+  font-size: 13px;
+}
+
+.message-content {
+  padding-left: 5px;
 }
 
 /* New Message Input Field */
