@@ -4,7 +4,7 @@ const {validateAdmin, validateUser} = require('../middleware')
 
 module.exports = router
 
-router.get('/employers', async (req, res, next) => {
+router.get('/employers', validateAdmin, async (req, res, next) => {
   try {
     const employers = await User.find({
       isEmployer: true
@@ -19,7 +19,7 @@ router.get('/employers', async (req, res, next) => {
   }
 })
 
-router.get('/candidates', async (req, res, next) => {
+router.get('/candidates', validateUser, async (req, res, next) => {
   try {
     const employers = await User.find({
       isCandidate: true
@@ -48,7 +48,7 @@ router.get('/', validateAdmin, async (req, res, next) => {
   }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', validateUser, async (req, res, next) => {
   try {
     const singleUser = await User.findById({_id: req.params.id}).populate(
       'jobHistory'

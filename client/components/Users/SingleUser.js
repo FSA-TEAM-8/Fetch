@@ -20,20 +20,23 @@ const SingleUser = props => {
 
   return (
     <div className="container">
-      <div>
+      <div className="allJobs">
         <div key={user._id}>
-          <p>{singleUser.firstName}</p>
+          <h4>{singleUser.firstName}</h4>
           <p>{singleUser.email}</p>
 
           <div>
             <NewChannel />
           </div>
           {user._id === singleUser._id && (
-            <Link to={`/myprofile/${id}/update`}>
-              <Button variant="contained" color="primary">
-                Update My Profile
-              </Button>
-            </Link>
+            <p>
+              {' '}
+              <Link to={`/myprofile/${id}/update`}>
+                <Button variant="contained" color="primary">
+                  Update My Profile
+                </Button>
+              </Link>{' '}
+            </p>
           )}
 
           {user.isAdmin && (

@@ -30,7 +30,7 @@ const UpdateSingleUser = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="alignInputs">
         <label>
           Current Name: {user.firstName}
           Current Resume: {user.resume}
@@ -65,9 +65,11 @@ const UpdateSingleUser = () => {
             onChange={event => setFile(event.target.files[0])}
           />
         </label>
-        <Button type="submit" variant="contained" color="primary">
-          Update This Profile
-        </Button>
+        <p className="clearBoth">
+          <Button type="submit" variant="contained" color="primary">
+            Update This Profile
+          </Button>
+        </p>
       </form>
     </div>
   )

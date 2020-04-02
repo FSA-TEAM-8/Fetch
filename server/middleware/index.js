@@ -12,7 +12,10 @@ module.exports = {
   validateUser: (req, res, next) => {
     const userId = req.params.id
 
-    if (!req.user || (req.user.id !== userId && !req.user.isAdmin)) {
+    if (
+      !req.user ||
+      (req.user.id !== userId && !req.user.isAdmin && !req.user.isEmployer)
+    ) {
       const profileAccessErr = new Error('Restricted')
       profileAccessErr.status = 405
       next(profileAccessErr)

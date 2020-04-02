@@ -15,6 +15,58 @@ label {
   display: block;
 }
 
+
+h1.main {
+  color: black;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 48px;
+  padding: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+h2.sub {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 30px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+}
+
+h2.sub:hover {
+  color: #3f50b5;
+}
+
+h5.sub {
+  color: black;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 35px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* nav {
+  background-color: rgb(40, 129, 208);
+} */
+
+/* nav a {
+  display: inline-block;
+  margin: 1em;
+  color: white;
+} */
+
+
 form div {
   /* margin: 1em; */
   display: inline-block;
@@ -30,14 +82,28 @@ input {
   min-width: 200px;
 }
 
-/* .container {
+.container {
   max-width: 65%;
   margin-left: auto;
   margin-right: auto;
-} */
+}
+
+.main-img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 
 .logo {
   width: 240px;
+}
+
+.logo-login {
+  max-width: 150px;
 }
 
 .alignInputs label {
@@ -75,15 +141,14 @@ input {
 }
 
 .allJobs {
-  margin-left: 15%;
   border: 1px lightgray solid;
   padding: 10px;
   padding-top: 5px;
-  max-width: 70%;
   text-align: center;
   margin-bottom: 5px;
   margin-top: 15px;
   border-radius: 4px;
+  min-width: 350px;
 }
 
 .allJobs h3 {
@@ -120,6 +185,8 @@ input {
   font-size: auto;
   padding-right: 10px;
   padding-left: 10px;
+  background-color: #95b8f3;
+
 }
 
 .inlineComponents {
@@ -168,9 +235,14 @@ input {
 /* footer */
 .footer {
   display: flex;
-  justify-content: space-between;
-  padding: 30x;
-  background-color: #95b8f3;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #89abe3ff;
+  position: absolute;
+  width: 100%;
+  bottom: -1;
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 .sub-footer {
@@ -240,15 +312,15 @@ input {
     margin-left: 25%;
   }
   .container {
-    max-width: 100%;
+    min-width: 90%;
   }
 }
 
 /* Entire chat area  */
 .chat-room {
   display: flex;
-  position: absolute;
-  height: 78vh;
+  position: 1;
+  height: 85vh;
   width: 100%;
 }
 
@@ -271,6 +343,7 @@ ul {
   box-sizing: border-box;
   overflow-y: scroll;
   scroll-behavior: auto;
+  position: 1;
 }
 
 .channel-list-user-name {
@@ -282,6 +355,7 @@ ul {
 
 .channel-active-chats {
   padding: 2px;
+  position: 1;
 }
 
 .channel-name {
@@ -320,16 +394,19 @@ ul {
   display: flex;
   flex-direction: column;
   padding: 8px;
+  position: 1;
 }
 
 .message-body {
   display: flex;
+  position: 1;
 }
 
 .message-body .user-image img {
   height: 60px;
   width: 60px;
   box-sizing: border-box;
+  position: 1;
 }
 
 .username-image {
@@ -366,8 +443,10 @@ ul {
 
 .new-message-input {
   width: 100%;
+  position: 1;
 }
 
 .message-btn {
   height: 60px;
+  position: 1;
 }

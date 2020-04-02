@@ -6,6 +6,7 @@ import {
   Login,
   Signup,
   UserHome,
+  Home,
   AllCompanies,
   SingleCompany,
   AllUsers,
@@ -39,6 +40,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/jobs/:id" component={SingleJob} />
@@ -49,6 +51,7 @@ class Routes extends Component {
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -99,7 +102,7 @@ class Routes extends Component {
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        {isLoggedIn ? <Redirect to="/home" /> : <Route component={Login} />}
+        {isLoggedIn ? <Redirect to="/home" /> : <Route component={Home} />}
       </Switch>
     )
   }
