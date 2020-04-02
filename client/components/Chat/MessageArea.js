@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {getAllMessages} from '../../store/chat'
 import {me} from '../../store/user'
 
 import Container from '@material-ui/core/Container'
@@ -8,47 +7,42 @@ import Typography from '@material-ui/core/Typography'
 
 import ChannelList from './ChannelList'
 import MessageList from './MessageList'
+import NewMessage from './NewMessage'
 
 import {useParams} from 'react-router-dom'
 
 const MessageArea = () => {
-  // const dispatch = useDispatch()
-  // const user = useSelector(state => state.user)
-  // const messages = useSelector(state => state.chat.messages)
-  // console.log('messages', messages)
-
-  // useEffect(() => {
-  //   dispatch(getAllMessages())
-  //   dispatch(me())
-  // }, [])
-
+  const dispatch = useDispatch()
+  const selfUser = useSelector(state => state.user)
   const {channelId} = useParams()
 
-  return (
-    <div style={{display: 'flex'}}>
-      <ChannelList />
+  useEffect(() => {
+    dispatch(me())
+  }, [])
 
-      <Container maxWidth="sm">
-        <Typography
-          component="div"
-          style={{
-            backgroundColor: '#cfe8fc',
-            height: '90vh',
-            width: '100%'
-          }}
+  return (
+    <div className="chat-room">
+      <ChannelList selfUser={selfUser} />
+      <div className="media-center">
+        <Container
+          className="center-container"
+          style={{paddingLeft: '0px', paddingRight: '0px'}}
         >
-          {/* check if there is a channelId, if there isnt show start a channel/message */}
-          {channelId ? (
-            <MessageList style={{height: '90vh'}} />
-          ) : (
-            <div>
-              This could also be general chat room
-              <p>Welcome to chat room!</p>
-              <p>Please view a channel or a user's profile to chat</p>
-            </div>
-          )}
-        </Typography>
-      </Container>
+          <Typography component="div" className="center-typography">
+            {/* check if there is a channelId, if there isnt show start a channel/message */}
+            {channelId ? (
+              <MessageList selfUser={selfUser} />
+            ) : (
+              <div>
+                This could also be general chat room
+                <p>Welcome to chat room!</p>
+                <p>Please view a channel or a user's profile to chat</p>
+              </div>
+            )}
+          </Typography>
+        </Container>
+        <NewMessage channelId={channelId} selfUser={selfUser} />
+      </div>
     </div>
   )
 }

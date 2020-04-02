@@ -13,7 +13,8 @@ import {
   AllCandidates,
   SingleUser,
   UpdateSingleUser,
-  UpdateCompany
+  UpdateCompany,
+  SearchResults
 } from './components'
 import {me} from './store'
 
@@ -42,6 +43,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/jobs/:id" component={SingleJob} />
         <Route path="/jobs" component={AllJobs} />
+        <Route path="/search" component={SearchResults} />
         <Route exact path="/companies/:id" component={SingleCompany} />
         <Route exact path="/companies" component={AllCompanies} />
         <Route exact path="/">
