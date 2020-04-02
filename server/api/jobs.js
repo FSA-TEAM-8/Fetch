@@ -86,3 +86,30 @@ router.put('/', async (req, res, next) => {
     next(error)
   }
 })
+
+router.post('/upload', async (req, res, next) => {
+  console.log('File received', req.files)
+  let newFile = req.files.resume
+  let newFileName = req.files.resume.name
+  try {
+    newFile.mv(`/server/uploads/${newFileName}`, function(err) {
+      if (err) {
+        return res.status(500).send(err)
+      }
+    })
+    const updatedUser = await User.findOneAndUpdate(
+      {
+        _id: req.user._id
+      },
+      {
+        resume: `${newFileName}`
+      },
+      {
+        new: true
+      }
+    )
+    res.json(updatedUser)
+  } catch (error) {
+    next(error)
+  }
+})

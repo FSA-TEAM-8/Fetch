@@ -59,6 +59,43 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
+router.post('/upload', async (req, res, next) => {
+  console.log('File received', req.files)
+  let newFile = req.files.resume
+  let newFileName = req.files.resume.name
+
+  // newFile.mv(`/server/uploads/${newFileName}`, function(
+  //   err
+  // ) {
+  //   if (err) {
+  //     return res.status(500).send(err)
+  //   }
+  // })
+
+  try {
+    newFile.mv(`server/uploads/${newFileName}`, function(err) {
+      if (err) {
+        console.error(err)
+      }
+    })
+
+    const updatedUser = await User.findOneAndUpdate(
+      {
+        _id: req.user._id
+      },
+      {
+        resume: `${newFileName}`
+      },
+      {
+        new: true
+      }
+    )
+    res.json(updatedUser)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
     const newUser = await User.create(req.body)
