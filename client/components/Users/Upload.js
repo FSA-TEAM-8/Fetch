@@ -1,75 +1,57 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input'
+import axios from 'axios'
 
 const Swal = require('sweetalert2')
 
 class UploadFile extends React.Component {
   constructor(props) {
-    const user = props.user
-    console.log('Heres the user', user)
     super(props)
 
-    this.state = {
-      fileUrl: ''
-    }
+    this.onFileChange = this.onFileChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
 
-    this.handleUpload = this.handleUpload.bind(this)
+    this.state = {
+      profileImg: ''
+    }
   }
 
-  handleUpload(evt) {
-    evt.preventDefault()
+  onFileChange(e) {
+    this.setState({profileImg: e.target.files[0]})
+  }
 
-    const data = new FormData()
-    data.append('file', this.uploadInput.files[0])
-
-    fetch('/upload', {
-      method: 'POST',
-      body: data
-    }).then(response => {
-      response.json().then(body => {
-        this.setState({fileUrl: `/upload/${body.file}`})
-      })
+  onSubmit(e) {
+    e.preventDefault()
+    const formData = new FormData()
+    formData.append('profileImg', this.state.profileImg, this.state.user)
+    axios.post('/upload', formData, {}).then(res => {
+      console.log(res)
     })
-
-    // const { value: file } = await Swal.fire({
-    //   title: 'Select image',
-    //   input: 'file',
-    //   inputAttributes: {
-    //     'accept': 'image/*',
-    //     'aria-label': 'Upload your profile picture'
-    //   }
-    // })
-
-    // if (file) {
-    //   const reader = new FileReader()
-    //   reader.onload = (e) => {
-    //     Swal.fire({
-    //       title: 'Your uploaded picture',
-    //       imageUrl: e.target.result,
-    //       imageAlt: 'The uploaded picture'
-    //     })
-    //   }
-    //   reader.readAsDataURL(file)
-    // }
   }
 
   render() {
     return (
-      <form onSubmit={this.handleUpload}>
-        <div>
-          <input
-            ref={ref => {
-              this.uploadInput = ref
-            }}
-            type="file"
-          />
+      <div className="container">
+        <div className="row">
+          <form onSubmit={this.onSubmit}>
+            <div className="form-group">
+              <Input type="file" onChange={this.onFileChange} />
+            </div>
+            <div className="form-group">
+              <Button
+                variant="contained"
+                color="primary"
+                className="btn btn-primary"
+                type="submit"
+              >
+                Upload
+              </Button>
+            </div>
+          </form>
         </div>
-        <br />
-        <div>
-          <button>Upload Resume</button>
-        </div>
-      </form>
+      </div>
     )
   }
 }

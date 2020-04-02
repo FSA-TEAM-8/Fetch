@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, Fragment} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateSingleUser} from '../../store/single-user'
-import {useParams} from 'react-router'
-import UploadFile from './Upload'
 import Button from '@material-ui/core/Button'
+import axios from 'axios'
 
 const UpdateSingleUser = () => {
   const user = useSelector(state => state.singleUser)
-  console.log('Current User', user)
   const dispatch = useDispatch()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
+  const [file, setFile] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -19,8 +18,13 @@ const UpdateSingleUser = () => {
       _id: user._id,
       firstName,
       lastName,
-      email
+      email,
+      file
     }
+
+    const formData = new FormData()
+    formData.append('resume', file)
+    axios.post('/api/users/upload', formData, {})
     dispatch(updateSingleUser(data))
   }
 
@@ -29,6 +33,7 @@ const UpdateSingleUser = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Current Name: {user.firstName}
+          Current Resume: {user.resume}
           <br />
           Update First Name:
           <input
@@ -53,11 +58,17 @@ const UpdateSingleUser = () => {
             onChange={event => setEmail(event.target.value)}
           />
         </label>
+        <label>
+          Upload Resume:
+          <input
+            type="file"
+            onChange={event => setFile(event.target.files[0])}
+          />
+        </label>
         <Button type="submit" variant="contained" color="primary">
           Update This Profile
         </Button>
       </form>
-      <UploadFile user={user} />
     </div>
   )
 }

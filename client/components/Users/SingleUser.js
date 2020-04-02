@@ -3,8 +3,6 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSingleUser} from '../../store/single-user'
 import {Link} from 'react-router-dom'
-import UploadFile from './Upload'
-import DownloadFile from './Download'
 import SavedJobs from '../Jobs/SavedJobs'
 import AppliedJobs from '../Jobs/AppliedJobs'
 import Button from '@material-ui/core/Button'
@@ -13,7 +11,6 @@ import NewChannel from '../Chat/NewChannel'
 const SingleUser = props => {
   const id = props.match.params.id
   const singleUser = useSelector(state => state.singleUser)
-  console.log('FirstName', singleUser.firstName)
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
 
@@ -49,10 +46,6 @@ const SingleUser = props => {
 
           <div>
             <img src={user.imageUrl} />
-            <UploadFile user={user} />
-          </div>
-          <div>
-            <DownloadFile user={user} />
           </div>
         </div>
       </div>
