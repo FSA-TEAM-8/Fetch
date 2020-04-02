@@ -27,6 +27,7 @@ const MessageArea = () => {
         <Container
           className="center-container"
           // style={{paddingLeft: '0px', paddingRight: '0px'}}
+
         >
           <Typography component="div" className="center-typography">
             {/* check if there is a channelId, if there isnt show start a channel/message */}

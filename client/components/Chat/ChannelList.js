@@ -33,18 +33,22 @@ const ChannelList = props => {
   }, [])
 
   return (
+
     <div className="channel-list">
       <div className="channel-list-user-name">
         <h4>{selfUser.firstName}'s Channel List</h4>
       </div>
+
       <ul>
         {filteredChannels.map(currentChannel => {
           const channel = currentChannel.channel
           return (
+
             <li key={channel.id} className="channel-active-chats">
               <Link to={`/chat/channel/${channel.id}`}>
                 <div className="channel-name"># {channel.name}</div>
               </Link>
+
             </li>
           )
         })}
