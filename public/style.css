@@ -127,6 +127,7 @@ input {
   align-items: center;
   font-size: large;
   padding-right: 10px;
+  background-color: #95b8f3;
   /* width: 45%; */
 }
 
@@ -235,7 +236,7 @@ input {
     margin-left: 25%;
   }
   .container {
-    max-width: 100%;
+    min-width: 90%;
   }
 }
 
