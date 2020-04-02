@@ -26,7 +26,7 @@ const MessageArea = () => {
       <div className="media-center">
         <Container
           className="center-container"
-          style={{paddingLeft: '0px', paddingRight: '0px'}}
+          // style={{paddingLeft: '0px', paddingRight: '0px'}}
         >
           <Typography component="div" className="center-typography">
             {/* check if there is a channelId, if there isnt show start a channel/message */}
@@ -34,14 +34,14 @@ const MessageArea = () => {
               <MessageList selfUser={selfUser} />
             ) : (
               <div>
-                This could also be general chat room
                 <p>Welcome to chat room!</p>
                 <p>Please view a channel or a user's profile to chat</p>
               </div>
             )}
           </Typography>
         </Container>
-        <NewMessage channelId={channelId} selfUser={selfUser} />
+        {/* {channelId ? (
+        <NewMessage channelId={channelId} selfUser={selfUser} /> ) : null } */}
       </div>
     </div>
   )

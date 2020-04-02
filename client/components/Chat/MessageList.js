@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import {getAllMessages} from '../../store/chat'
+import NewMessage from './NewMessage'
 
 import moment from 'moment'
 
@@ -28,31 +29,26 @@ const MessageList = props => {
   return (
     <div>
       {/* message list */}
-      <ul className="messageList">
+      <ul className="message-list">
         {filteredMessages.map(message => (
           // messages
-          <li key={message._id} className="messageBody">
+          <li key={message._id} className="message-body">
             {/* user image  */}
-            {/* <div className="media-left">
-              <a href="#">
-                <img
-                  className="media-object"
-                  src={message.author.imageUrl}
-                  alt="image"
-                />
-              </a>
-            </div> */}
-            <div className="messageDetails">
+            <div className="user-image">
+              <img src={message.author.imageUrl} alt="image" />
+            </div>
+            <div className="message-details">
               {/* user's names */}
               <h4 className="userName">
                 Name: {message.author ? message.author.firstName : null}
               </h4>
               <div>Time: {message.datePosted}</div>
-              <div className="messageContent">Content: {message.content}</div>
+              <div className="message-content">Content: {message.content}</div>
             </div>
           </li>
         ))}
       </ul>
+      <NewMessage channelId={channelId} selfUser={selfUser} />
     </div>
   )
 }

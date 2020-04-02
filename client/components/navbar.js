@@ -16,7 +16,7 @@ const Header = () => {
         <img src="/img/logo2.png" className="logo" />
       </Link>
 
-      {/* navbar */}
+      {/* navbar links */}
       <div className="sub-navbar">
         <Link to="/home" className="dropdown-link">
           Home

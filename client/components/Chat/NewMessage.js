@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {postNewMessage, getSingleChannel} from '../../store/chat'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 import moment from 'moment'
 
@@ -36,28 +37,25 @@ const NewMessage = props => {
 
   return (
     <div>
-      {/* new message component below */}
-      <div>
-        <form id="new-message-form" onSubmit={handleSubmit}>
-          <div className="input-group input-group-lg">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              className="new-message-input"
-              type="text"
-              name="content"
-              value={newMessage}
-              onChange={event => setNewMessage(event.target.value)}
-              placeholder="Say something..."
-            />
-            <span className="input-group-btn">
-              <button className="btn btn-default" type="submit">
-                Send
-              </button>
-            </span>
+      <form className="new-message-form" onSubmit={handleSubmit}>
+        <div className="new-message-div">
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            className="new-message-input"
+            type="text"
+            name="content"
+            value={newMessage}
+            onChange={event => setNewMessage(event.target.value)}
+            placeholder="Say something..."
+          />
+          <div className="new-message-btn">
+            <Button className="message-btn" type="submit" variant="contained">
+              Send
+            </Button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   )
 }
