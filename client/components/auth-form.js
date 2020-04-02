@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 import Button from '@material-ui/core/Button'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -37,8 +38,18 @@ const AuthForm = props => {
         <a href="/auth/linkedin">{displayName} with Linkedin</a>{' '}
       </div>
       <div>
+        <a href="/auth/linkedin">
+          <img src="/img/Sign-In-Small---Active.png" className="logo-login" />
+        </a>
+      </div>
+      <div>
         {' '}
         <a href="/auth/google">{displayName} with Google</a>{' '}
+      </div>
+      <div>
+        <a href="/auth/google">
+          <img src="/img/4LSMF.png" className="logo-login" />
+        </a>
       </div>
     </div>
   )
