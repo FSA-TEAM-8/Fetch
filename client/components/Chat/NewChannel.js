@@ -26,12 +26,17 @@ const NewChannel = () => {
     // need to check if the channel already exists, if it doesnt then create the channel
     // if channel already exists then direct to the channel
     const newChannelId = `${user._id}&${singleUser._id}`
+    const altChannelId = `${singleUser._id}&${user._id}`
 
+    // (currentChannel.channel.id === altChannelId)
     if (
       channels.filter(
-        currentChannel => currentChannel.channel.id === newChannelId
+        currentChannel =>
+          currentChannel.channel.id === newChannelId ||
+          currentChannel.channel.id === altChannelId
       ).length !== 0
     ) {
+      console.log('channel already exists')
       history.push(`/chat/channel/${user._id}&${singleUser._id}`)
     } else {
       const channelObj = {
@@ -43,7 +48,7 @@ const NewChannel = () => {
         name: `${user.firstName}+${singleUser.firstName}`
       }
       dispatch(postNewChannel(channelObj))
-
+      console.log('created new channel')
       history.push(`/chat/channel/${channelObj.id}`)
     }
   }

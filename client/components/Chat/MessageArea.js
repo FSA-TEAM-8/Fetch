@@ -1,15 +1,13 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {me} from '../../store/user'
+import {useParams} from 'react-router-dom'
 
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 
 import ChannelList from './ChannelList'
 import MessageList from './MessageList'
-import NewMessage from './NewMessage'
-
-import {useParams} from 'react-router-dom'
 
 const MessageArea = () => {
   const dispatch = useDispatch()
@@ -27,12 +25,11 @@ const MessageArea = () => {
         <Container
           className="center-container"
           // style={{paddingLeft: '0px', paddingRight: '0px'}}
-
         >
           <Typography component="div" className="center-typography">
             {/* check if there is a channelId, if there isnt show start a channel/message */}
             {channelId ? (
-              <MessageList selfUser={selfUser} />
+              <MessageList selfUser={selfUser} channelId={channelId} />
             ) : (
               <div>
                 <p>Welcome to chat room!</p>
@@ -41,8 +38,6 @@ const MessageArea = () => {
             )}
           </Typography>
         </Container>
-        {/* {channelId ? (
-        <NewMessage channelId={channelId} selfUser={selfUser} /> ) : null } */}
       </div>
     </div>
   )

@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux'
 import {postNewMessage, getSingleChannel} from '../../store/chat'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-
 import moment from 'moment'
 
 const NewMessage = props => {
@@ -11,8 +10,6 @@ const NewMessage = props => {
   const dispatch = useDispatch()
   const [newMessage, setNewMessage] = useState('')
   const currentChannel = useSelector(state => state.chat.channel)
-
-  const currentTime = moment()
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -22,12 +19,14 @@ const NewMessage = props => {
       author: {
         id: selfUser._id,
         firstName: selfUser.firstName,
-        lastName: selfUser.lastName
+        lastName: selfUser.lastName,
+        image: selfUser.image
       },
-      datePosted: currentTime._d
+      datePosted: moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a')
     }
     dispatch(postNewMessage(messageObj))
   }
+
   useEffect(
     () => {
       dispatch(getSingleChannel(channelId))

@@ -40,8 +40,9 @@ const userSchema = new Schema({
   resume: {
     type: String
   },
-  imageUrl: {
-    type: String
+  image: {
+    type: String,
+    default: '/img/default_user.png'
   },
   linkedInId: {
     type: Object
