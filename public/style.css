@@ -85,15 +85,14 @@ input {
 }
 
 .allJobs {
-  margin-left: 15%;
   border: 1px lightgray solid;
   padding: 10px;
   padding-top: 5px;
-  max-width: 70%;
   text-align: center;
   margin-bottom: 5px;
   margin-top: 15px;
   border-radius: 4px;
+  min-width: 350px;
 }
 
 .allJobs h3 {
