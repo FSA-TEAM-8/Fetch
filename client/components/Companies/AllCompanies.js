@@ -14,9 +14,11 @@ const AllCompanies = () => {
   return (
     <div className="container">
       {companies.map(company => (
-        <div key={company._id}>
+        <div key={company._id} className="allJobs">
           <Link to={`/companies/${company._id}`}>
             <h3>{company.companyName}</h3>
+            <p>{company.size}</p>
+            <p>{company.description}</p>
           </Link>
         </div>
       ))}
