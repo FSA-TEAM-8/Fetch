@@ -47,7 +47,7 @@ class Routes extends Component {
         <Route exact path="/companies/:id" component={SingleCompany} />
         <Route exact path="/companies" component={AllCompanies} />
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/jobs" />
         </Route>
         {isLoggedIn && (
           <Switch>

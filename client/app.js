@@ -1,6 +1,6 @@
 import React from 'react'
 import Routes from './routes'
-import {Navbar, TabPanel} from './components'
+import {Navbar, TabPanel, Footer} from './components'
 import SearchBar from './components/SearchBar'
 
 const App = () => {
@@ -9,6 +9,7 @@ const App = () => {
       <Navbar />
       <SearchBar />
       <Routes />
+      <Footer />
     </div>
   )
 }
