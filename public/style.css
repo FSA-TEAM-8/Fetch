@@ -126,7 +126,7 @@ input {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-size: large;
+  font-size: auto;
   padding-right: 10px;
   /* width: 45%; */
 }
@@ -134,6 +134,23 @@ input {
 .inlineComponents {
   display: flex;
   flex-direction: row;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30x;
+  background-color: #95b8f3;
+}
+
+.sub-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: auto;
+  padding-right: 10px;
+  /* width: 45%; */
 }
 
 /* searchbar */
@@ -149,8 +166,10 @@ input {
   align-items: center;
   position: 'relative';
   width: '100%';
-  margin-bottom: 25px;
-  margin-top: 25px;
+  padding: 50px;
+  background-image: url('/img/comp-stock.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .search-jobs-bar {
@@ -161,7 +180,7 @@ input {
   width: 30%;
   margin-right: 15px;
   border-radius: 5px;
-  border: 2px solid #3f50b5;
+  border: 2px solid #ffffff;
   height: 50px;
 }
 
@@ -173,7 +192,7 @@ input {
   width: 30%;
   margin-right: 15px;
   border-radius: 5px;
-  border: 2px solid #3f50b5;
+  border: 2px solid #ffffff;
   height: 50px;
 }
 

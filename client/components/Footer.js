@@ -1,0 +1,32 @@
+import React from 'react'
+import {Link} from 'react-router-dom'
+import BottomNavigation from '@material-ui/core/BottomNavigation'
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
+import HomeIcon from '@material-ui/icons/Home'
+import InfoIcon from '@material-ui/icons/Info'
+import AccountBoxIcon from '@material-ui/icons/AccountBox'
+
+const Footer = () => (
+  <BottomNavigation showLabels>
+    <BottomNavigationAction
+      component={Link}
+      to="/home"
+      label="Home"
+      icon={<HomeIcon />}
+    />
+    <BottomNavigationAction
+      component={Link}
+      to="/about"
+      label="About"
+      icon={<InfoIcon />}
+    />
+    <BottomNavigationAction
+      component={Link}
+      to="/login"
+      label="Login"
+      icon={<InfoIcon />}
+    />
+  </BottomNavigation>
+)
+
+export default Footer
