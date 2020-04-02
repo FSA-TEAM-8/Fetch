@@ -7,7 +7,7 @@ import InfoIcon from '@material-ui/icons/Info'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 
 const Footer = () => (
-  <BottomNavigation showLabels>
+  <div className="footer">
     <BottomNavigationAction
       component={Link}
       to="/home"
@@ -26,7 +26,7 @@ const Footer = () => (
       label="Login"
       icon={<InfoIcon />}
     />
-  </BottomNavigation>
+  </div>
 )
 
 export default Footer
