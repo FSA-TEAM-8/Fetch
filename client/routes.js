@@ -24,7 +24,7 @@ import SingleJob from './components/Jobs/SingleJob'
 import AddJob from './components/Jobs/AddJob'
 import SavedJobs from './components/Jobs/SavedJobs'
 import MessageArea from './components/Chat/MessageArea'
-import MessageList from './components/Chat/MessageList'
+
 /**
  * COMPONENT
  */
@@ -47,7 +47,7 @@ class Routes extends Component {
         <Route exact path="/companies/:id" component={SingleCompany} />
         <Route exact path="/companies" component={AllCompanies} />
         <Route exact path="/">
-          <Redirect to="/jobs" />
+          <Redirect to="/home" />
         </Route>
         {isLoggedIn && (
           <Switch>
@@ -80,7 +80,6 @@ class Routes extends Component {
                   path="/companies/:id/updateCompany"
                   component={UpdateCompany}
                 />
-
                 <Route path="/candidates/:id" component={SingleUser} />
                 <Route path="/candidates" component={AllCandidates} />
                 {isAdmin && (

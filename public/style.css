@@ -15,16 +15,6 @@ label {
   display: block;
 }
 
-/* nav {
-  background-color: rgb(40, 129, 208);
-} */
-
-/* nav a {
-  display: inline-block;
-  margin: 1em;
-  color: white;
-} */
-
 form div {
   /* margin: 1em; */
   display: inline-block;
@@ -47,7 +37,7 @@ input {
 } */
 
 .logo {
-  max-width: 250px;
+  width: 240px;
 }
 
 .alignInputs label {
@@ -129,7 +119,7 @@ input {
   align-items: center;
   font-size: auto;
   padding-right: 10px;
-  /* width: 45%; */
+  padding-left: 10px;
 }
 
 .inlineComponents {
@@ -137,67 +127,14 @@ input {
   flex-direction: row;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 30x;
-  background-color: #95b8f3;
+/* dropdown button */
+.dropdown-link {
+  border: none;
+  padding: 10px;
+  font-size: 1em;
 }
 
-.sub-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: auto;
-  padding-right: 10px;
-  /* width: 45%; */
-}
-
-/* searchbar */
-
-.Menubar {
-  box-shadow: none;
-}
-
-.search-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: 'relative';
-  width: '100%';
-  padding: 50px;
-  background-image: url('/img/comp-stock.jpg');
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-
-.search-jobs-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  margin-right: 15px;
-  border-radius: 5px;
-  border: 2px solid #ffffff;
-  height: 50px;
-}
-
-.search-location-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  margin-right: 15px;
-  border-radius: 5px;
-  border: 2px solid #ffffff;
-  height: 50px;
-}
-
-/* The container <div> - needed to position the dropdown content */
+/* dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -208,7 +145,6 @@ input {
   display: none;
   position: absolute;
   background-color: white;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   right: 0;
@@ -229,24 +165,72 @@ input {
   display: block;
 }
 
-/* Dropdown Button */
-.dropdown-link {
-  font: sans-serif;
-
-  font-size: 18px;
-  border: none;
-  padding: 10px;
+/* footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30x;
+  background-color: #95b8f3;
 }
 
-/* moved into channellist  */
-.chatBar {
-  background-color: #478fff;
-  border-radius: 5px;
+.sub-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: auto;
+  padding-right: 10px;
+  /* width: 45%; */
 }
 
-.chatBar {
-  background-color: #478fff;
+/* searchbar */
+.Menubar {
+  box-shadow: none;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: 'relative';
+  width: '100%';
+  padding: 50px;
+  background-image: url('/img/comp-stock.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/* .search-jobs-bar::-webkit-InputBase-placeholder {
+  color: black;
+} */
+
+.search-jobs-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin-right: 15px;
   border-radius: 5px;
+  border: 2px solid #ffffff;
+  height: 50px;
+  background-color: #ffffff;
+  opacity: 0.75;
+}
+
+.search-location-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin-right: 15px;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+  height: 50px;
+  background-color: #ffffff;
+  opacity: 0.75;
 }
 
 /* Media Queries */
@@ -277,7 +261,7 @@ ul {
 /* Channel List  */
 .channel-list {
   background-color: #95b8f3;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   height: 105%;
   width: 15%;
   padding: 8px;

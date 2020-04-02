@@ -25,8 +25,7 @@ const AllEmployers = () => {
             <div className="allUsers">
               <h4>{`${user.firstName} ${user.lastName}`}</h4>
               <p>{user.email}</p>
-              <p>{user.company}</p>
-              <p>{typeof user._id}</p>
+              <p>{user.company.companyName}</p>
             </div>
           </Link>
         ))}

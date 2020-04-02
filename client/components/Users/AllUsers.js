@@ -25,7 +25,6 @@ const AllUsers = () => {
             <div className="allUsers">
               <h4>{`${user.firstName} ${user.lastName}`}</h4>
               <p>{user.email}</p>
-              <p>Is user an employer?: {String(user.isEmployer)}</p>
             </div>
           </Link>
         ))}
