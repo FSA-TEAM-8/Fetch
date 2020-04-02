@@ -41,20 +41,24 @@ const Header = () => {
         </div>
         {/* check log in status */}
         {isLoggedIn ? (
-          <div className="dropdown-link">
-            <Link to="#" onClick={handleClick}>
+          <div>
+            <Link to="#" className="dropdown-link" onClick={handleClick}>
               Logout
             </Link>
           </div>
         ) : (
-          <div className="dropdown-link">
-            <Link to="/login">Login</Link>
+          <div>
+            <Link to="/login" className="dropdown-link">
+              Login
+            </Link>
           </div>
         )}
         {/* separated from above because of it will be treated as under one div element and spacing will be off*/}
         {isLoggedIn ? null : (
-          <div className="dropdown-link" style={{whiteSpace: 'nowrap'}}>
-            <Link to="/signup">Sign Up</Link>
+          <div style={{whiteSpace: 'nowrap'}}>
+            <Link to="/signup" className="dropdown-link">
+              Sign Up
+            </Link>
           </div>
         )}
         {/* check for admin or employer */}
@@ -86,8 +90,12 @@ const Header = () => {
         ) : null}
         {/* check if logged in for profile */}
         {isLoggedIn ? (
-          <div className="dropdown-link">
-            <Link to={`/myprofile/${user._id}`} style={{whiteSpace: 'nowrap'}}>
+          <div>
+            <Link
+              to={`/myprofile/${user._id}`}
+              className="dropdown-link"
+              style={{whiteSpace: 'nowrap'}}
+            >
               My Profile
             </Link>
           </div>

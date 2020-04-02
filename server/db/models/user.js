@@ -41,7 +41,7 @@ const userSchema = new Schema({
   },
   image: {
     type: String,
-    default: '/img/default_user.png'
+    default: '/img/default-user.png'
   },
   linkedInId: {
     type: Object
