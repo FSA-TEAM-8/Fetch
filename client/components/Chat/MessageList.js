@@ -21,8 +21,6 @@ const MessageList = props => {
       message.channel.participants.includes(selfUser._id)
   )
 
-  console.log(selfUser.image)
-
   return (
     <div>
       {/* message list */}
@@ -40,7 +38,7 @@ const MessageList = props => {
                 <h4 className="userName">
                   {message.author ? message.author.firstName : null}
                 </h4>
-                <span> {moment(message.datePosted).format('h:mm:ss a')}</span>
+                <span> {message.datePosted}</span>
               </div>
               <div className="message-content">{message.content}</div>
             </div>
