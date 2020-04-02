@@ -19,8 +19,7 @@ const userSchema = new Schema({
     unique: true
   },
   password: {
-    type: String,
-    required: true
+    type: String
   },
   streetNumber: {
     type: Number
