@@ -204,6 +204,15 @@ input {
   height: 100vh;
 }
 
+.updateUserPage {
+  display: flex;
+  align-items: top;
+  justify-content: space-evenly;
+}
+
+.currentUserInfo {
+  padding-top: 30px;
+}
 /* navbar / header */
 
 .navbar {
