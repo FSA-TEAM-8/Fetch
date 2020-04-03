@@ -187,6 +187,71 @@ async function seed() {
     experienceLevel: 'Junior'
   })
 
+  const bofaSeniorOracle = await Job.create({
+    title: 'Senior Oracle Database Developer',
+    salary: 108000,
+    contactEmail: 'apply@bofa.com',
+    location: 'New York',
+    roleType: 'Database',
+    experienceLevel: 'Senior'
+  })
+
+  const bofaMobileDeveloper = await Job.create({
+    title: 'Mobile Developer',
+    salary: 90000,
+    contactEmail: 'apply@bofa.com',
+    location: 'Charlotte',
+    roleType: 'Mobile',
+    experienceLevel: 'Junior'
+  })
+
+  bofa.jobPostedHistory.push(bofaSeniorOracle._id)
+  bofaSeniorOracle.company = bofa._id
+  bofaSeniorOracle.author = red._id
+
+  bofa.jobPostedHistory.push(bofaMobileDeveloper._id)
+  bofaMobileDeveloper.company = bofa._id
+  bofaMobileDeveloper.author = red._id
+
+  const jpmorganJavaDeveloper = await Job.create({
+    title: 'Java Developer',
+    salary: 89000,
+    contactEmail: 'apply@jpmorgan.com',
+    location: 'San Francisco',
+    roleType: 'Back-end',
+    experienceLevel: 'Junior'
+  })
+
+  const jpmorganFullStack = await Job.create({
+    title: 'Full Stack Developer',
+    salary: 110000,
+    contactEmail: 'apply@jpmorgan.com',
+    location: 'Houston',
+    roleType: 'Full-stack',
+    experienceLevel: 'Senior'
+  })
+
+  const jpmorganUIDeveloper = await Job.create({
+    title: 'UI Frontend Developer',
+    salary: 110000,
+    contactEmail: 'apply@jpmorgan.com',
+    location: 'New York',
+    roleType: 'Front-end',
+    experienceLevel: 'Senior'
+  })
+
+  jpmorganChase.jobPostedHistory.push(jpmorganJavaDeveloper._id)
+  jpmorganJavaDeveloper.company = jpmorganChase._id
+  jpmorganJavaDeveloper.author = blue._id
+
+  jpmorganChase.jobPostedHistory.push(jpmorganFullStack._id)
+  jpmorganFullStack.company = jpmorganChase._id
+  jpmorganFullStack.author = blue._id
+
+  jpmorganChase.jobPostedHistory.push(jpmorganUIDeveloper._id)
+  jpmorganUIDeveloper.company = jpmorganChase._id
+  jpmorganUIDeveloper.author = blue._id
+
   // const bofaFullStack = await Job.create({
   //   title: 'Full Stack Developer',
   //   salary: 120000,
@@ -201,6 +266,7 @@ async function seed() {
   red.company = bofa._id // company id
   red.isEmployer = true
   bofa.employees.push(red._id) // employee id
+
   bofa.jobPostedHistory.push(bofaFrontEnd._id)
   bofaFrontEnd.company = bofa._id
   bofaFrontEnd.author = red._id
@@ -208,10 +274,13 @@ async function seed() {
   await red.save() // this saves and applies the changes made to the instance
   await bofa.save()
   await bofaFrontEnd.save()
+  await bofaSeniorOracle.save()
+  await bofaMobileDeveloper.save()
 
   blue.company = jpmorganChase._id // company id
   blue.isEmployer = true
   jpmorganChase.employees.push(blue._id) // employee id
+
   jpmorganChase.jobPostedHistory.push(jpmorganBackEnd._id)
   jpmorganBackEnd.company = jpmorganChase._id
   jpmorganBackEnd.author = blue._id
@@ -219,6 +288,9 @@ async function seed() {
   await blue.save()
   await jpmorganChase.save()
   await jpmorganBackEnd.save()
+  await jpmorganJavaDeveloper.save()
+  await jpmorganFullStack.save()
+  await jpmorganUIDeveloper.save()
 
   //Users
   const jody = await User.create({
@@ -338,31 +410,107 @@ async function seed() {
     experienceLevel: 'Junior'
   })
 
+  const pumaBackend = await Job.create({
+    title: 'Back-End Developer',
+    salary: 121000,
+    contactEmail: 'jobs@puma.com',
+    location: 'New York',
+    roleType: 'Front-End',
+    experienceLevel: 'Junior-level'
+  })
+
+  const pumaMobile = await Job.create({
+    title: 'Back-End Developer',
+    salary: 121000,
+    contactEmail: 'jobs@puma.com',
+    location: 'New York',
+    roleType: 'Front-End',
+    experienceLevel: 'Junior-level'
+  })
+
+  const adidasBackend = await Job.create({
+    title: 'Back-End Developer',
+    salary: 141000,
+    contactEmail: 'jobs@adidas.com',
+    location: 'New York',
+    roleType: 'Front-End',
+    experienceLevel: 'Junior-level'
+  })
+
+  const adidasFullstack = await Job.create({
+    title: 'Fullstack Developer',
+    salary: 151000,
+    contactEmail: 'jobs@adidas.com',
+    location: 'New York',
+    roleType: 'Front-End',
+    experienceLevel: 'Senior-level'
+  })
+
+  const adidasMobile = await Job.create({
+    title: 'Mobile Developer',
+    salary: 101000,
+    contactEmail: 'jobs@adidas.com',
+    location: 'New York',
+    roleType: 'Front-End',
+    experienceLevel: 'Senior-level'
+  })
+
   jody.company = puma._id // company id
   jody.isEmployer = true
   puma.employees.push(jody._id) // employee id
+
   puma.jobPostedHistory.push(pumaFullstack._id)
   pumaFullstack.company = puma._id
   pumaFullstack.author = jody._id
 
+  puma.jobPostedHistory.push(pumaMobile._id)
+  pumaMobile.company = puma._id
+  pumaMobile.author = jody._id
+
+  puma.jobPostedHistory.push(pumaBackend._id)
+  pumaBackend.company = puma._id
+  pumaBackend.author = jody._id
+
   await jody.save() // this saves and applies the changes made to the instance
   await puma.save()
   await pumaFullstack.save()
+  await pumaMobile.save()
+  await pumaBackend.save()
 
   jeff.company = adidas._id // company id
   jeff.isEmployer = true
   adidas.employees.push(jeff._id) // employee id
+
   adidas.jobPostedHistory.push(adidasFrontEnd._id)
   adidasFrontEnd.company = adidas._id
   adidasFrontEnd.author = jeff._id
 
+  adidas.jobPostedHistory.push(adidasMobile._id)
+  adidasMobile.company = adidas._id
+  adidasMobile.author = jeff._id
+
+  adidas.jobPostedHistory.push(adidasMobile._id)
+  adidasMobile.company = adidas._id
+  adidasMobile.author = jeff._id
+
+  adidas.jobPostedHistory.push(adidasFullstack._id)
+  adidasFullstack.company = adidas._id
+  adidasFullstack.author = jeff._id
+
+  adidas.jobPostedHistory.push(adidasBackend._id)
+  adidasBackend.company = adidas._id
+  adidasBackend.author = jeff._id
+
   await jeff.save() // this saves and applies the changes made to the instance
   await adidas.save()
   await adidasFrontEnd.save()
+  await adidasMobile.save()
+  await adidasFullstack.save()
+  await adidasBackend.save()
 
   // Users
   const pablo = await User.create({
-    email: 'pablo@cage.com',
+    email: 'pablo@email.com',
     password: '12345',
     firstName: 'Pablo',
     lastName: 'Hernandez',
@@ -376,7 +524,7 @@ async function seed() {
   })
 
   const lisa = await User.create({
-    email: 'lisa@fppcc.com',
+    email: 'lisa@fake.com',
     password: '12345',
     firstName: 'Lisa',
     lastName: 'Da Vinci',
@@ -390,7 +538,7 @@ async function seed() {
   })
 
   const austin = await User.create({
-    email: 'austin@wired.com',
+    email: 'austin@email.com',
     password: '12345',
     firstName: 'Austin',
     lastName: 'Delancy',
@@ -420,7 +568,7 @@ async function seed() {
   })
 
   const fletcher = await User.create({
-    email: 'fletcher@lol.org',
+    email: 'fletcher@office.org',
     password: 'abc123',
     firstName: 'Fletcher',
     lastName: 'Martinez',
@@ -434,7 +582,7 @@ async function seed() {
     jobHistory: []
   })
 
-  // Jobs & Companies
+  // Companies
   const fuzzbeedCo = await Company.create({
     companyName: 'FuzzBeed Lists',
     size: 'Medium Organization',
@@ -443,15 +591,6 @@ async function seed() {
     reviews: 'They spam your inbox!',
     employees: [],
     jobPostedHistory: []
-  })
-
-  const fuzzBeedBackEnd = await Job.create({
-    title: 'SQL Database Engineer',
-    salary: 95000,
-    contactEmail: 'jobs@fuzzbeed.com',
-    location: 'Buenos Aires',
-    roleType: 'Back-End',
-    experienceLevel: 'Junior'
   })
 
   const flooperCo = await Company.create({
@@ -464,6 +603,35 @@ async function seed() {
     jobPostedHistory: []
   })
 
+  // Jobs
+
+  const fuzzBeedBackEnd = await Job.create({
+    title: 'SQL Database Engineer',
+    salary: 95000,
+    contactEmail: 'jobs@fuzzbeed.com',
+    location: 'Buenos Aires',
+    roleType: 'Back-End',
+    experienceLevel: 'Junior'
+  })
+
+  const fuzzBeedFrontEnd = await Job.create({
+    title: 'React Redux Developer',
+    salary: 105000,
+    contactEmail: 'jobs@fuzzbeed.com',
+    location: 'London',
+    roleType: 'Front-End',
+    experienceLevel: 'Junior'
+  })
+
+  const fuzzBeedDatabase = await Job.create({
+    title: 'Express Genie',
+    salary: 70000,
+    contactEmail: 'jobs@fuzzbeed.com',
+    location: 'New York',
+    roleType: 'Back-End',
+    experienceLevel: 'MidLevel'
+  })
+
   const flooperFrontEnd = await Job.create({
     title: 'Front-End Developer',
     salary: 111000,
@@ -473,27 +641,81 @@ async function seed() {
     experienceLevel: 'Mid-level'
   })
 
+  const flooperBackEnd = await Job.create({
+    title: 'Back-End Developer',
+    salary: 151000,
+    contactEmail: 'jobs@flooper.com',
+    location: 'New York',
+    roleType: 'Back-End',
+    experienceLevel: 'Mid-level'
+  })
+
+  const flooperDatabase = await Job.create({
+    title: 'MongoDB Engineer',
+    salary: 175000,
+    contactEmail: 'jobs@flooper.com',
+    location: 'New York',
+    roleType: 'Back-End',
+    experienceLevel: 'Senior'
+  })
+
+  const flooperMobile = await Job.create({
+    title: 'Android Wizard',
+    salary: 105000,
+    contactEmail: 'jobs@flooper.com',
+    location: 'New York',
+    roleType: 'Front-End',
+    experienceLevel: 'Junior'
+  })
+
   pablo.company = fuzzbeedCo._id // company id
   pablo.isEmployer = true
   fuzzbeedCo.employees.push(pablo._id) // employee id
+
   fuzzbeedCo.jobPostedHistory.push(fuzzBeedBackEnd._id)
   fuzzBeedBackEnd.company = fuzzbeedCo._id
   fuzzBeedBackEnd.author = pablo._id
 
+  fuzzbeedCo.jobPostedHistory.push(fuzzBeedFrontEnd._id)
+  fuzzBeedFrontEnd.company = fuzzbeedCo._id
+  fuzzBeedFrontEnd.author = pablo._id
+
+  fuzzbeedCo.jobPostedHistory.push(fuzzBeedDatabase._id)
+  fuzzBeedDatabase.company = fuzzbeedCo._id
+  fuzzBeedDatabase.author = pablo._id
+
   await pablo.save() // this saves and applies the changes made to the instance
   await fuzzbeedCo.save()
   await fuzzBeedBackEnd.save()
+  await fuzzBeedFrontEnd.save()
+  await fuzzBeedDatabase.save()
 
   lisa.company = flooperCo._id // company id
   lisa.isEmployer = true
   flooperCo.employees.push(lisa._id) // employee id
+
   flooperCo.jobPostedHistory.push(flooperFrontEnd._id)
   flooperFrontEnd.company = flooperCo._id
   flooperFrontEnd.author = lisa._id
 
+  flooperCo.jobPostedHistory.push(flooperBackEnd._id)
+  flooperBackEnd.company = flooperCo._id
+  flooperBackEnd.author = lisa._id
+
+  flooperCo.jobPostedHistory.push(flooperDatabase._id)
+  flooperDatabase.company = flooperCo._id
+  flooperDatabase.author = lisa._id
+
+  flooperCo.jobPostedHistory.push(flooperMobile._id)
+  flooperMobile.company = flooperCo._id
+  flooperMobile.author = lisa._id
+
   await lisa.save() // this saves and applies the changes made to the instance
   await flooperCo.save()
   await flooperFrontEnd.save()
+  await flooperBackEnd.save()
+  await flooperDatabase.save()
+  await flooperMobile.save()
 
   // console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
