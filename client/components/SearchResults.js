@@ -5,23 +5,16 @@ import {Link} from 'react-router-dom'
 
 const SearchResults = props => {
   const obj = props.location.state
-  const dispatch = useDispatch() // ~ replaces MDTP
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(searchJob(obj))
   }, [])
 
   const jobs = useSelector(state => state.searchedJobs)
-  // const availableJobs = jobs.filter(job => job.availibilty === true)
+
   return (
     <div className="container">
-      {/* {user.isEmployer && (
-      <Link to="/addJob">
-        <Button variant="contained" color="primary">
-          Add a Job Listing
-        </Button>
-      </Link>
-     )} */}
       <div>
         {jobs.map(job => (
           <div className="allJobs" key={job._id}>
