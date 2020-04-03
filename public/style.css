@@ -201,17 +201,29 @@ input {
 #singleUserProfile {
   position: relative;
   min-height: 70vh;
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 20px;
 }
 
 .updateUserPage {
   display: flex;
   align-items: top;
   justify-content: space-evenly;
+  min-height: 70vh;
+  height: 100%;
 }
 
 .currentUserInfo {
   padding-top: 30px;
+}
+.useList {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30px;
+}
+
+.userJobList {
+  border-bottom: 1px solid #3f50b5;
 }
 /* navbar / header */
 

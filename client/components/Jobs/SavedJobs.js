@@ -27,7 +27,7 @@ const SavedJobs = props => {
 
   return (
     <div>
-      <h1>Saved Jobs</h1>
+      {savedJobs && savedJobs.length === 0 ? 'No applications saved yet' : null}
       {jobIds && jobIds.length !== 0 && savedJobs
         ? savedJobs.map(job => (
             <div key={job._id}>
