@@ -30,7 +30,7 @@ export default function AddCompany() {
   }
 
   return (
-    <div className="container">
+    <div id="addCompany" className="container">
       <form onSubmit={handleSubmit} className="alignInputs">
         <label>
           Company Name:

@@ -15,7 +15,6 @@ label {
   display: block;
 }
 
-
 h1.main {
   color: black;
   font-size: 35px;
@@ -56,6 +55,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 /* nav {
   background-color: rgb(40, 129, 208);
 } */
@@ -65,7 +65,6 @@ img {
   margin: 1em;
   color: white;
 } */
-
 
 form div {
   /* margin: 1em; */
@@ -78,14 +77,33 @@ input {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom: 1px solid #3f50b5;
+  background-color: rgb(240, 240, 250);
   min-height: 25px;
   min-width: 200px;
+}
+
+.signIn-inputs {
+  padding: 10px;
+}
+
+.oauth-inputs {
+  display: flex;
+  padding: 10px;
+}
+
+#oauth-linkedin {
+  padding: 10px;
+}
+
+#oauth-google {
+  padding: 10px;
 }
 
 .container {
   max-width: 65%;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 .main-img {
@@ -104,6 +122,10 @@ input {
 
 .logo-login {
   max-width: 150px;
+}
+
+.alignInputs {
+  padding-top: 30px;
 }
 
 .alignInputs label {
@@ -166,6 +188,22 @@ input {
   border-radius: 4px;
 }
 
+#addJob {
+  position: relative;
+  height: 70vh;
+}
+
+#addCompany {
+  position: relative;
+  height: 70vh;
+}
+
+#singleUserProfile {
+  position: relative;
+  min-height: 70vh;
+  height: 100vh;
+}
+
 /* navbar / header */
 
 .navbar {
@@ -186,7 +224,6 @@ input {
   padding-right: 10px;
   padding-left: 10px;
   background-color: #95b8f3;
-
 }
 
 .inlineComponents {
@@ -303,6 +340,11 @@ input {
   height: 50px;
   background-color: #ffffff;
   opacity: 0.75;
+}
+
+.auth-form {
+  position: relative;
+  height: 100vh;
 }
 
 /* Media Queries */

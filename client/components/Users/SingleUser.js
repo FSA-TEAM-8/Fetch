@@ -19,7 +19,7 @@ const SingleUser = props => {
   }, [])
 
   return (
-    <div className="container">
+    <div id="singleUserProfile" className="container">
       <div className="allJobs">
         <div key={user._id}>
           <h4>{singleUser.firstName}</h4>

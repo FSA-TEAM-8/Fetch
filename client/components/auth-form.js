@@ -12,9 +12,9 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
+    <div className="auth-form">
       <form onSubmit={handleSubmit} name={name}>
-        <div>
+        <div className="signIn-inputs">
           <label htmlFor="email">
             <small>Email</small>
           </label>
@@ -33,23 +33,32 @@ const AuthForm = props => {
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <div>
-        {' '}
-        <a href="/auth/linkedin">{displayName} with Linkedin</a>{' '}
-      </div>
-      <div>
-        <a href="/auth/linkedin">
-          <img src="/img/Sign-In-Small---Active.png" className="logo-login" />
-        </a>
-      </div>
-      <div>
-        {' '}
-        <a href="/auth/google">{displayName} with Google</a>{' '}
-      </div>
-      <div>
-        <a href="/auth/google">
-          <img src="/img/4LSMF.png" className="logo-login" />
-        </a>
+      <div className="oauth-inputs">
+        <div id="oauth-linkedin">
+          <div>
+            {' '}
+            <a href="/auth/linkedin">{displayName} with Linkedin</a>{' '}
+          </div>
+          <div>
+            <a href="/auth/linkedin">
+              <img
+                src="/img/Sign-In-Small---Active.png"
+                className="logo-login"
+              />
+            </a>
+          </div>
+        </div>
+        <div id="oauth-google">
+          <div>
+            {' '}
+            <a href="/auth/google">{displayName} with Google</a>{' '}
+          </div>
+          <div>
+            <a href="/auth/google">
+              <img src="/img/4LSMF.png" className="logo-login" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )
