@@ -60,17 +60,8 @@ router.get('/:id', validateUser, async (req, res, next) => {
 })
 
 router.post('/upload', async (req, res, next) => {
-  console.log('File received', req.files)
   let newFile = req.files.resume
   let newFileName = req.files.resume.name
-
-  // newFile.mv(`/server/uploads/${newFileName}`, function(
-  //   err
-  // ) {
-  //   if (err) {
-  //     return res.status(500).send(err)
-  //   }
-  // })
 
   try {
     newFile.mv(`server/uploads/${newFileName}`, function(err) {

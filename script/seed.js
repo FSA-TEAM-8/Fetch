@@ -50,7 +50,6 @@ async function seed() {
     townName: 'Queens',
     stateName: 'NY',
     zipCode: '11101',
-    imageUrl: '',
     isAdmin: true,
     jobHistory: []
   })
@@ -66,7 +65,6 @@ async function seed() {
     townName: 'Queens',
     stateName: 'NY',
     zipCode: '11101',
-    imageUrl: '',
     jobHistory: []
   })
 
@@ -81,7 +79,6 @@ async function seed() {
     townName: 'Queens',
     stateName: 'NY',
     zipCode: '11101',
-    imageUrl: '',
     isCandidate: true,
     jobHistory: []
   })
@@ -97,8 +94,7 @@ async function seed() {
     townName: 'Queens',
     stateName: 'NY',
     zipCode: '11101',
-    imageUrl: '',
-    isAdmin: true,
+    isCandidate: true,
     jobHistory: []
   })
 
@@ -113,7 +109,6 @@ async function seed() {
     townName: 'Queens',
     stateName: 'NY',
     zipCode: '11101',
-    imageUrl: '',
     isCandidate: true,
     jobHistory: []
   })
@@ -125,7 +120,6 @@ async function seed() {
     description: 'Bank',
     category: 'Financial technology',
     reviews: 'top banking company',
-    imageUrl: '',
     employees: [],
     jobPostedHistory: []
   })
@@ -136,7 +130,6 @@ async function seed() {
     description: 'Bank',
     category: 'Financial technology',
     reviews: 'very good company',
-    imageUrl: '',
     employees: [],
     jobPostedHistory: []
   })
@@ -148,7 +141,6 @@ async function seed() {
   //     description: 'Bank',
   //     category: 'Financial technology',
   //     reviews: 'very good company',
-  //     imageUrl: '',
   //     employees: [],
   //     jobPostedHistory: [],
   //   }
@@ -160,7 +152,6 @@ async function seed() {
   //     description: 'Bank',
   //     category: 'Financial technology',
   //     reviews: 'very good company',
-  //     imageUrl: '',
   //     employees: [],
   //     jobPostedHistory: [],
   //   }
@@ -172,7 +163,6 @@ async function seed() {
   //     description: 'Bank',
   //     category: 'Financial technology',
   //     reviews: 'very good company',
-  //     imageUrl: '',
   //     employees: [],
   //     jobPostedHistory: [],
   //   }
@@ -242,7 +232,6 @@ async function seed() {
     townName: 'Brooklyn',
     stateName: 'NY',
     zipCode: '11209',
-    imageUrl: '',
     isAdmin: true,
     jobHistory: []
   })
@@ -258,7 +247,6 @@ async function seed() {
     townName: 'Brooklyn',
     stateName: 'NY',
     zipCode: '11209',
-    imageUrl: '',
     isAdmin: true,
     jobHistory: []
   })
@@ -274,7 +262,6 @@ async function seed() {
     townName: 'Brooklyn',
     stateName: 'NY',
     zipCode: '11209',
-    imageUrl: '',
     isCandidate: true,
     jobHistory: []
   })
@@ -290,7 +277,6 @@ async function seed() {
     townName: 'Brooklyn',
     stateName: 'NY',
     zipCode: '11209',
-    imageUrl: '',
     isCandidate: true,
     jobHistory: []
   })
@@ -306,7 +292,6 @@ async function seed() {
     townName: 'Brooklyn',
     stateName: 'NY',
     zipCode: '11209',
-    imageUrl: '',
     isCandidate: true,
     jobHistory: []
   })
@@ -319,7 +304,6 @@ async function seed() {
     description: 'Sporting goods',
     category: 'Web Dev',
     reviews: 'very good company',
-    imageUrl: '',
     employees: [],
     jobPostedHistory: []
   })
@@ -330,7 +314,6 @@ async function seed() {
     description: 'Sporting goods',
     category: 'Web Dev',
     reviews: 'very good company',
-    imageUrl: '',
     employees: [],
     jobPostedHistory: []
   })
@@ -389,7 +372,6 @@ async function seed() {
     townName: 'Summit',
     stateName: 'NJ',
     zipCode: '09204',
-    imageUrl: '',
     jobHistory: []
   })
 
@@ -404,7 +386,6 @@ async function seed() {
     townName: 'Jersey City',
     stateName: 'NJ',
     zipCode: '07042',
-    imageUrl: '',
     jobHistory: []
   })
 
@@ -419,7 +400,6 @@ async function seed() {
     townName: 'West Hampton',
     stateName: 'NY',
     zipCode: '11004',
-    imageUrl: '',
     isCandidate: true,
     jobHistory: []
   })
@@ -435,7 +415,6 @@ async function seed() {
     townName: 'Northshire',
     stateName: 'PA',
     zipCode: '53202',
-    imageUrl: '',
     isCandidate: true,
     jobHistory: []
   })
@@ -451,7 +430,6 @@ async function seed() {
     townName: 'Beacon',
     stateName: 'NY',
     zipCode: '11106',
-    imageUrl: '',
     isAdmin: true,
     jobHistory: []
   })
@@ -463,7 +441,6 @@ async function seed() {
     description: 'Tech/Data Collection Memes for Everyday',
     category: 'Data Collection',
     reviews: 'They spam your inbox!',
-    imageUrl: '',
     employees: [],
     jobPostedHistory: []
   })
@@ -483,7 +460,6 @@ async function seed() {
     description: 'Worldwide Data/Analytics Systems',
     category: 'Data Collection',
     reviews: 'This company definitely does not respect your privacy',
-    imageUrl: '',
     employees: [],
     jobPostedHistory: []
   })

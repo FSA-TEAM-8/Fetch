@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {me} from '../../store/user'
 import {updateSingleUser} from '../../store/single-user'
@@ -13,15 +12,15 @@ const SaveJob = props => {
 
   useEffect(
     () => {
-      dispatch(me) // gets the current logged in user
+      dispatch(me)
     },
     [user]
   )
+
   const onClick = () => {
     if (!user.savedJobs.includes(job._id)) {
       user.savedJobs.push(job._id)
       dispatch(updateSingleUser(user))
-      console.log('saved!')
 
       const Toast = Swal.mixin({
         toast: true,
@@ -34,13 +33,11 @@ const SaveJob = props => {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       })
-      console.log('got to before toast fire')
+
       Toast.fire({
         icon: 'success',
         title: 'Successfully Saved Job Listing!'
       })
-    } else {
-      console.log('clicked save job but nothing happened')
     }
   }
 

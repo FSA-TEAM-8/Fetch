@@ -8,7 +8,6 @@ const SingleCompany = props => {
   const user = useSelector(state => state.user)
   const id = props.match.params.id
   const company = useSelector(state => state.company)
-  console.log('The companys jobPostedHistory', company.jobPostedHistory)
   const dispatch = useDispatch()
 
   useEffect(() => {

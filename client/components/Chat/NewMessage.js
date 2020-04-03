@@ -1,15 +1,14 @@
-import React, {useState, useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {postNewMessage, getSingleChannel} from '../../store/chat'
+import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
+import {postNewMessage} from '../../store/chat'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import moment from 'moment'
 
 const NewMessage = props => {
-  const {channelId, selfUser} = props
+  const {selfUser, currentChannel} = props
   const dispatch = useDispatch()
   const [newMessage, setNewMessage] = useState('')
-  const currentChannel = useSelector(state => state.chat.channel)
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -26,13 +25,6 @@ const NewMessage = props => {
     }
     dispatch(postNewMessage(messageObj))
   }
-
-  useEffect(
-    () => {
-      dispatch(getSingleChannel(channelId))
-    },
-    [channelId]
-  )
 
   return (
     <div>

@@ -25,7 +25,7 @@ const AllCandidates = () => {
             <div className="allUsers">
               <h4>{`${user.firstName} ${user.lastName}`}</h4>
               <p>{user.email}</p>
-              <p>Is user a jobseeker?: {String(user.isCandidate)}</p>
+              <p>{user.isCandidate ? 'Currently seeking a job' : null}</p>
             </div>
           </Link>
         ))}

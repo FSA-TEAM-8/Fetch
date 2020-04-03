@@ -72,10 +72,8 @@ export const addJob = job => async dispatch => {
 }
 
 export const updateJob = job => async dispatch => {
-  console.log('update thunk', job)
   try {
     const response = await axios.put(`/api/jobs/${job._id}`, job)
-    console.log('response.data job update', response.data)
     dispatch(updatedJob(response.data))
   } catch (error) {
     console.error('Error updating a job', error)
@@ -119,14 +117,11 @@ export const removeSavedJob = (savedJobs, id) => async dispatch => {
 }
 
 export const searchJob = search => async dispatch => {
-  console.log('Search query', search)
   try {
     const response = await axios.get(
       `/api/jobs/search?title=${search.title}&location=${search.location}`
     )
-    console.log('Your search query', search)
     dispatch(gotSearchedJobs(response.data))
-    console.log('Your response', response.data)
   } catch (error) {
     console.error('Error searching for jobs', error)
   }

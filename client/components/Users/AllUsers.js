@@ -25,6 +25,12 @@ const AllUsers = () => {
             <div className="allUsers">
               <h4>{`${user.firstName} ${user.lastName}`}</h4>
               <p>{user.email}</p>
+              <p>
+                Status:{' '}
+                {user.isAdmin
+                  ? 'Admin'
+                  : user.isEmployer ? 'Employer' : 'Candidate'}
+              </p>
             </div>
           </Link>
         ))}

@@ -5,7 +5,7 @@ import NewMessage from './NewMessage'
 import moment from 'moment'
 
 const MessageList = props => {
-  const {selfUser, channelId} = props
+  const {selfUser, channelId, currentChannel} = props
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -45,7 +45,11 @@ const MessageList = props => {
           </li>
         ))}
       </ul>
-      <NewMessage channelId={channelId} selfUser={selfUser} />
+      <NewMessage
+        selfUser={selfUser}
+        channelId={channelId}
+        currentChannel={currentChannel}
+      />
     </div>
   )
 }

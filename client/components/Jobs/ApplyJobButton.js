@@ -17,6 +17,7 @@ const ApplyJob = props => {
     },
     [user]
   )
+
   const onClick = () => {
     // if user's applied job history does NOT have current jobid
     // if job's applied user histroy does NOT have current userid
@@ -51,10 +52,9 @@ const ApplyJob = props => {
         icon: 'success',
         title: 'Successfully Applied to Job!'
       })
-    } else {
-      console.log('clicked apply job but nothing happened')
     }
   }
+
   return (
     <div>
       <Button
