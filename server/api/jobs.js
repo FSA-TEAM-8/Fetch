@@ -8,14 +8,26 @@ router.get('/search', async (req, res, next) => {
   try {
     const jobs = await Job.find(
       {
-        $text: {
-          $search: req.query.title,
-          $caseSensitive: false
-        },
-        location: req.query.location
+        $and: [
+          {
+            title: {
+              $regex: req.query.title,
+              $options: '$i'
+            }
+          },
+          {
+            location: {
+              $regex: req.query.location,
+              $options: '$i'
+            }
+          }
+        ]
       },
-      {score: {$meta: 'textScore'}}
-    ).sort({score: {$meta: 'textScore'}})
+      {
+        title: 1,
+        location: 1
+      }
+    )
     res.json(jobs)
   } catch (error) {
     next(error)
