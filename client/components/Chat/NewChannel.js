@@ -28,7 +28,6 @@ const NewChannel = () => {
     const newChannelId = `${user._id}&${singleUser._id}`
     const altChannelId = `${singleUser._id}&${user._id}`
 
-    // (currentChannel.channel.id === altChannelId)
     if (
       channels.filter(
         currentChannel =>
@@ -36,19 +35,14 @@ const NewChannel = () => {
           currentChannel.channel.id === altChannelId
       ).length !== 0
     ) {
-      console.log('channel already exists')
       history.push(`/chat/channel/${user._id}&${singleUser._id}`)
     } else {
       const channelObj = {
-        // participants = id of currentuser and singleuser
-        // id = 'currentUser.id&singelUser.id'
-        // name = diplays firstname of both parties
         id: `${user._id}&${singleUser._id}`,
         participants: [user._id, singleUser._id],
         name: `${user.firstName}+${singleUser.firstName}`
       }
       dispatch(postNewChannel(channelObj))
-      console.log('created new channel')
       history.push(`/chat/channel/${channelObj.id}`)
     }
   }

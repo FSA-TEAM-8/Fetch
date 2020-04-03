@@ -31,7 +31,6 @@ const updatedCompany = company => ({
 export const getAllCompanies = () => async dispaatch => {
   try {
     const {data} = await axios.get('/api/companies')
-    console.log(data)
     dispaatch(gotAllCompanies(data))
   } catch (error) {
     console.error(error)
@@ -51,17 +50,14 @@ export const getSingleCompany = id => async dispatch => {
   try {
     const response = await axios.get(`/api/companies/${id}`)
     dispatch(gotSingleCompany(response.data))
-    console.log('SINGLE COMOANY THUNK', response.data)
   } catch (error) {
     console.error('Error getting single company', error)
   }
 }
 
 export const updateCompany = company => async dispatch => {
-  console.log('update thunk', company)
   try {
     const response = await axios.put(`/api/companies/${company._id}`, company)
-    console.log('response.data company update', response.data)
     dispatch(updatedCompany(response.data))
   } catch (error) {
     console.error('Error updating a company', error)

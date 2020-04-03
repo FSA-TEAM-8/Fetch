@@ -23,10 +23,8 @@ router.get('/:id', async (req, res, next) => {
 })
 
 router.post('/', async (req, res, next) => {
-  console.log('REQ>BODY B4 TRY', req.body)
   try {
     const newCompany = await Company.create(req.body)
-    console.log(req.body)
     res.json(newCompany)
   } catch (error) {
     next(error)

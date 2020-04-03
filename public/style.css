@@ -383,7 +383,7 @@ input {
 .chat-room {
   display: flex;
   position: 1;
-  height: 85vh;
+  height: 89vh;
   width: 100%;
 }
 
@@ -443,6 +443,11 @@ ul {
   background: rgba(244, 244, 244, 0.2);
   /* box-shadow: 2px 4px #478FFF; */
   height: 80vh;
+}
+
+.center-typography h4 {
+  margin-block-start: 0.8em;
+  margin-block-end: 0.8em;
 }
 
 /* Message List */

@@ -17,14 +17,6 @@ const AllJobs = () => {
   const availableJobs = jobs.filter(job => job.availibilty === true)
   return (
     <div className="container">
-      {/* {user.isEmployer && (
-      <Link to="/addJob">
-        <Button variant="contained" color="primary">
-          Add a Job Listing
-        </Button>
-      </Link>
-     )} */}
-
       <div>
         <Grid
           container
@@ -48,39 +40,5 @@ const AllJobs = () => {
     </div>
   )
 }
+
 export default AllJobs
-
-/*  Below is the class component format of above
-
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import {getAllJobs} from '../../store/job'
-
-export class AllJobs extends Component {
-
-  componentDidMount() {
-    this.props.getAllJobs()
-  }
-  render() {
-    console.log('consolelog', this.props.jobs)
-    return (
-      <div>
-        {this.props.jobs.map(job => (
-          <p key={job._id}>{job.title}</p>
-        ))}
-      </div>
-    )
-  }
-}
-
-const mapStateToProps = (state) => ({
-  jobs: state.jobs
-})
-
-const mapDispatchToProps = dispatch => ({
-  getAllJobs: () => dispatch(getAllJobs())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AllJobs)
-
-*/

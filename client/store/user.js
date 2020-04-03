@@ -40,8 +40,11 @@ export const auth = (email, password, method) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/home') changed redirect to update profile page
-    history.push(`/myprofile/${res.data._id}/update`)
+    if (method === 'signup') {
+      history.push(`/myprofile/${res.data._id}/update`)
+    } else {
+      history.push('/home')
+    }
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
