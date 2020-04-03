@@ -19,9 +19,10 @@ const SingleUser = props => {
   }, [])
 
   return (
-    <div className="container">
+    <div id="singleUserProfile" className="container">
       <div className="allJobs">
         <div key={user._id}>
+          <img src={user.image} />
           <h4>{singleUser.firstName}</h4>
           <p>{singleUser.email}</p>
 
@@ -52,9 +53,18 @@ const SingleUser = props => {
           </div>
         </div>
       </div>
-      <AppliedJobs user={user} />
-      <SavedJobs user={user} />
+      <div className="useList">
+        <div>
+          <h2 className="userJobList">Applied Job History</h2>
+          <AppliedJobs user={user} />
+        </div>
+        <div>
+          <h2 className="userJobList">Saved Jobs</h2>
+          <SavedJobs user={user} />
+        </div>
+      </div>
     </div>
   )
 }
+
 export default SingleUser

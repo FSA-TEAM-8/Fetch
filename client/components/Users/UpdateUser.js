@@ -1,8 +1,9 @@
-import React, {useEffect, useState, Fragment} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {updateSingleUser} from '../../store/single-user'
+import {getSingleUser, updateSingleUser} from '../../store/single-user'
 import Button from '@material-ui/core/Button'
 import axios from 'axios'
+import {useParams} from 'react-router-dom'
 
 const UpdateSingleUser = () => {
   const user = useSelector(state => state.singleUser)
@@ -11,6 +12,7 @@ const UpdateSingleUser = () => {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [file, setFile] = useState('')
+  const {id} = useParams()
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -28,12 +30,20 @@ const UpdateSingleUser = () => {
     dispatch(updateSingleUser(data))
   }
 
+  useEffect(() => {
+    dispatch(getSingleUser(id))
+  }, [])
+
   return (
-    <div>
+    <div className="updateUserPage">
+      <div className="currentUserInfo">
+        <p>
+          Current Name: {user.firstName} {user.lastName}
+        </p>
+        <p>Current Resume: {user.resume}</p>
+      </div>
       <form onSubmit={handleSubmit} className="alignInputs">
         <label>
-          Current Name: {user.firstName}
-          Current Resume: {user.resume}
           <br />
           Update First Name:
           <input

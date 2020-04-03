@@ -20,12 +20,11 @@ const AddJob = () => {
       location,
       salary
     }
-    // setJob(obj)
     dispatch(addJob(obj))
   }
 
   return (
-    <div className="container">
+    <div id="addJob" className="container">
       <form onSubmit={handleSubmit} className="alignInputs">
         <label>
           Job Title:
