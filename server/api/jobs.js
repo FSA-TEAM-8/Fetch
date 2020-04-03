@@ -25,7 +25,10 @@ router.get('/search', async (req, res, next) => {
       },
       {
         title: 1,
-        location: 1
+        location: 1,
+        salary: 1,
+        contactEmail: 1,
+        datePosted: 1
       }
     )
     res.json(jobs)

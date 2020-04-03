@@ -12,6 +12,7 @@ const SearchResults = props => {
   }, [])
 
   const jobs = useSelector(state => state.searchedJobs)
+  console.log('All searched jobs', jobs)
   // const availableJobs = jobs.filter(job => job.availibilty === true)
   return (
     <div className="container">
