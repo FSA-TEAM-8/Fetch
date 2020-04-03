@@ -178,15 +178,6 @@ async function seed() {
     experienceLevel: 'Junior'
   })
 
-  const jpmorganBackEnd = await Job.create({
-    title: 'Engineer',
-    salary: 101000,
-    contactEmail: 'apply@jpmorgan.com',
-    location: 'Paris',
-    roleType: 'Back-end',
-    experienceLevel: 'Junior'
-  })
-
   const bofaSeniorOracle = await Job.create({
     title: 'Senior Oracle Database Developer',
     salary: 108000,
@@ -205,6 +196,32 @@ async function seed() {
     experienceLevel: 'Junior'
   })
 
+  const bofaFullStack = await Job.create({
+    title: 'Full Stack Developer',
+    salary: 120000,
+    contactEmail: 'apply@bofa.com',
+    location: 'New York',
+    roleType: 'Full-stack',
+    experienceLevel: 'Junior'
+  })
+
+  const bofaDatabaseAdministrator = await Job.create({
+    title: 'Database Administrator',
+    salary: 120000,
+    contactEmail: 'apply@bofa.com',
+    location: 'New York',
+    roleType: 'Database',
+    experienceLevel: 'Senior'
+  })
+
+  red.company = bofa._id // company id
+  red.isEmployer = true
+  bofa.employees.push(red._id) // employee id
+
+  bofa.jobPostedHistory.push(bofaFrontEnd._id)
+  bofaFrontEnd.company = bofa._id
+  bofaFrontEnd.author = red._id
+
   bofa.jobPostedHistory.push(bofaSeniorOracle._id)
   bofaSeniorOracle.company = bofa._id
   bofaSeniorOracle.author = red._id
@@ -212,6 +229,30 @@ async function seed() {
   bofa.jobPostedHistory.push(bofaMobileDeveloper._id)
   bofaMobileDeveloper.company = bofa._id
   bofaMobileDeveloper.author = red._id
+
+  bofa.jobPostedHistory.push(bofaFullStack._id)
+  bofaFullStack.company = bofa._id
+  bofaFullStack.author = red._id
+
+  bofa.jobPostedHistory.push(bofaDatabaseAdministrator._id)
+  bofaDatabaseAdministrator.company = bofa._id
+  bofaDatabaseAdministrator.author = red._id
+
+  await red.save() // this saves and applies the changes made to the instance
+  await bofa.save()
+  await bofaFrontEnd.save()
+  await bofaSeniorOracle.save()
+  await bofaMobileDeveloper.save()
+  await bofaFullStack.save()
+
+  const jpmorganJunior = await Job.create({
+    title: 'Junior Engineer',
+    salary: 101000,
+    contactEmail: 'apply@jpmorgan.com',
+    location: 'Paris',
+    roleType: 'Back-end',
+    experienceLevel: 'Junior'
+  })
 
   const jpmorganJavaDeveloper = await Job.create({
     title: 'Java Developer',
@@ -240,6 +281,10 @@ async function seed() {
     experienceLevel: 'Senior'
   })
 
+  blue.company = jpmorganChase._id // company id
+  blue.isEmployer = true
+  jpmorganChase.employees.push(blue._id) // employee id
+
   jpmorganChase.jobPostedHistory.push(jpmorganJavaDeveloper._id)
   jpmorganJavaDeveloper.company = jpmorganChase._id
   jpmorganJavaDeveloper.author = blue._id
@@ -252,42 +297,13 @@ async function seed() {
   jpmorganUIDeveloper.company = jpmorganChase._id
   jpmorganUIDeveloper.author = blue._id
 
-  // const bofaFullStack = await Job.create({
-  //   title: 'Full Stack Developer',
-  //   salary: 120000,
-  //   description: {
-  //     contactEmail: 'apply@bofa.com',
-  //     location: 'New York',
-  //     roleType: 'Full-stack',
-  //     experienceLevel: 'Junior'
-  //   }
-  // })
-
-  red.company = bofa._id // company id
-  red.isEmployer = true
-  bofa.employees.push(red._id) // employee id
-
-  bofa.jobPostedHistory.push(bofaFrontEnd._id)
-  bofaFrontEnd.company = bofa._id
-  bofaFrontEnd.author = red._id
-
-  await red.save() // this saves and applies the changes made to the instance
-  await bofa.save()
-  await bofaFrontEnd.save()
-  await bofaSeniorOracle.save()
-  await bofaMobileDeveloper.save()
-
-  blue.company = jpmorganChase._id // company id
-  blue.isEmployer = true
-  jpmorganChase.employees.push(blue._id) // employee id
-
-  jpmorganChase.jobPostedHistory.push(jpmorganBackEnd._id)
-  jpmorganBackEnd.company = jpmorganChase._id
-  jpmorganBackEnd.author = blue._id
+  jpmorganChase.jobPostedHistory.push(jpmorganJunior._id)
+  jpmorganJunior.company = jpmorganChase._id
+  jpmorganJunior.author = blue._id
 
   await blue.save()
   await jpmorganChase.save()
-  await jpmorganBackEnd.save()
+  await jpmorganJunior.save()
   await jpmorganJavaDeveloper.save()
   await jpmorganFullStack.save()
   await jpmorganUIDeveloper.save()
@@ -326,7 +342,7 @@ async function seed() {
   const bobby = await User.create({
     email: 'bobby@email.com',
     password: '456',
-    firstName: 'bobby',
+    firstName: 'Bobby',
     lastName: 'Schmidty',
     biography: 'very good employee',
     streetNumber: 267,
@@ -341,7 +357,7 @@ async function seed() {
   const joe = await User.create({
     email: 'joe@email.com',
     password: '456',
-    firstName: 'joe',
+    firstName: 'Joe',
     lastName: 'Smith',
     biography: 'very good employee',
     streetNumber: 267,
@@ -356,7 +372,7 @@ async function seed() {
   const rob = await User.create({
     email: 'rob@email.com',
     password: '456',
-    firstName: 'rob',
+    firstName: 'Rob',
     lastName: 'Smitty',
     biography: 'very good employee',
     streetNumber: 267,
