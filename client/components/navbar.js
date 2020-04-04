@@ -4,7 +4,7 @@ import {logout} from '../store'
 import {Link} from 'react-router-dom'
 import SimpleMenu from './SimpleMenu'
 
-const Header = () => {
+const Navbar = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
   const isLoggedIn = useSelector(state => !!state.user._id)
@@ -105,4 +105,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Navbar

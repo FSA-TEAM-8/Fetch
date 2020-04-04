@@ -17,7 +17,7 @@ const SingleJob = props => {
   }, [])
 
   return (
-    <div className="container">
+    <div id="singleJob" className="container">
       <div className="singleItem">
         <h3>{job.title}</h3>
         <p>Estimated Salary: {job.salary}</p>
