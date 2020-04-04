@@ -104,6 +104,10 @@ input {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  min-height: 70vh;
+  height: 100%;
+  margin-bottom: 20px;
+  min-width: 500px;
 }
 
 .main-img {
@@ -151,15 +155,17 @@ input {
 }
 
 .singleItem {
-  margin-left: 15%;
   border: 1px lightgray solid;
   padding: 10px;
   padding-top: 5px;
   max-width: 40%;
   text-align: center;
-  margin-bottom: 5px;
+  margin-left: 15%;
   margin-top: 15px;
-  border-radius: 4px;
+  margin-bottom: 15px;
+  border-radius: 7px;
+  box-sizing: border-box;
+  min-width: 250px;
 }
 
 .allJobs {
@@ -188,6 +194,23 @@ input {
   border-radius: 4px;
 }
 
+#allJobPage {
+  display: flex;
+  flex-direction: row;
+}
+
+#allJobs {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.individual-cards {
+}
+
+#singleJobRight {
+  min-width: 60%;
+}
+
 #addJob {
   position: relative;
   height: 70vh;
@@ -206,10 +229,7 @@ input {
 }
 
 #singleJob {
-  position: relative;
-  min-height: 70vh;
-  height: 100%;
-  padding-bottom: 20px;
+  min-width: 400px;
 }
 
 #singleCompany {
@@ -264,6 +284,7 @@ input {
 .inlineComponents {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 /* dropdown button */

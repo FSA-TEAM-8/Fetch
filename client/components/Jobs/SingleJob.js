@@ -2,37 +2,41 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSingleJob} from '../../store/job'
 import UpdateJob from './UpdateJob'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 import SaveJob from './SaveJobButton'
 import ApplyJob from './ApplyJobButton'
 
 const SingleJob = props => {
   const user = useSelector(state => state.user)
-  const id = props.match.params.id
   const job = useSelector(state => state.job)
+  const {id} = useParams()
+  // const id = props.match.params.id
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getSingleJob(id))
   }, [])
 
   return (
-    <div id="singleJob" className="container">
-      <div className="singleItem">
-        <h3>{job.title}</h3>
-        <p>Estimated Salary: {job.salary}</p>
-        <p>Contact Email: {job.contactEmail}</p>
+    <div className="container">
+      <div id="singleJob" className="singleItem">
+        <h2>{job.title}</h2>
+        {job.company ? job.company.companyName : null}
         <p>Location: {job.location}</p>
+        <p>Est. Salary: ${job.salary}</p>
         <p>Position: {job.roleType}</p>
         <p>Experience: {job.experienceLevel}</p>
-        <p>Date Posted: {job.datePosted}</p>
+        <p>Posted on: {job.datePosted}</p>
         <div className="inlineComponents">
           <SaveJob job={job} />
           <ApplyJob job={job} />
         </div>
       </div>
       <br />
-      {(user._id === job.author || user.isAdmin) && <UpdateJob />}
+      {JSON.stringify(user) !== '{}' &&
+      (user._id === job.author || user.isAdmin) ? (
+        <UpdateJob />
+      ) : null}
       <br />
       <div>
         {(user._id === job.author && job.appliedCandidates) ||

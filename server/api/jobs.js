@@ -39,9 +39,9 @@ router.get('/search', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const singleJob = await Job.findById({_id: req.params.id}).populate(
-      'appliedCandidates'
-    )
+    const singleJob = await Job.findById({_id: req.params.id})
+      .populate('appliedCandidates')
+      .populate('company')
     res.json(singleJob)
   } catch (error) {
     next(error)
