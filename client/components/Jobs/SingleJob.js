@@ -2,23 +2,23 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSingleJob} from '../../store/job'
 import UpdateJob from './UpdateJob'
-import {Link, useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import SaveJob from './SaveJobButton'
 import ApplyJob from './ApplyJobButton'
 
 const SingleJob = props => {
   const user = useSelector(state => state.user)
-
+  const id = props.match.params.id
   // steps below ran in AllJobs instead for --> singleJob right side display
-  // const job = useSelector(state => state.job)
-  // const {id} = useParams()
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(getSingleJob(id))
-  // }, [])
+  const job = useSelector(state => state.job)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getSingleJob(id))
+  }, [])
 
-  const job = props.job
+  // below steps work for singleJob right side display
+  // const job = props.job
 
   return (
     <div id="singleJob" key={job._id}>
