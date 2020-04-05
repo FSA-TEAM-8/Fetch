@@ -23,8 +23,14 @@ const SingleUser = props => {
       <div className="allJobs">
         <div key={user._id}>
           <img src={user.image} />
-          <h4>{singleUser.firstName}</h4>
+          <h4>
+            {singleUser.firstName} {singleUser.lastName}
+          </h4>
           <p>{singleUser.email}</p>
+          <p>About: {singleUser.biography}.</p>
+          {singleUser.technicalSkills && (
+            <p>Technologies: {singleUser.technicalSkills[0]}</p>
+          )}
 
           <div>
             <NewChannel />

@@ -44,7 +44,7 @@ async function seed() {
     password: '123',
     firstName: 'Red',
     lastName: 'Der',
-    biography: 'blazin employee',
+    biography: "Blazin' employee",
     streetNumber: 123,
     streetName: 'Red Street',
     townName: 'Queens',
@@ -59,7 +59,7 @@ async function seed() {
     password: '123',
     firstName: 'Blue',
     lastName: 'Eulb',
-    biography: 'cool employee',
+    biography: 'Cool employee',
     streetNumber: 123,
     streetName: 'Blue Street',
     townName: 'Queens',
@@ -73,14 +73,15 @@ async function seed() {
     password: '123',
     firstName: 'Yellow',
     lastName: 'Wolley',
-    biography: 'shiny employee',
+    biography: 'Shiny employee',
     streetNumber: 123,
     streetName: 'Yellow Street',
     townName: 'Queens',
     stateName: 'NY',
     zipCode: '11101',
     isCandidate: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['React, Redux, iOS']
   })
 
   const green = await User.create({
@@ -88,14 +89,15 @@ async function seed() {
     password: '123',
     firstName: 'Green',
     lastName: 'Neerg',
-    biography: 'minty employee',
+    biography: 'Minty employee',
     streetNumber: 123,
     streetName: 'Green Street',
     townName: 'Queens',
     stateName: 'NY',
     zipCode: '11101',
     isCandidate: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['Mongoose, MongoDB, SQL, Databases']
   })
 
   const purple = await User.create({
@@ -103,14 +105,15 @@ async function seed() {
     password: '123',
     firstName: 'Purple',
     lastName: 'Elprup',
-    biography: 'grape employee',
+    biography: 'Grape employee',
     streetNumber: 123,
     streetName: 'Purple Street',
     townName: 'Queens',
     stateName: 'NY',
     zipCode: '11101',
     isCandidate: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['Angular, Node.js, Express, MySQL']
   })
 
   // Companies
@@ -120,6 +123,7 @@ async function seed() {
     description: 'Bank',
     category: 'Financial technology',
     reviews: 'top banking company',
+    imageUrl: '/img/chase.png',
     employees: [],
     jobPostedHistory: []
   })
@@ -130,6 +134,7 @@ async function seed() {
     description: 'Bank',
     category: 'Financial technology',
     reviews: 'very good company',
+    imageUrl: '/img/bofa.jpg',
     employees: [],
     jobPostedHistory: []
   })
@@ -175,7 +180,8 @@ async function seed() {
     contactEmail: 'apply@bofa.com',
     location: 'Chicago',
     roleType: 'Front-end',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/bofa.jpg'
   })
 
   const jpmorganBackEnd = await Job.create({
@@ -184,7 +190,8 @@ async function seed() {
     contactEmail: 'apply@jpmorgan.com',
     location: 'Paris',
     roleType: 'Back-end',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/chase.png'
   })
 
   const bofaSeniorOracle = await Job.create({
@@ -193,7 +200,8 @@ async function seed() {
     contactEmail: 'apply@bofa.com',
     location: 'New York',
     roleType: 'Database',
-    experienceLevel: 'Senior'
+    experienceLevel: 'Senior',
+    imageUrl: '/img/bofa.jpg'
   })
 
   const bofaMobileDeveloper = await Job.create({
@@ -202,7 +210,8 @@ async function seed() {
     contactEmail: 'apply@bofa.com',
     location: 'Charlotte',
     roleType: 'Mobile',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/bofa.jpg'
   })
 
   bofa.jobPostedHistory.push(bofaSeniorOracle._id)
@@ -219,7 +228,8 @@ async function seed() {
     contactEmail: 'apply@jpmorgan.com',
     location: 'San Francisco',
     roleType: 'Back-end',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/chase.png'
   })
 
   const jpmorganFullStack = await Job.create({
@@ -228,7 +238,8 @@ async function seed() {
     contactEmail: 'apply@jpmorgan.com',
     location: 'Houston',
     roleType: 'Full-stack',
-    experienceLevel: 'Senior'
+    experienceLevel: 'Senior',
+    imageUrl: '/img/chase.png'
   })
 
   const jpmorganUIDeveloper = await Job.create({
@@ -237,7 +248,8 @@ async function seed() {
     contactEmail: 'apply@jpmorgan.com',
     location: 'New York',
     roleType: 'Front-end',
-    experienceLevel: 'Senior'
+    experienceLevel: 'Senior',
+    imageUrl: '/img/chase.png'
   })
 
   jpmorganChase.jobPostedHistory.push(jpmorganJavaDeveloper._id)
@@ -335,7 +347,8 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11209',
     isCandidate: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['React, Redux, iOS']
   })
 
   const joe = await User.create({
@@ -350,7 +363,8 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11209',
     isCandidate: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['Android, Mobile Development, iOS, React Native']
   })
 
   const rob = await User.create({
@@ -365,7 +379,8 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11209',
     isCandidate: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['React, Express, Node.js, MongoDB']
   })
 
   // Companies
@@ -376,6 +391,7 @@ async function seed() {
     description: 'Sporting goods',
     category: 'Web Dev',
     reviews: 'very good company',
+    imageUrl: '/img/puma.png',
     employees: [],
     jobPostedHistory: []
   })
@@ -386,6 +402,7 @@ async function seed() {
     description: 'Sporting goods',
     category: 'Web Dev',
     reviews: 'very good company',
+    imageUrl: '/img/adidas.png',
     employees: [],
     jobPostedHistory: []
   })
@@ -398,7 +415,8 @@ async function seed() {
     contactEmail: 'Jeff@Puma.com',
     location: 'Chicago',
     roleType: 'Full-stack',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/puma.png'
   })
 
   const adidasFrontEnd = await Job.create({
@@ -407,7 +425,8 @@ async function seed() {
     contactEmail: 'Jody@Adidas.com',
     location: 'New York',
     roleType: 'Full-stack',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/adidas.png'
   })
 
   const pumaBackend = await Job.create({
@@ -416,7 +435,8 @@ async function seed() {
     contactEmail: 'jobs@puma.com',
     location: 'New York',
     roleType: 'Front-End',
-    experienceLevel: 'Junior-level'
+    experienceLevel: 'Junior-level',
+    imageUrl: '/img/puma.png'
   })
 
   const pumaMobile = await Job.create({
@@ -425,7 +445,8 @@ async function seed() {
     contactEmail: 'jobs@puma.com',
     location: 'New York',
     roleType: 'Front-End',
-    experienceLevel: 'Junior-level'
+    experienceLevel: 'Junior-level',
+    imageUrl: '/img/puma.png'
   })
 
   const adidasBackend = await Job.create({
@@ -434,7 +455,8 @@ async function seed() {
     contactEmail: 'jobs@adidas.com',
     location: 'New York',
     roleType: 'Front-End',
-    experienceLevel: 'Junior-level'
+    experienceLevel: 'Junior-level',
+    imageUrl: '/img/adidas.png'
   })
 
   const adidasFullstack = await Job.create({
@@ -443,7 +465,8 @@ async function seed() {
     contactEmail: 'jobs@adidas.com',
     location: 'New York',
     roleType: 'Front-End',
-    experienceLevel: 'Senior-level'
+    experienceLevel: 'Senior-level',
+    imageUrl: '/img/adidas.png'
   })
 
   const adidasMobile = await Job.create({
@@ -452,7 +475,8 @@ async function seed() {
     contactEmail: 'jobs@adidas.com',
     location: 'New York',
     roleType: 'Front-End',
-    experienceLevel: 'Senior-level'
+    experienceLevel: 'Senior-level',
+    imageUrl: '/img/adidas.png'
   })
 
   jody.company = puma._id // company id
@@ -549,7 +573,8 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11004',
     isCandidate: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['Angular, Node.js, Redux, iOS']
   })
 
   const patty = await User.create({
@@ -564,7 +589,8 @@ async function seed() {
     stateName: 'PA',
     zipCode: '53202',
     isCandidate: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['Mongoose, Sequelize, Redux, iOS']
   })
 
   const fletcher = await User.create({
@@ -579,25 +605,28 @@ async function seed() {
     stateName: 'NY',
     zipCode: '11106',
     isAdmin: true,
-    jobHistory: []
+    jobHistory: [],
+    technicalSkills: ['Angular, Node.js, Express, MySQL']
   })
 
   // Companies
   const fuzzbeedCo = await Company.create({
-    companyName: 'FuzzBeed Lists',
+    companyName: 'BuzzFeed',
     size: 'Medium Organization',
-    description: 'Tech/Data Collection Memes for Everyday',
+    description: 'Online Entertainment',
     category: 'Data Collection',
     reviews: 'They spam your inbox!',
+    imageUrl: '/img/buzzfeed.jpg',
     employees: [],
     jobPostedHistory: []
   })
 
   const flooperCo = await Company.create({
-    companyName: 'Flooper Co.',
+    companyName: 'Thrillist',
     size: 'Large Organization',
-    description: 'Worldwide Data/Analytics Systems',
+    description: 'Music Technology',
     category: 'Data Collection',
+    imageUrl: '/img/thrillist.png',
     reviews: 'This company definitely does not respect your privacy',
     employees: [],
     jobPostedHistory: []
@@ -608,28 +637,31 @@ async function seed() {
   const fuzzBeedBackEnd = await Job.create({
     title: 'SQL Database Engineer',
     salary: 95000,
-    contactEmail: 'jobs@fuzzbeed.com',
+    contactEmail: 'jobs@buzzfeed.com',
     location: 'Buenos Aires',
     roleType: 'Back-End',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/buzzfeed.jpg'
   })
 
   const fuzzBeedFrontEnd = await Job.create({
     title: 'React Redux Developer',
     salary: 105000,
-    contactEmail: 'jobs@fuzzbeed.com',
+    contactEmail: 'jobs@buzzfeed.com',
     location: 'London',
     roleType: 'Front-End',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/buzzfeed.jpg'
   })
 
   const fuzzBeedDatabase = await Job.create({
-    title: 'Express Genie',
+    title: 'Express Engineer',
     salary: 70000,
-    contactEmail: 'jobs@fuzzbeed.com',
+    contactEmail: 'jobs@buzzfeed.com',
     location: 'New York',
     roleType: 'Back-End',
-    experienceLevel: 'MidLevel'
+    experienceLevel: 'MidLevel',
+    imageUrl: '/img/buzzfeed.jpg'
   })
 
   const flooperFrontEnd = await Job.create({
@@ -647,7 +679,8 @@ async function seed() {
     contactEmail: 'jobs@flooper.com',
     location: 'New York',
     roleType: 'Back-End',
-    experienceLevel: 'Mid-level'
+    experienceLevel: 'Mid-level',
+    imageUrl: '/img/thrillist.png'
   })
 
   const flooperDatabase = await Job.create({
@@ -656,16 +689,18 @@ async function seed() {
     contactEmail: 'jobs@flooper.com',
     location: 'New York',
     roleType: 'Back-End',
-    experienceLevel: 'Senior'
+    experienceLevel: 'Senior',
+    imageUrl: '/img/thrillist.png'
   })
 
   const flooperMobile = await Job.create({
-    title: 'Android Wizard',
+    title: 'Android Developer',
     salary: 105000,
     contactEmail: 'jobs@flooper.com',
     location: 'New York',
     roleType: 'Front-End',
-    experienceLevel: 'Junior'
+    experienceLevel: 'Junior',
+    imageUrl: '/img/thrillist.png'
   })
 
   pablo.company = fuzzbeedCo._id // company id

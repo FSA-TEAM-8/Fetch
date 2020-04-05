@@ -33,6 +33,7 @@ const AllJobs = () => {
               <p>Contact Email: {job.contactEmail}</p>
               <p>Location: {job.location}</p>
               <p>Date Posted: {job.datePosted}</p>
+              <img src={job.imageUrl} />
             </div>
           ))}
         </Grid>
