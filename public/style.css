@@ -246,10 +246,10 @@ input {
   overflow-y: scroll;
   scroll-behavior: auto;
   max-height: 80vh;
-  border: 1px lightgray solid;
+  /* border: 1px lightgray solid;
   border-radius: 7px;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 20px; */
 }
 
 .current-applicants {

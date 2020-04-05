@@ -179,7 +179,7 @@ async function seed() {
   })
 
   const jpmorganBackEnd = await Job.create({
-    title: 'Engineer',
+    title: 'Back-end Engineer',
     salary: 101000,
     contactEmail: 'apply@jpmorgan.com',
     location: 'Paris',
