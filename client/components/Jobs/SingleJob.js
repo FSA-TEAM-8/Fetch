@@ -9,23 +9,26 @@ import ApplyJob from './ApplyJobButton'
 
 const SingleJob = props => {
   const user = useSelector(state => state.user)
-  const job = useSelector(state => state.job)
-  const {id} = useParams()
-  // const id = props.match.params.id
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getSingleJob(id))
-  }, [])
+
+  // steps below ran in AllJobs instead for --> singleJob right side display
+  // const job = useSelector(state => state.job)
+  // const {id} = useParams()
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(getSingleJob(id))
+  // }, [])
+
+  const job = props.job
 
   return (
-    <div className="container">
-      <div id="singleJob" className="singleItem">
+    <div id="singleJob" key={job._id}>
+      <div className="singleItem">
         <h2>{job.title}</h2>
-        {job.company ? job.company.companyName : null}
-        <p>Location: {job.location}</p>
+        {job.company ? <p>{job.company.companyName}</p> : null}
+        <p>{job.location}</p>
         <p>Est. Salary: ${job.salary}</p>
-        <p>Position: {job.roleType}</p>
-        <p>Experience: {job.experienceLevel}</p>
+        <p>Position Type: {job.roleType}</p>
+        <p>Experience Level: {job.experienceLevel}</p>
         <p>Posted on: {job.datePosted}</p>
         <div className="inlineComponents">
           <SaveJob job={job} />
@@ -43,7 +46,7 @@ const SingleJob = props => {
         (user.isAdmin &&
           job.appliedCandidates &&
           job.appliedCandidates.length > 0) ? (
-          <div>
+          <div className="current-applicants">
             Current Applicants:
             {job.appliedCandidates.map(candidate => (
               <Link to={`/candidates/${candidate._id}`} key={candidate._id}>
@@ -55,7 +58,9 @@ const SingleJob = props => {
             ))}
           </div>
         ) : (
-          <div>This position is accepting candidates.</div>
+          <div className="current-applicants">
+            This position is accepting candidates.
+          </div>
         )}
       </div>
     </div>
