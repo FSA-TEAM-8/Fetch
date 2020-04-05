@@ -250,6 +250,18 @@ input {
 .currentUserInfo {
   padding-top: 30px;
 }
+
+.user-profile-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#update-profile-button {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .useList {
   display: flex;
   justify-content: space-around;
