@@ -76,7 +76,12 @@ const UpdateSingleUser = () => {
           />
         </label>
         <p className="clearBoth">
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            style={{marginLeft: '290px'}}
+          >
             Update This Profile
           </Button>
         </p>

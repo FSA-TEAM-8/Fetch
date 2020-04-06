@@ -69,7 +69,12 @@ export default function AddCompany() {
           />
         </label>
         <p className="clearBoth">
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            style={{marginLeft: '320px'}}
+          >
             Add Company
           </Button>
         </p>

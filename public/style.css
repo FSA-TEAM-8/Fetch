@@ -250,6 +250,8 @@ input {
 .inlineComponents {
   display: flex;
   flex-direction: row;
+  padding: 10px;
+  justify-content: space-around;
 }
 
 /* dropdown button */
