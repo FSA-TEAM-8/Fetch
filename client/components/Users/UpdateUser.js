@@ -10,8 +10,9 @@ const UpdateSingleUser = () => {
   const dispatch = useDispatch()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
+  const [biography, setBio] = useState('')
   const [file, setFile] = useState('')
+  const [resume, setResume] = useState('')
   const {id} = useParams()
 
   const handleSubmit = event => {
@@ -20,8 +21,9 @@ const UpdateSingleUser = () => {
       _id: user._id,
       firstName,
       lastName,
-      email,
-      file
+      biography,
+      file,
+      resume
     }
 
     const formData = new FormData()
@@ -40,6 +42,9 @@ const UpdateSingleUser = () => {
         <p>
           Current Name: {user.firstName} {user.lastName}
         </p>
+        <p>
+          About {user.firstName}: {user.biography}
+        </p>
         <p>Current Resume: {user.resume}</p>
       </div>
       <form onSubmit={handleSubmit} className="alignInputs">
@@ -53,7 +58,7 @@ const UpdateSingleUser = () => {
           />
         </label>
         <label>
-          Last Name:
+          Update Last Name:
           <input
             type="text"
             value={lastName}
@@ -61,11 +66,11 @@ const UpdateSingleUser = () => {
           />
         </label>
         <label>
-          Preferred Email:
+          Update Biography::
           <input
             type="text"
-            value={email}
-            onChange={event => setEmail(event.target.value)}
+            value={biography}
+            onChange={event => setBio(event.target.value)}
           />
         </label>
         <label>
@@ -73,6 +78,14 @@ const UpdateSingleUser = () => {
           <input
             type="file"
             onChange={event => setFile(event.target.files[0])}
+          />
+        </label>
+        <label>
+          File Name:
+          <input
+            type="text"
+            value={resume}
+            onChange={event => setResume(event.target.value)}
           />
         </label>
         <p className="clearBoth">
