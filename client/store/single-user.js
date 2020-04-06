@@ -44,6 +44,7 @@ export const updateSingleUser = user => async dispatch => {
   try {
     const {data} = await axios.put(`/api/users/${user._id}`, user)
     dispatch(updatedSingleUser(data))
+    console.log('Heres data', data)
   } catch (err) {
     console.error(err)
   }

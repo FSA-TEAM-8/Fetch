@@ -23,7 +23,8 @@ const companySchema = new Schema({
     }
   ],
   imageUrl: {
-    type: String
+    type: String,
+    default: '/img/adidas.png'
   },
   employees: [
     {

@@ -20,8 +20,8 @@ const SearchBar = () => {
       title,
       location
     }
-    // dispatch(searchJob(obj))
-    history.push(`/search`, {...obj})
+    dispatch(searchJob(obj))
+    history.push(`/search?title=${title}&location=${location}`, {...obj})
   }
   // stopped here on the filter, need to work on a searchJob name + location function
   return (
