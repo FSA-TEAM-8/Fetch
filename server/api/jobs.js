@@ -39,9 +39,9 @@ router.get('/search', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const singleJob = await Job.findById({_id: req.params.id}).populate(
-      'appliedCandidates'
-    )
+    const singleJob = await Job.findById({_id: req.params.id})
+      .populate('appliedCandidates')
+      .populate('company')
     res.json(singleJob)
   } catch (error) {
     next(error)
@@ -50,7 +50,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
   try {
-    const jobs = await Job.find({})
+    const jobs = await Job.find().populate('company')
     res.json(jobs)
   } catch (error) {
     next(error)
@@ -81,6 +81,8 @@ router.put('/:id', async (req, res, next) => {
         new: true // need to pass this as argu to return updated document
       }
     )
+      .populate('appliedCandidates')
+      .populate('company')
     res.json(updatedJob)
   } catch (error) {
     next(error)

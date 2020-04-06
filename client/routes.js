@@ -43,7 +43,7 @@ class Routes extends Component {
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/jobs/:id" component={SingleJob} />
+        <Route path="/jobs/:id" component={AllJobs} />
         <Route path="/jobs" component={AllJobs} />
         <Route exact path="/search" component={SearchResults} />
         <Route exact path="/companies/:id" component={SingleCompany} />
