@@ -41,6 +41,7 @@ const AllJobs = () => {
             <p>{job.location}</p>
             <p>Est. Salary: ${job.salary}</p>
             <p>Posted: {job.datePosted}</p>
+            <img src={job.imageUrl} />
           </div>
         ))}
       </div>
@@ -53,26 +54,3 @@ const AllJobs = () => {
 
 export default AllJobs
 
-/*
-<div>
-<Grid
-  container
-  direction="row"
-  justify="space-around"
-  alignItems="center"
->
-  {availableJobs.map(job => (
-    <div className="allJobs" key={job._id}>
-      <Link to={`/jobs/${job._id}`}>
-        <h3>{job.title}</h3>
-      </Link>
-      <p>Estimated Salary: ${job.salary}</p>
-      <p>Contact Email: {job.contactEmail}</p>
-      <p>Location: {job.location}</p>
-      <p>Date Posted: {job.datePosted}</p>
-    </div>
-  ))}
-</Grid>
-</div>
-
-*/

@@ -30,6 +30,10 @@ const jobSchema = new Schema({
     type: String,
     required: true
   },
+  imageUrl: {
+    type: String,
+    default: '/img/adidas.png'
+  },
   datePosted: {
     type: String,
     default: moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a')

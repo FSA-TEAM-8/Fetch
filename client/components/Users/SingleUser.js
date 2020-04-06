@@ -27,6 +27,10 @@ const SingleUser = props => {
             {singleUser.firstName} {singleUser.lastName}
           </h4>
           <p>{singleUser.email}</p>
+          <p>About: {singleUser.biography}.</p>
+          {singleUser.technicalSkills && (
+            <p>Technologies: {singleUser.technicalSkills[0]}</p>
+          )}
 
           <div className="user-profile-buttons">
             {singleUser._id === user._id ? null : (

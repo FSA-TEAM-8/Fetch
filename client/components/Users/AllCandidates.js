@@ -26,6 +26,7 @@ const AllCandidates = () => {
               <h4>{`${user.firstName} ${user.lastName}`}</h4>
               <p>{user.email}</p>
               <p>{user.isCandidate ? 'Currently seeking a job' : null}</p>
+              <p>Skills: {user.technicalSkills[0].substring(0, 15)}...</p>
             </div>
           </Link>
         ))}
