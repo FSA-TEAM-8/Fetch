@@ -13,6 +13,7 @@ const UpdateSingleUser = () => {
   const [biography, setBio] = useState('')
   const [file, setFile] = useState('')
   const [resume, setResume] = useState('')
+  const [technicalSkills, setSkills] = useState([])
   const {id} = useParams()
 
   const handleSubmit = event => {
@@ -23,7 +24,8 @@ const UpdateSingleUser = () => {
       lastName,
       biography,
       file,
-      resume
+      resume,
+      technicalSkills
     }
 
     const formData = new FormData()
@@ -44,6 +46,9 @@ const UpdateSingleUser = () => {
         </p>
         <p>
           About {user.firstName}: {user.biography}
+        </p>
+        <p>
+          {user.firstName}'s Technologies: {user.technicalSkills}
         </p>
         <p>Current Resume: {user.resume}</p>
       </div>
@@ -66,11 +71,19 @@ const UpdateSingleUser = () => {
           />
         </label>
         <label>
-          Update Biography::
+          Update Biography:
           <input
             type="text"
             value={biography}
             onChange={event => setBio(event.target.value)}
+          />
+        </label>
+        <label>
+          Update Technologies:
+          <input
+            type="text"
+            value={technicalSkills}
+            onChange={event => setSkills(event.target.value)}
           />
         </label>
         <label>
