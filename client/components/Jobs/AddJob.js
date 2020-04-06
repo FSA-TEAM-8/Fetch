@@ -72,7 +72,12 @@ const AddJob = () => {
           />
         </label>
         <p className="clearBoth">
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            style={{marginLeft: '320px'}}
+          >
             Add Job
           </Button>
         </p>

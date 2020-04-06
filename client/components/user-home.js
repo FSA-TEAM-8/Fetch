@@ -8,11 +8,11 @@ import AllJobs from './Jobs/AllJobs'
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email} = props
+  const {firstName} = props
 
   return (
     <div>
-      <h3>Welcome, {email}</h3>
+      <h3 style={{textAlign: 'center'}}>Welcome, {firstName}!</h3>
       <AllJobs />
     </div>
   )
@@ -23,7 +23,8 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    email: state.user.email,
+    firstName: state.user.firstName
   }
 }
 

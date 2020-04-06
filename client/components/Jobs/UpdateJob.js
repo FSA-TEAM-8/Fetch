@@ -50,7 +50,7 @@ const UpdateJob = () => {
             onChange={event => setLocation(event.target.value)}
           />
         </label>
-        <p className="clearBoth">
+        <p className="clearBoth" style={{marginLeft: '320px'}}>
           <Button type="submit" variant="contained" color="primary">
             Update Job
           </Button>
