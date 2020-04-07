@@ -59,7 +59,7 @@ The webapp should now be accessible from http://localhost:8080/. To test user, e
 
 ## Screenshots
 
-![Welcome Screen](/img/SS1.png)
+![Welcome Screen](https://github.com/FSA-TEAM-8/Fetch/blob/master/public/img/SS1.png)
 
 ## Project Challenges
 
