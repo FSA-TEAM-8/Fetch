@@ -43,16 +43,19 @@ Then, from a console, run:
 ```
 1) Run git clone https://github.com/FSA-TEAM-8/Fetch.git
 2) Cd into Fetch
-3) Run npm run seed
-4) Run npm install
-5) Run npm run start-dev
+3) Create a cluster on MongoDB
+4) Acquire the MongoDB connection string by clicking on connect and selecting “Connect your application”
+5) Set the connection string as the mongoURL in db.js file
+6) Run npm run seed
+7) Run npm install
+8) Run npm run start-dev
 ```
 
 The webapp should now be accessible from http://localhost:8080/. To test user, employer, and admin functionality, please use:
 
-User: `“yellow@email.com” with password “123”`
-Employer: `“blue@email.com” with password “123”`
-Admin: `“red@email.com” with password “123:`
+* User: `“yellow@email.com” with password “123”`
+* Employer: `“blue@email.com” with password “123”`
+* Admin: `“red@email.com” with password “123:`
 
 ## Project Challenges
 
