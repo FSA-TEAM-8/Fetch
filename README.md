@@ -57,6 +57,10 @@ The webapp should now be accessible from http://localhost:8080/. To test user, e
 * Employer: `“blue@email.com” with password “123”`
 * Admin: `“red@email.com” with password “123:`
 
+## Screenshots
+
+![Welcome Screen](/img/SS1.png)
+
 ## Project Challenges
 
 * As a team, we needed to reframe our organizational thinking around data, and how we conceptualize model relationships and referencing, while moving from a SQL to a NoSQL database.
